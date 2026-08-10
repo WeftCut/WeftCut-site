@@ -207,6 +207,6 @@ WeftCut 的开发全程公开，任何人都可免费使用、查看和扩展。
 
 应用基于 MIT 许可证发布。随附 FFmpeg（LGPL 解码库 / GPL 命令行组件）。
 
-[GitHub](https://github.com/UncleChair/WeftCut) [文档](https://github.com/UncleChair/WeftCut/tree/main/docs) [agent 会话](https://weftcut.com/assets/agent-session.json) [English](https://weftcut.com/)
+[MCP](https://weftcut.com/zh/mcp/) [AI 剪辑](https://weftcut.com/zh/ai-video-editor/) [Motif](https://weftcut.com/zh/motifs/) [GitHub](https://github.com/UncleChair/WeftCut) [文档](https://github.com/UncleChair/WeftCut/tree/main/docs) [agent 会话](https://weftcut.com/assets/agent-session.json) [English](https://weftcut.com/)
 
 © 2026 WeftCut 贡献者

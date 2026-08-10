@@ -85,6 +85,26 @@ function buildLocale(locale) {
     doc = doc.replace(re, JSON.stringify(zh))
   }
 
+  // --- links to the documentary pages ---------------------------------------
+  // Those pages exist per language at /<slug>/ and /<locale>/<slug>/, and
+  // index.html spells the English ones. Text alone isn't enough here: a
+  // translated label over an English href would send Chinese readers to the
+  // English page and hand a crawler a cross-language internal link, which is
+  // exactly the signal hreflang exists to avoid muddying. Anchors are rewritten
+  // by href rather than marked up, so a new link to one of these needs nothing
+  // beyond being written the English way.
+  const DOC_SLUGS = ['mcp', 'ai-video-editor', 'motifs']
+  let localised = 0
+  for (const slug of DOC_SLUGS) {
+    doc = doc.replace(new RegExp(`href="/${escapeRe(slug)}/"`, 'g'), () => {
+      localised++
+      return `href="/${locale}/${slug}/"`
+    })
+  }
+  if (localised !== DOC_SLUGS.length) {
+    fail(`${locale}: expected ${DOC_SLUGS.length} documentary-page links, localised ${localised}`)
+  }
+
   // --- language + canonical -----------------------------------------------
   doc = doc.replace(/<html lang="[^"]*">/, `<html lang="${cfg.lang}">`)
   doc = doc.replace(

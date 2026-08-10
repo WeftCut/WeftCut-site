@@ -207,6 +207,6 @@ Post-credits A few details
 
 App licensed MIT. Bundles FFmpeg (LGPL decode libs / GPL CLI sidecar).
 
-[GitHub](https://github.com/UncleChair/WeftCut) [Docs](https://github.com/UncleChair/WeftCut/tree/main/docs) [Agent session](https://weftcut.com/assets/agent-session.json) [中文](https://weftcut.com/zh/)
+[MCP](https://weftcut.com/mcp/) [AI video editor](https://weftcut.com/ai-video-editor/) [Motifs](https://weftcut.com/motifs/) [GitHub](https://github.com/UncleChair/WeftCut) [Docs](https://github.com/UncleChair/WeftCut/tree/main/docs) [Agent session](https://weftcut.com/assets/agent-session.json) [中文](https://weftcut.com/zh/)
 
 © 2026 WeftCut contributors
