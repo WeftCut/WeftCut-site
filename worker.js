@@ -14,12 +14,30 @@
 // serve.mjs imports MARKDOWN and wantsMarkdown so `npm start` negotiates the
 // same way the edge does. One copy of the rule, two runtimes.
 
-/** Where the Markdown twin of each HTML route lives. */
+/**
+ * Where the Markdown twin of each HTML route lives.
+ *
+ * The two homepages are derived the other way round from everything else —
+ * build-md.mjs converts their HTML — while the documentary pages are Markdown
+ * to begin with and build-pages.mjs emits the .md beside the .html. By the time
+ * a request arrives that distinction has vanished: both are just two files at
+ * one path, which is all this map needs them to be.
+ */
+const DOC_SLUGS = ['mcp', 'ai-video-editor', 'motifs']
+
 export const MARKDOWN = {
   '/': '/index.md',
   '/index.html': '/index.md',
   '/zh/': '/zh/index.md',
   '/zh/index.html': '/zh/index.md',
+  ...Object.fromEntries(
+    DOC_SLUGS.flatMap((slug) =>
+      [`/${slug}/`, `/zh/${slug}/`].flatMap((dir) => [
+        [dir, `${dir}index.md`],
+        [`${dir}index.html`, `${dir}index.md`],
+      ])
+    )
+  ),
 }
 
 // Best q-value the client gave a media type, honouring the `text/*` and `*/*`

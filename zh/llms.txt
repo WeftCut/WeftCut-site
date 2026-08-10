@@ -1,6 +1,7 @@
 # WeftCut
 
-> WeftCut 是一款免费、开源（MIT）的跨平台桌面视频剪辑器，把 AI Agent 当作一等公民。
+> WeftCut 是一款免费、开源（MIT）的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux，
+> 同时也是一台完整的桌面非线性剪辑器（NLE），把 AI Agent 当作一等公民。
 > 它不是把 AI 作为附加功能挂上去，而是通过 MCP（Model Context Protocol）在 localhost
 > 上把整个编辑器暴露为工具面，让外部 agent —— Claude、Cursor 或任意 MCP 客户端 ——
 > 执行真实的剪辑操作（放置/修剪/切分片段、关键帧、特效、字幕、标记、检查点、撤销），
@@ -15,6 +16,19 @@
 - 渲染：PixiJS v8 + WebCodecs 预览，流式封装导出
 - 许可：MIT（随附 FFmpeg，遵循 LGPL/GPL 双轨）
 - 平台：macOS、Windows、Linux
+- 其他常见叫法：AI 剪辑软件、AI 视频剪辑软件、开源剪辑软件、MCP 视频剪辑、
+  智能体剪辑——指的都是同一款产品
+
+## 页面
+
+- [让 AI Agent 直接操作真实的剪辑时间线](https://weftcut.com/zh/mcp/)：agent 如何接入、
+  能做什么，以及哪些东西始终留在本机
+- [WeftCut 说的「AI 剪辑」到底指什么](https://weftcut.com/zh/ai-video-editor/)：不内置模型、
+  不上传素材、不加水印，以及与云端工具的对比
+- [Motif：代码即动效](https://weftcut.com/zh/motifs/)：可由 agent 按描述写出的参数化动态叠加层
+
+以上页面同样支持在同一 URL 下用 `Accept: text/markdown` 取得 Markdown 版本，
+或直接访问 `<url>index.md`。
 
 ## 语言
 

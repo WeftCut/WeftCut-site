@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>WeftCut — 免费开源、原生支持 AI agent 的视频剪辑软件</title>
-<meta name="description" content="WeftCut 是一款面向创作者、原生支持 AI agent 的桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。" />
+<title>WeftCut — 免费开源的 AI 视频剪辑软件，支持 Claude 等 AI Agent</title>
+<meta name="description" content="WeftCut 是一款免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。接入 Claude、Cursor 或任意 MCP 客户端，让 AI 剪辑真实落到时间线上，每一项改动都可实时查看并撤销。不内置模型，不上传云端。" />
 <link rel="canonical" href="https://weftcut.com/zh/" />
 <!-- Each language self-canonicalises and declares the full set, itself included.
      x-default points at English. Mirrored in sitemap.xml. -->
@@ -20,19 +20,19 @@
 <meta property="og:site_name" content="WeftCut" />
 <meta property="og:locale" content="zh_CN" />
 <meta property="og:locale:alternate" content="en_US" />
-<meta property="og:title" content="WeftCut — 免费开源、原生支持 AI agent 的视频剪辑软件" />
-<meta property="og:description" content="一款面向创作者、原生支持 AI agent 的桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。" />
+<meta property="og:title" content="WeftCut — 免费开源的 AI 视频剪辑软件，支持 Claude 等 AI Agent" />
+<meta property="og:description" content="一款免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。" />
 <meta property="og:url" content="https://weftcut.com/zh/" />
 <!-- PNG, not WebP: WeChat and iMessage don't decode WebP cards. -->
 <meta property="og:image" content="https://weftcut.com/assets/og/card-zh.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="WeftCut — 通过智能体与代码完成剪辑。免费开源、原生支持 AI agent 的桌面视频剪辑软件，支持 macOS、Windows 与 Linux。" />
+<meta property="og:image:alt" content="WeftCut — 通过智能体与代码完成剪辑。免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="WeftCut — 免费开源、原生支持 AI agent 的视频剪辑软件" />
-<meta name="twitter:description" content="一款面向创作者、原生支持 AI agent 的桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 的每一项改动。" />
+<meta name="twitter:title" content="WeftCut — 免费开源的 AI 视频剪辑软件，支持 Claude 等 AI Agent" />
+<meta name="twitter:description" content="一款免费开源的 AI 视频剪辑软件，同时面向创作者与 AI agent。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 的每一项改动。" />
 <meta name="twitter:image" content="https://weftcut.com/assets/og/card-zh.png" />
-<meta name="twitter:image:alt" content="WeftCut — 通过智能体与代码完成剪辑。免费开源、原生支持 AI agent 的桌面视频剪辑软件，支持 macOS、Windows 与 Linux。" />
+<meta name="twitter:image:alt" content="WeftCut — 通过智能体与代码完成剪辑。免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。" />
 <link rel="preload" href="/assets/fonts/wenkai-gb-medium.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
 <script>
@@ -76,10 +76,12 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": "https://weftcut.com/#weftcut",
   "name": "WeftCut",
   "description": "一款原生支持 AI agent 的跨平台桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。",
   "applicationCategory": "MultimediaApplication",
   "applicationSubCategory": "Video Editor",
+  "keywords": "AI 视频剪辑软件, AI剪辑, AI视频剪辑, 开源剪辑软件, 免费剪辑软件, 无水印剪辑软件, MCP 视频剪辑, Claude 剪视频, AI Agent 剪辑, 智能体剪辑, 本地 AI 剪辑, 剪映替代, 非线性剪辑软件, Linux 视频剪辑软件",
   "operatingSystem": ["macOS", "Windows", "Linux"],
   "inLanguage": "zh-Hans",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -87,6 +89,7 @@
   "license": "https://github.com/UncleChair/WeftCut/blob/main/LICENSE",
   "url": "https://weftcut.com/",
   "sameAs": "https://github.com/UncleChair/WeftCut",
+  "author": { "@type": "Organization", "name": "WeftCut 贡献者", "url": "https://github.com/UncleChair/WeftCut" },
   "softwareHelp": { "@type": "CreativeWork", "url": "https://github.com/UncleChair/WeftCut/tree/main/docs" },
   "screenshot": [
     "https://weftcut.com/assets/shots/editor-hero.webp",
@@ -117,6 +120,25 @@
   "name": "WeftCut",
   "url": "https://weftcut.com/",
   "inLanguage": "zh-Hans"
+}
+</script>
+<!-- The project as source rather than as a download. "Is it really open source"
+     is the fact most often asked of this product, and the one an assistant has
+     to corroborate somewhere other than marketing prose — this is that
+     somewhere. Languages are the repo's own top two, not an aspiration. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "WeftCut",
+  "description": "WeftCut 的源代码。WeftCut 是一款免费开源的 AI 视频剪辑软件，通过 MCP 把整个编辑器开放给 AI agent。",
+  "codeRepository": "https://github.com/UncleChair/WeftCut",
+  "programmingLanguage": ["TypeScript", "Rust"],
+  "runtimePlatform": "Electron",
+  "license": "https://github.com/UncleChair/WeftCut/blob/main/LICENSE",
+  "url": "https://weftcut.com/",
+  "inLanguage": "zh-Hans",
+  "author": { "@type": "Organization", "name": "WeftCut 贡献者", "url": "https://github.com/UncleChair/WeftCut" }
 }
 </script>
 <!-- The FAQ section, structured. Both languages emit their own copy of this, so
@@ -509,7 +531,11 @@
         <div class="finale-cta">
           <p class="finale-line">让时间线跟上你的<wbr /><span class="finale-phrase">每一个想法。</span></p>
           <p class="cta-row">
-            <a class="btn btn-primary" href="https://github.com/UncleChair/WeftCut/releases/latest" rel="noopener">获取 WeftCut</a>
+            <!-- TEMPORARY: the hero's twin. /releases/latest redirects to an
+                 empty releases list until v1 ships, so the finale degrades the
+                 same way rather than closing the page on a dead link — see the
+                 fuller note in the hero for how to put the button back. -->
+            <span class="btn btn-pending" aria-disabled="true">敬请期待</span>
           </p>
           <p class="finale-meta">macOS · Windows · Linux</p>
         </div>

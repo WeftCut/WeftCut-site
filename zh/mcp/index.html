@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MCP 视频剪辑 —— 让 Claude、Cursor 直接操作时间线 | WeftCut</title>
+<meta name="description" content="WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与导出，每一步都在时间线上可见、可撤销。" />
+<link rel="canonical" href="https://weftcut.com/zh/mcp/" />
+<link rel="alternate" hreflang="en" href="https://weftcut.com/mcp/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/mcp/" />
+<link rel="alternate" hreflang="x-default" href="https://weftcut.com/mcp/" />
+<link rel="alternate" type="text/markdown" href="/zh/mcp/index.md" />
+<meta name="theme-color" content="#0c0e12" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="WeftCut" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:title" content="MCP 视频剪辑 —— 让 Claude、Cursor 直接操作时间线 | WeftCut" />
+<meta property="og:description" content="WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与导出，每一步都在时间线上可见、可撤销。" />
+<meta property="og:url" content="https://weftcut.com/zh/mcp/" />
+<meta property="og:image" content="https://weftcut.com/assets/og/card-zh.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MCP 视频剪辑 —— 让 Claude、Cursor 直接操作时间线 | WeftCut" />
+<meta name="twitter:description" content="WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与导出，每一步都在时间线上可见、可撤销。" />
+<meta name="twitter:image" content="https://weftcut.com/assets/og/card-zh.png" />
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="/pages.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "MCP 视频剪辑 —— 让 Claude、Cursor 直接操作时间线 | WeftCut",
+  "description": "WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与导出，每一步都在时间线上可见、可撤销。",
+  "url": "https://weftcut.com/zh/mcp/",
+  "inLanguage": "zh-Hans",
+  "keywords": "MCP 视频剪辑, MCP 剪辑, Claude 剪视频, Cursor 剪视频, AI Agent 剪辑, 智能体剪辑, AI 剪辑软件, 开源剪辑软件, 用 AI 剪视频",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "WeftCut",
+    "url": "https://weftcut.com/"
+  },
+  "about": {
+    "@id": "https://weftcut.com/#weftcut"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://weftcut.com/zh/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "让 AI Agent 直接操作真实的剪辑时间线",
+        "item": "https://weftcut.com/zh/mcp/"
+      }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "zh-Hans",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "支持哪些 MCP 客户端？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "都支持。最常见的是 Claude Desktop、Cursor 和 Codex，但服务端实现的是标准 MCP over streamable HTTP，你今天下午自己写的客户端一样能用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "WeftCut 自带 AI 模型吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不带。WeftCut 不内置任何模型，也不会自行发起推理请求。智能来自你接入的 agent；转写等可选分析在你本机运行。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Agent 会不会把我的工程搞坏？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "它会改动工程——这本来就是目的——但不会不可挽回。操作可以先用 dry_run 校验，每一步都实时进入变更记录，改动归入检查点，撤销对 agent 的操作和对你自己的操作完全一致。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这个 MCP 服务会暴露在局域网里吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。它只绑定回环地址，需要 bearer token，并带有 DNS 重绑定防护。只有你本机上的程序能访问它。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "真的免费吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "是。MIT 许可开源，支持 macOS、Windows 与 Linux；随附的 FFmpeg 遵循其自身的 LGPL/GPL 条款。也可以看看这里说的\"AI 剪辑\"到底指什么。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="doc-nav">
+  <div class="doc-wrap doc-nav-in">
+    <a class="doc-brand" href="/zh/" aria-label="WeftCut — 返回首页">
+      <img src="/assets/icon.svg" alt="" width="26" height="26" />
+      <span>WeftCut</span>
+    </a>
+    <nav class="doc-links" aria-label="页面">
+      <a href="/zh/mcp/" aria-current="page">MCP</a>
+      <a href="/zh/ai-video-editor/">AI 剪辑</a>
+      <a href="/zh/motifs/">Motif</a>
+    </nav>
+    <a class="doc-lang" href="/mcp/" hreflang="en" lang="en" aria-label="Switch to English" title="English"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.15"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="2.65" ry="6.2"/><path d="M2.2 5.9h11.6M2.2 10.1h11.6"/></svg></a>
+    <a class="doc-gh" href="https://github.com/UncleChair/WeftCut" rel="noopener"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.6-.18-3.29-.82-3.29-3.56 0-.79.28-1.43.74-1.93-.07-.18-.32-.91.07-1.9 0 0 .6-.19 1.97.74A6.8 6.8 0 0 1 8 3.8a6.8 6.8 0 0 1 1.79.24c1.37-.93 1.97-.74 1.97-.74.39.99.14 1.72.07 1.9.46.5.74 1.14.74 1.93 0 2.75-1.69 3.38-3.3 3.56.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg><span>GitHub</span></a>
+  </div>
+</header>
+<main class="doc-wrap doc-body">
+<h1 id="ai-agent">让 AI Agent 直接操作真实的剪辑时间线</h1>
+<p>WeftCut 是一款免费开源的视频剪辑软件，内置 MCP 服务。接入 Claude、Cursor、Codex 或你自己写的客户端之后，agent 拿到的是和你完全一样的剪辑能力——切分、修剪、关键帧、特效、字幕、标记、导出——并且实时落在你眼前的时间线上。</p>
+<p>大多数剪辑软件把 AI 当成一个附加功能：一个按钮，做厂商替你选定的那一件事。WeftCut 的做法是把编辑器本身开放成工具接口，同时一个模型都不内置。智能来自你接入的那个 agent。</p>
+<h2 id="agent">Agent 具体能做什么</h2>
+<p>MCP 服务注册了约 66 个 tools、resources 与 prompts，覆盖约 40 项独立的剪辑操作。这不是&quot;总结一下、给点建议&quot;式的外壳，而是真实操作，直接改动真实的工程。</p>
+<ul><li><strong>时间线</strong>：在 A/B 卷时间线上放置、移动、修剪、切分片段，按 SMPTE 时间码对齐到帧。<code>auto_split_by_shot</code> 在每个镜头切换处下刀，<code>detect_silences</code> 找出静音段。</li><li><strong>动效</strong>：带贝塞尔缓动的关键帧，可直接设置与调整。</li><li><strong>画面</strong>：分层特效链，含色度键抠像。</li><li><strong>文字</strong>：带样式的标题层；<code>apply_subtitles</code> 可把 SRT、VTT、ASS 导入为可编辑的字幕层，并支持一步撤销地重排全片字幕样式。</li><li><strong>Motif</strong>：参数化的动态叠加层，比如字幕条和倒计时，预览与导出像素一致。详见 <a href="/zh/motifs/">Motif 说明</a>。</li><li><strong>结构</strong>：音视频自动配对的分组、标记，以及检查点。</li><li><strong>安全网</strong>：<code>dry_run</code> 可以在真正改动之前先校验一次；agent 的每一步都能像你自己的操作一样撤销与重做。</li></ul>
+<h2 id="s3">一分钟接入</h2>
+<p>打开「设置 → Agent」，复制配置，粘贴到你的客户端。以 Claude Desktop 为例，就是一段 JSON：</p>
+<pre class="lang-json"><code>{
+  &quot;mcpServers&quot;: {
+    &quot;weftcut&quot;: {
+      &quot;url&quot;: &quot;http://127.0.0.1:50831/mcp&quot;,
+      &quot;headers&quot;: { &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot; }
+    }
+  }
+}</code></pre>
+<p>端口和 token 每次安装都不同，请从「设置 → Agent」里取实际值，不要照抄上面这份。Cursor、Codex 以及其他 MCP 客户端填的是同样的信息，只是格式各有不同。</p>
+<h2 id="s4">什么会留在本机</h2>
+<p>全部。MCP 服务通过 streamable HTTP 提供，只绑定回环地址（<code>127.0.0.1</code>），前面有 bearer token 鉴权和 DNS 重绑定防护。没有 WeftCut 账号，没有云端往返，素材不会被上传。</p>
+<p>唯一的例外是你自己选择的那个 agent：如果你接的是 Claude，对话内容自然走 Claude 的通道。但视频不走——agent 发给应用的是剪辑指令，不是你的素材。</p>
+<h2 id="s5">主动权始终在你手里</h2>
+<p>Agent 的改动不是一个黑箱，也不是甩给你一个成片。</p>
+<ul><li><code>begin_agent_session</code> 会把界面切换到简洁的 agent 模式，让&quot;现在不是你在剪&quot;这件事一目了然。</li><li>每一次操作都按顺序落进实时变更记录里。</li><li>改动会归到一个检查点下，整轮操作可以作为一个整体撤销；你也可以中途接手，和 agent 并行地继续剪。</li></ul>
+<h2 id="s6">让它先看清楚再下刀</h2>
+<p>可选的分析能力全部在本机运行，给 agent 提供判断依据：镜头检测、静音检测、画面比对、基于 Whisper 或本地组件的转写，以及在具备条件时通过本地视觉模型完成的画面描述。</p>
+<p>这些都是可选项，且优先本地。WeftCut 自身不附带任何模型。</p>
+<h2 id="agent">不接 agent 也是一台完整的剪辑软件</h2>
+<p>如果你从不接入 agent，功能也并不残缺。WeftCut 本身就是完整的桌面非线性剪辑软件：带缩略帧与波形的 A/B 卷时间线、时间线内的贝塞尔曲线编辑器、特效链、带实时吸管的色度键、字幕、Motif、按角色分组的音频混音，以及 H.264、HEVC、10-bit AV1、ProRes、DNxHR 导出。</p>
+<h2 id="s8">常见问题</h2>
+<h3 id="mcp">支持哪些 MCP 客户端？</h3>
+<p>都支持。最常见的是 Claude Desktop、Cursor 和 Codex，但服务端实现的是标准 MCP over streamable HTTP，你今天下午自己写的客户端一样能用。</p>
+<h3 id="weftcut-ai">WeftCut 自带 AI 模型吗？</h3>
+<p>不带。WeftCut 不内置任何模型，也不会自行发起推理请求。智能来自你接入的 agent；转写等可选分析在你本机运行。</p>
+<h3 id="agent">Agent 会不会把我的工程搞坏？</h3>
+<p>它会改动工程——这本来就是目的——但不会不可挽回。操作可以先用 <code>dry_run</code> 校验，每一步都实时进入变更记录，改动归入检查点，撤销对 agent 的操作和对你自己的操作完全一致。</p>
+<h3 id="mcp">这个 MCP 服务会暴露在局域网里吗？</h3>
+<p>不会。它只绑定回环地址，需要 bearer token，并带有 DNS 重绑定防护。只有你本机上的程序能访问它。</p>
+<h3 id="s13">真的免费吗？</h3>
+<p>是。MIT 许可开源，支持 macOS、Windows 与 Linux；随附的 FFmpeg 遵循其自身的 LGPL/GPL 条款。也可以看看<a href="/zh/ai-video-editor/">这里说的&quot;AI 剪辑&quot;到底指什么</a>。</p>
+</main>
+<footer class="doc-foot">
+  <div class="doc-wrap">
+    <p><a href="/zh/">返回 weftcut.com</a> · <a href="https://github.com/UncleChair/WeftCut/tree/main/docs" rel="noopener">文档</a></p>
+    <p>应用以 MIT 许可开源，随附 FFmpeg（LGPL 解码库 / GPL 命令行组件）。</p>
+    <p>© 2026 WeftCut 贡献者</p>
+  </div>
+</footer>
+</body>
+</html>

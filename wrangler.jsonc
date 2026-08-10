@@ -21,13 +21,29 @@
     // video — which is essentially all the traffic, the videos alone dwarfing
     // the markup — still bypasses the Worker entirely.
     //
-    // /zh with no trailing slash is deliberately absent: the assets host
-    // redirects it to /zh/, and that second request lands here.
+    // A slug with no trailing slash is deliberately absent throughout: the
+    // assets host redirects /zh to /zh/ and /mcp to /mcp/, and that second
+    // request lands here.
+    //
+    // This list grows with the pages, but only with the pages — it is still
+    // every HTML route and nothing else, which is the property worth keeping.
     "run_worker_first": [
       "/",
       "/index.html",
       "/zh/",
-      "/zh/index.html"
+      "/zh/index.html",
+      "/mcp/",
+      "/mcp/index.html",
+      "/zh/mcp/",
+      "/zh/mcp/index.html",
+      "/ai-video-editor/",
+      "/ai-video-editor/index.html",
+      "/zh/ai-video-editor/",
+      "/zh/ai-video-editor/index.html",
+      "/motifs/",
+      "/motifs/index.html",
+      "/zh/motifs/",
+      "/zh/motifs/index.html"
     ]
   }
 

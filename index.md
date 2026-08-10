@@ -163,7 +163,7 @@ Turn creative intent into real edits, refine every detail with full control, and
 
 Let the timeline keep up with every idea.
 
-[Get WeftCut](https://github.com/UncleChair/WeftCut/releases/latest)
+Coming soon
 
 macOS · Windows · Linux
 

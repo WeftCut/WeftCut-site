@@ -24,7 +24,7 @@
   },
 
   "html": {
-    "WeftCut — Free &amp; Open Source Agent-Native Video Editor": "WeftCut — 免费开源、原生支持 AI agent 的视频剪辑软件",
+    "WeftCut — Open Source AI Video Editor for MCP Agents": "WeftCut — 免费开源的 AI 视频剪辑软件，支持 Claude 等 AI Agent",
 
     "The agent native video editor": "Agent原生的视频编辑器",
     "Cut with your <em class=\"accent-agent\">agent</em> and <em class=\"accent-code\">code</em>": "通过<em class=\"accent-agent\">智能体</em>与<em class=\"accent-code\">代码</em>完成剪辑",
@@ -112,7 +112,6 @@
     "Finish on your terms": "按你的方式收尾",
     "Every change stays visible and reversible, ready for your judgment and final touch.": "每项改动都清晰可见，也随时可以撤销，最终判断和调整始终由你完成。",
     "Let the timeline keep up with <span class=\"finale-phrase\">every idea.</span>": "让时间线跟上你的<wbr /><span class=\"finale-phrase\">每一个想法。</span>",
-    "Get WeftCut": "获取 WeftCut",
     "Open source · MIT": "开源 · MIT",
     "Open by design.": "生而开放。",
     "WeftCut is built in public and free to use, inspect, and extend. Your editor stays yours.": "WeftCut 的开发全程公开，任何人都可免费使用、查看和扩展。你的剪辑工具，始终由你掌控。",
@@ -146,11 +145,11 @@
   },
 
   "attrs": {
-    "WeftCut — Free &amp; Open Source Agent-Native Video Editor": "WeftCut — 免费开源、原生支持 AI agent 的视频剪辑软件",
-    "WeftCut is a desktop video editor built for humans and AI agents alike. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live.": "WeftCut 是一款面向创作者、原生支持 AI agent 的桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。",
-    "A desktop video editor built for humans and AI agents alike. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live.": "一款面向创作者、原生支持 AI agent 的桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。",
-    "A desktop video editor built for humans and AI agents alike. Connect Claude, Cursor, or any MCP client — and review every edit live.": "一款面向创作者、原生支持 AI agent 的桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 的每一项改动。",
-    "WeftCut — Cut with your agent and code. Free &amp; open source agent-native video editor for macOS, Windows and Linux.": "WeftCut — 通过智能体与代码完成剪辑。免费开源、原生支持 AI agent 的桌面视频剪辑软件，支持 macOS、Windows 与 Linux。",
+    "WeftCut — Open Source AI Video Editor for MCP Agents": "WeftCut — 免费开源的 AI 视频剪辑软件，支持 Claude 等 AI Agent",
+    "WeftCut is a free, open source AI video editor for macOS, Windows and Linux. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live.": "WeftCut 是一款免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。接入 Claude、Cursor 或任意 MCP 客户端，让 AI 剪辑真实落到时间线上，每一项改动都可实时查看并撤销。不内置模型，不上传云端。",
+    "A free, open source AI video editor for macOS, Windows and Linux. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live.": "一款免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。",
+    "A free, open source AI video editor for humans and AI agents alike. Connect Claude, Cursor, or any MCP client — and review every edit live.": "一款免费开源的 AI 视频剪辑软件，同时面向创作者与 AI agent。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 的每一项改动。",
+    "WeftCut — Cut with your agent and code. Free, open source AI video editor for macOS, Windows and Linux.": "WeftCut — 通过智能体与代码完成剪辑。免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。",
 
     "WeftCut — back to top": "WeftCut — 回到顶部",
     "Introduction": "简介",
@@ -193,6 +192,11 @@
 
   "jsonld": {
     "A cross-platform desktop video editor where AI agents are first-class citizens. Connect Claude, Cursor, or any MCP client — and audit its edits to your timeline live.": "一款原生支持 AI agent 的跨平台桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。",
+
+    "AI video editor, open source video editor, MCP video editor, video editor MCP server, agent-native video editor, Claude video editing, Cursor video editing, AI agent video editor, free video editor, offline AI video editing, non-linear editor, NLE, video editor for Linux": "AI 视频剪辑软件, AI剪辑, AI视频剪辑, 开源剪辑软件, 免费剪辑软件, 无水印剪辑软件, MCP 视频剪辑, Claude 剪视频, AI Agent 剪辑, 智能体剪辑, 本地 AI 剪辑, 剪映替代, 非线性剪辑软件, Linux 视频剪辑软件",
+
+    "Source for WeftCut, a free and open source AI video editor that exposes the whole editor to AI agents over MCP.": "WeftCut 的源代码。WeftCut 是一款免费开源的 AI 视频剪辑软件，通过 MCP 把整个编辑器开放给 AI agent。",
+    "WeftCut contributors": "WeftCut 贡献者",
 
     "Agent-native: the entire editor is exposed to AI agents as an MCP tool surface on localhost": "原生面向 agent：整个编辑器以 MCP 工具接口的形式开放在本机，供 AI agent 调用",
     "A/B-roll timeline with filmstrip thumbnails and audio waveforms": "A/B 卷时间线，带胶片缩略图与音频波形",

@@ -163,7 +163,7 @@ agent 会把想法做成 Motif，直接放到时间线上播放。
 
 让时间线跟上你的每一个想法。
 
-[获取 WeftCut](https://github.com/UncleChair/WeftCut/releases/latest)
+敬请期待
 
 macOS · Windows · Linux
 

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WeftCut MCP Server — Edit Video From Claude or Cursor</title>
+<meta name="description" content="WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and export — every change visible and reversible on your timeline." />
+<link rel="canonical" href="https://weftcut.com/mcp/" />
+<link rel="alternate" hreflang="en" href="https://weftcut.com/mcp/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/mcp/" />
+<link rel="alternate" hreflang="x-default" href="https://weftcut.com/mcp/" />
+<link rel="alternate" type="text/markdown" href="/mcp/index.md" />
+<meta name="theme-color" content="#0c0e12" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="WeftCut" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="WeftCut MCP Server — Edit Video From Claude or Cursor" />
+<meta property="og:description" content="WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and export — every change visible and reversible on your timeline." />
+<meta property="og:url" content="https://weftcut.com/mcp/" />
+<meta property="og:image" content="https://weftcut.com/assets/og/card-en.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="WeftCut MCP Server — Edit Video From Claude or Cursor" />
+<meta name="twitter:description" content="WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and export — every change visible and reversible on your timeline." />
+<meta name="twitter:image" content="https://weftcut.com/assets/og/card-en.png" />
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="/pages.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "WeftCut MCP Server — Edit Video From Claude or Cursor",
+  "description": "WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and export — every change visible and reversible on your timeline.",
+  "url": "https://weftcut.com/mcp/",
+  "inLanguage": "en",
+  "keywords": "MCP video editor, video editor MCP server, MCP server for video editing, Claude video editing, edit video with Claude, Cursor video editing, AI agent video editor, agent-native video editor, control video editor with AI",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "WeftCut",
+    "url": "https://weftcut.com/"
+  },
+  "about": {
+    "@id": "https://weftcut.com/#weftcut"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://weftcut.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Drive a real video editor over MCP",
+        "item": "https://weftcut.com/mcp/"
+      }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which MCP clients work with WeftCut?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any of them. Claude Desktop, Cursor and Codex are the ones most people arrive with, but the server implements standard MCP over streamable HTTP, so a client you wrote this afternoon works the same way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does WeftCut include an AI model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. WeftCut ships no models and makes no inference calls of its own. The agent you connect supplies the intelligence, and optional analysis like transcription runs locally on your machine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the agent break my project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can change it, which is the point — but not irreversibly. Operations can be validated with dry_run first, every change is listed in the change feed as it lands, edits group under a checkpoint, and undo covers agent actions exactly as it covers yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the MCP server reachable from the network?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It binds to loopback only, requires a bearer token, and has DNS-rebinding protection. It is reachable from programs on your own machine and nowhere else."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — MIT licensed and open source, for macOS, Windows and Linux. The bundled FFmpeg carries its own LGPL/GPL terms. See what \"AI video editor\" means here."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="doc-nav">
+  <div class="doc-wrap doc-nav-in">
+    <a class="doc-brand" href="/" aria-label="WeftCut — home">
+      <img src="/assets/icon.svg" alt="" width="26" height="26" />
+      <span>WeftCut</span>
+    </a>
+    <nav class="doc-links" aria-label="Pages">
+      <a href="/mcp/" aria-current="page">MCP</a>
+      <a href="/ai-video-editor/">AI video editor</a>
+      <a href="/motifs/">Motifs</a>
+    </nav>
+    <a class="doc-lang" href="/zh/mcp/" hreflang="zh-Hans" lang="zh-Hans" aria-label="切换到简体中文" title="简体中文"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.15"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="2.65" ry="6.2"/><path d="M2.2 5.9h11.6M2.2 10.1h11.6"/></svg></a>
+    <a class="doc-gh" href="https://github.com/UncleChair/WeftCut" rel="noopener"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.6-.18-3.29-.82-3.29-3.56 0-.79.28-1.43.74-1.93-.07-.18-.32-.91.07-1.9 0 0 .6-.19 1.97.74A6.8 6.8 0 0 1 8 3.8a6.8 6.8 0 0 1 1.79.24c1.37-.93 1.97-.74 1.97-.74.39.99.14 1.72.07 1.9.46.5.74 1.14.74 1.93 0 2.75-1.69 3.38-3.3 3.56.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg><span>GitHub</span></a>
+  </div>
+</header>
+<main class="doc-wrap doc-body">
+<h1 id="drive-a-real-video-editor-over-mcp">Drive a real video editor over MCP</h1>
+<p>WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or a client you wrote yourself, and the agent gets the same editing vocabulary you have — trim, split, keyframes, effects, captions, markers, export — landing live on your timeline while you watch.</p>
+<p>Most editors bolt AI on as a feature: one button that does the one thing a vendor picked for you. WeftCut instead exposes the editor itself as a tool surface, and ships no models at all. The intelligence lives in whatever agent you connect.</p>
+<h2 id="what-the-agent-can-actually-do">What the agent can actually do</h2>
+<p>The server registers roughly 66 tools, resources and prompts, covering about 40 distinct editing operations. Not a summarise-and-suggest wrapper — these are the real operations, and they mutate the real project.</p>
+<ul><li><strong>Timeline.</strong> Place, move, trim and split clips on an A/B-roll timeline, frame-aligned to SMPTE timecode. <code>auto_split_by_shot</code> cuts at every detected shot change; <code>detect_silences</code> finds the dead air.</li><li><strong>Motion.</strong> Keyframes with bézier easing, set and adjusted directly.</li><li><strong>Look.</strong> Per-layer effect chains, including chroma key.</li><li><strong>Text.</strong> Styled title layers, and <code>apply_subtitles</code> to bring in SRT, VTT or ASS as editable caption layers — including restyling every caption in the project in one undoable step.</li><li><strong>Motifs.</strong> Animated, parameterised overlays — lower thirds, countdowns — that render identically in preview and export. See <a href="/motifs/">Motifs</a>.</li><li><strong>Structure.</strong> Groups with auto-paired A/V, markers, and checkpoints.</li><li><strong>Safety.</strong> <code>dry_run</code> validates an operation before it touches anything, and undo/redo works on agent edits exactly as it does on yours.</li></ul>
+<h2 id="connect-in-a-minute">Connect in a minute</h2>
+<p>Open Settings → Agent, copy the snippet, paste it into your client. For Claude Desktop that is one block of JSON:</p>
+<pre class="lang-json"><code>{
+  &quot;mcpServers&quot;: {
+    &quot;weftcut&quot;: {
+      &quot;url&quot;: &quot;http://127.0.0.1:50831/mcp&quot;,
+      &quot;headers&quot;: { &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot; }
+    }
+  }
+}</code></pre>
+<p>The port and token are generated per install — take the real values from Settings → Agent rather than copying the ones above. Cursor, Codex and any other MCP client take the same details in whatever shape they prefer.</p>
+<h2 id="what-stays-on-your-machine">What stays on your machine</h2>
+<p>Everything. The server speaks MCP over streamable HTTP and binds to loopback (<code>127.0.0.1</code>) only, with bearer-token auth and DNS-rebinding protection in front of it. There is no WeftCut account, no cloud round trip, and no upload of your footage.</p>
+<p>Your agent is the one exception, and it is one you already chose: if you connect Claude, the conversation goes wherever Claude's conversations go. The video does not — the agent sends editing commands to the app, not your media.</p>
+<h2 id="you-stay-in-control">You stay in control</h2>
+<p>Agent edits are not a black box that hands you a finished file.</p>
+<ul><li><code>begin_agent_session</code> flips the UI into a simplified agent mode, so it is obvious when something other than you is editing.</li><li>Every action lands in a live change feed, in order, as it happens.</li><li>Changes group under a checkpoint, so a whole run can be undone as one unit — or you can take the mouse back mid-run and keep editing alongside.</li></ul>
+<h2 id="let-it-look-before-it-cuts">Let it look before it cuts</h2>
+<p>Optional analysis runs locally and gives the agent something to reason about: shot detection, silence detection, frame comparison, transcription via Whisper or a local sidecar, and scene description through a local vision model where one is available.</p>
+<p>These are opt-in and local-first. WeftCut bundles no models of its own.</p>
+<h2 id="it-is-a-complete-editor-without-any-of-this">It is a complete editor without any of this</h2>
+<p>If you never connect an agent, nothing is missing. WeftCut is a full desktop NLE on its own: A/B-roll timeline with filmstrips and waveforms, an in-timeline bézier curve editor, effect chains, chroma key with a live eyedropper, captions, Motifs, role-based audio mixing, and export to H.264, HEVC, 10-bit AV1, ProRes or DNxHR.</p>
+<h2 id="questions">Questions</h2>
+<h3 id="which-mcp-clients-work-with-weftcut">Which MCP clients work with WeftCut?</h3>
+<p>Any of them. Claude Desktop, Cursor and Codex are the ones most people arrive with, but the server implements standard MCP over streamable HTTP, so a client you wrote this afternoon works the same way.</p>
+<h3 id="does-weftcut-include-an-ai-model">Does WeftCut include an AI model?</h3>
+<p>No. WeftCut ships no models and makes no inference calls of its own. The agent you connect supplies the intelligence, and optional analysis like transcription runs locally on your machine.</p>
+<h3 id="can-the-agent-break-my-project">Can the agent break my project?</h3>
+<p>It can change it, which is the point — but not irreversibly. Operations can be validated with <code>dry_run</code> first, every change is listed in the change feed as it lands, edits group under a checkpoint, and undo covers agent actions exactly as it covers yours.</p>
+<h3 id="is-the-mcp-server-reachable-from-the-network">Is the MCP server reachable from the network?</h3>
+<p>No. It binds to loopback only, requires a bearer token, and has DNS-rebinding protection. It is reachable from programs on your own machine and nowhere else.</p>
+<h3 id="is-it-really-free">Is it really free?</h3>
+<p>Yes — MIT licensed and open source, for macOS, Windows and Linux. The bundled FFmpeg carries its own LGPL/GPL terms. See <a href="/ai-video-editor/">what &quot;AI video editor&quot; means here</a>.</p>
+</main>
+<footer class="doc-foot">
+  <div class="doc-wrap">
+    <p><a href="/">Back to weftcut.com</a> · <a href="https://github.com/UncleChair/WeftCut/tree/main/docs" rel="noopener">Docs</a></p>
+    <p>App licensed MIT. Bundles FFmpeg (LGPL decode libs / GPL CLI sidecar).</p>
+    <p>© 2026 WeftCut contributors</p>
+  </div>
+</footer>
+</body>
+</html>

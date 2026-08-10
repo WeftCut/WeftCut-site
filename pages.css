@@ -1,0 +1,297 @@
+/* ============================================================
+   WeftCut — documentary pages (/mcp, /ai-video-editor, /motifs)
+   ============================================================
+
+   Standalone on purpose. index.css is 36 KB of homepage — a film-strip
+   timeline, scroll-reveal machinery, a synced terminal — and none of it
+   applies here. These pages redeclare the dozen brand tokens they actually
+   use instead of pulling all of that in for a colour.
+
+   The other reason they can't share: index.css's @font-face for LXGW WenKai GB
+   is an EXACT SUBSET of the homepage's Chinese headings. Any hanzi these pages
+   introduce would land on .notdef. So the Chinese here uses the system UI face
+   at every level, and the serif display face stays Latin-only. */
+
+:root {
+  --bg: #0c0e12;
+  --card: #111419;
+  --raised: #181c23;
+  --border: #252a34;
+  --border2: #363e4b;
+  --text: #e6e9ef;
+  --dim: #9aa4b5;
+  --faint: #6b7484;
+  --accent: #6696E6;
+  --green: #46c46a;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --measure: 44rem;
+}
+
+/* Georgia and SF Mono carry no Han glyphs; left alone they drop each hanzi to
+   an arbitrary system fallback mid-line. Same fix index.css makes, minus the
+   webfont it can't share. */
+html[lang^="zh"] {
+  --serif: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
+    system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "PingFang SC",
+    "Microsoft YaHei", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.7 var(--sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.doc-wrap {
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- nav ------------------------------------------------------------------ */
+
+/* Same bar as the homepage, down to the blur radius and the two pill shapes —
+   the numbers are copied from index.css's .nav/.brand/.lang-switch/.gh rather
+   than approximated, because a doc page that is nearly the homepage reads as a
+   different site. What it adds is the middle: links across the three pages, so
+   this set is navigable without going back to the homepage first. */
+.doc-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 58px;
+  background: rgba(12, 14, 18, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.doc-nav-in {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 100%;
+}
+
+.doc-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.doc-brand img { flex: 0 0 auto; }
+
+.doc-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.doc-links::-webkit-scrollbar { display: none; }
+
+.doc-links a {
+  font-size: 13.5px;
+  color: var(--dim);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.doc-links a:hover { color: var(--text); }
+
+/* The current page stays in the bar so it never reflows between pages; this is
+   what tells you which one you are on. */
+.doc-links a[aria-current="page"] { color: var(--text); }
+
+.doc-lang {
+  margin-left: auto;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: var(--dim);
+  text-decoration: none;
+}
+
+.doc-lang:hover {
+  color: var(--text);
+  border-color: var(--border2);
+  background: var(--card);
+}
+
+.doc-lang svg { display: block; }
+
+.doc-gh {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font: 600 12.5px var(--sans);
+  letter-spacing: 0.03em;
+  color: var(--text);
+  border: 1px solid var(--border2);
+  border-radius: 999px;
+  padding: 6px 13px;
+  text-decoration: none;
+}
+
+.doc-gh:hover { background: var(--card); }
+
+/* Below the fold of a phone the page links matter more than the wordmark, and
+   the bar can't hold both. The brand keeps the icon and drops the word. */
+@media (max-width: 560px) {
+  .doc-nav-in { gap: 14px; }
+  .doc-brand span { display: none; }
+  .doc-gh span { display: none; }
+  .doc-gh { padding: 6px 9px; }
+  .doc-links { gap: 14px; }
+}
+
+/* --- body ----------------------------------------------------------------- */
+
+.doc-body { padding-top: 56px; padding-bottom: 88px; }
+
+.doc-body h1 {
+  font: 400 clamp(32px, 5vw, 44px)/1.15 var(--serif);
+  letter-spacing: -0.015em;
+  margin: 0 0 20px;
+}
+
+.doc-body h2 {
+  font: 400 clamp(23px, 3vw, 28px)/1.25 var(--serif);
+  letter-spacing: -0.01em;
+  margin: 56px 0 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.doc-body h3 {
+  font: 600 17px/1.4 var(--sans);
+  margin: 32px 0 10px;
+}
+
+.doc-body p { margin: 0 0 18px; color: var(--text); }
+
+/* The lede: the first paragraph is the definitional sentence every one of
+   these pages opens with, and the one most likely to be quoted back. */
+.doc-body > p:first-of-type {
+  font-size: 18px;
+  color: var(--dim);
+}
+
+.doc-body a { color: var(--accent); text-decoration: none; }
+.doc-body a:hover { text-decoration: underline; }
+
+.doc-body ul, .doc-body ol { margin: 0 0 18px; padding-left: 22px; }
+.doc-body li { margin: 0 0 8px; }
+.doc-body li::marker { color: var(--faint); }
+
+.doc-body strong { font-weight: 600; }
+
+.doc-body blockquote {
+  margin: 0 0 18px;
+  padding: 2px 0 2px 18px;
+  border-left: 2px solid var(--border2);
+  color: var(--dim);
+}
+
+.doc-body blockquote p { margin: 0; }
+
+.doc-body hr {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* --- code ----------------------------------------------------------------- */
+
+.doc-body code {
+  font: 0.875em/1.5 var(--mono);
+  background: var(--raised);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.doc-body pre {
+  margin: 0 0 20px;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.doc-body pre code {
+  font-size: 13px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* --- tables --------------------------------------------------------------- */
+
+.doc-body table {
+  width: 100%;
+  margin: 0 0 22px;
+  border-collapse: collapse;
+  font-size: 15px;
+  display: block;
+  overflow-x: auto;
+}
+
+.doc-body th, .doc-body td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 14px 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.doc-body th {
+  font-weight: 600;
+  color: var(--dim);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.doc-body tbody tr:last-child td { border-bottom: 0; }
+
+/* --- footer --------------------------------------------------------------- */
+
+.doc-foot {
+  border-top: 1px solid var(--border);
+  padding: 32px 0 56px;
+  font-size: 13px;
+  color: var(--faint);
+}
+
+.doc-foot p { margin: 0 0 6px; }
+.doc-foot a { color: var(--dim); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

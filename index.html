@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>WeftCut — Free &amp; Open Source Agent-Native Video Editor</title>
-<meta name="description" content="WeftCut is a desktop video editor built for humans and AI agents alike. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live." />
+<title>WeftCut — Open Source AI Video Editor for MCP Agents</title>
+<meta name="description" content="WeftCut is a free, open source AI video editor for macOS, Windows and Linux. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live." />
 <link rel="canonical" href="https://weftcut.com/" />
 <!-- Each language self-canonicalises and declares the full set, itself included.
      x-default points at English. Mirrored in sitemap.xml. -->
@@ -20,19 +20,19 @@
 <meta property="og:site_name" content="WeftCut" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:locale:alternate" content="zh_CN" />
-<meta property="og:title" content="WeftCut — Free &amp; Open Source Agent-Native Video Editor" />
-<meta property="og:description" content="A desktop video editor built for humans and AI agents alike. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live." />
+<meta property="og:title" content="WeftCut — Open Source AI Video Editor for MCP Agents" />
+<meta property="og:description" content="A free, open source AI video editor for macOS, Windows and Linux. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live." />
 <meta property="og:url" content="https://weftcut.com/" />
 <!-- PNG, not WebP: WeChat and iMessage don't decode WebP cards. -->
 <meta property="og:image" content="https://weftcut.com/assets/og/card-en.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="WeftCut — Cut with your agent and code. Free &amp; open source agent-native video editor for macOS, Windows and Linux." />
+<meta property="og:image:alt" content="WeftCut — Cut with your agent and code. Free, open source AI video editor for macOS, Windows and Linux." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="WeftCut — Free &amp; Open Source Agent-Native Video Editor" />
-<meta name="twitter:description" content="A desktop video editor built for humans and AI agents alike. Connect Claude, Cursor, or any MCP client — and review every edit live." />
+<meta name="twitter:title" content="WeftCut — Open Source AI Video Editor for MCP Agents" />
+<meta name="twitter:description" content="A free, open source AI video editor for humans and AI agents alike. Connect Claude, Cursor, or any MCP client — and review every edit live." />
 <meta name="twitter:image" content="https://weftcut.com/assets/og/card-en.png" />
-<meta name="twitter:image:alt" content="WeftCut — Cut with your agent and code. Free &amp; open source agent-native video editor for macOS, Windows and Linux." />
+<meta name="twitter:image:alt" content="WeftCut — Cut with your agent and code. Free, open source AI video editor for macOS, Windows and Linux." />
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
 <script>
 (() => {
@@ -75,10 +75,12 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": "https://weftcut.com/#weftcut",
   "name": "WeftCut",
   "description": "A cross-platform desktop video editor where AI agents are first-class citizens. Connect Claude, Cursor, or any MCP client — and audit its edits to your timeline live.",
   "applicationCategory": "MultimediaApplication",
   "applicationSubCategory": "Video Editor",
+  "keywords": "AI video editor, open source video editor, MCP video editor, video editor MCP server, agent-native video editor, Claude video editing, Cursor video editing, AI agent video editor, free video editor, offline AI video editing, non-linear editor, NLE, video editor for Linux",
   "operatingSystem": ["macOS", "Windows", "Linux"],
   "inLanguage": "en",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -86,6 +88,7 @@
   "license": "https://github.com/UncleChair/WeftCut/blob/main/LICENSE",
   "url": "https://weftcut.com/",
   "sameAs": "https://github.com/UncleChair/WeftCut",
+  "author": { "@type": "Organization", "name": "WeftCut contributors", "url": "https://github.com/UncleChair/WeftCut" },
   "softwareHelp": { "@type": "CreativeWork", "url": "https://github.com/UncleChair/WeftCut/tree/main/docs" },
   "screenshot": [
     "https://weftcut.com/assets/shots/editor-hero.webp",
@@ -116,6 +119,25 @@
   "name": "WeftCut",
   "url": "https://weftcut.com/",
   "inLanguage": "en"
+}
+</script>
+<!-- The project as source rather than as a download. "Is it really open source"
+     is the fact most often asked of this product, and the one an assistant has
+     to corroborate somewhere other than marketing prose — this is that
+     somewhere. Languages are the repo's own top two, not an aspiration. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "WeftCut",
+  "description": "Source for WeftCut, a free and open source AI video editor that exposes the whole editor to AI agents over MCP.",
+  "codeRepository": "https://github.com/UncleChair/WeftCut",
+  "programmingLanguage": ["TypeScript", "Rust"],
+  "runtimePlatform": "Electron",
+  "license": "https://github.com/UncleChair/WeftCut/blob/main/LICENSE",
+  "url": "https://weftcut.com/",
+  "inLanguage": "en",
+  "author": { "@type": "Organization", "name": "WeftCut contributors", "url": "https://github.com/UncleChair/WeftCut" }
 }
 </script>
 <!-- The FAQ section, structured. Both languages emit their own copy of this, so
@@ -515,7 +537,11 @@
         <div class="finale-cta">
           <p class="finale-line">Let the timeline keep up with <span class="finale-phrase">every idea.</span></p>
           <p class="cta-row">
-            <a class="btn btn-primary" href="https://github.com/UncleChair/WeftCut/releases/latest" rel="noopener">Get WeftCut</a>
+            <!-- TEMPORARY: the hero's twin. /releases/latest redirects to an
+                 empty releases list until v1 ships, so the finale degrades the
+                 same way rather than closing the page on a dead link — see the
+                 fuller note in the hero for how to put the button back. -->
+            <span class="btn btn-pending" aria-disabled="true">Coming soon</span>
           </p>
           <p class="finale-meta">macOS · Windows · Linux</p>
         </div>

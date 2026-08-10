@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Motif —— 可复用的动态字幕条与倒计时动效 | WeftCut</title>
+<meta name="description" content="Motif 是 WeftCut 里的参数化动态叠加层：字幕条、倒计时、文字特效。可以让 AI agent 按你的一句描述直接写出来，预览与导出画面完全一致。" />
+<link rel="canonical" href="https://weftcut.com/zh/motifs/" />
+<link rel="alternate" hreflang="en" href="https://weftcut.com/motifs/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/motifs/" />
+<link rel="alternate" hreflang="x-default" href="https://weftcut.com/motifs/" />
+<link rel="alternate" type="text/markdown" href="/zh/motifs/index.md" />
+<meta name="theme-color" content="#0c0e12" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="WeftCut" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:title" content="Motif —— 可复用的动态字幕条与倒计时动效 | WeftCut" />
+<meta property="og:description" content="Motif 是 WeftCut 里的参数化动态叠加层：字幕条、倒计时、文字特效。可以让 AI agent 按你的一句描述直接写出来，预览与导出画面完全一致。" />
+<meta property="og:url" content="https://weftcut.com/zh/motifs/" />
+<meta property="og:image" content="https://weftcut.com/assets/og/card-zh.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Motif —— 可复用的动态字幕条与倒计时动效 | WeftCut" />
+<meta name="twitter:description" content="Motif 是 WeftCut 里的参数化动态叠加层：字幕条、倒计时、文字特效。可以让 AI agent 按你的一句描述直接写出来，预览与导出画面完全一致。" />
+<meta name="twitter:image" content="https://weftcut.com/assets/og/card-zh.png" />
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="/pages.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Motif —— 可复用的动态字幕条与倒计时动效 | WeftCut",
+  "description": "Motif 是 WeftCut 里的参数化动态叠加层：字幕条、倒计时、文字特效。可以让 AI agent 按你的一句描述直接写出来，预览与导出画面完全一致。",
+  "url": "https://weftcut.com/zh/motifs/",
+  "inLanguage": "zh-Hans",
+  "keywords": "动态字幕条, 下三分之一, 倒计时动画, 可复用动效模板, 程序化动效, 动态标题, 视频叠加层, 文字特效, AI 生成动效",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "WeftCut",
+    "url": "https://weftcut.com/"
+  },
+  "about": {
+    "@id": "https://weftcut.com/#weftcut"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://weftcut.com/zh/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "代码即动效",
+        "item": "https://weftcut.com/zh/motifs/"
+      }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "zh-Hans",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "不用 AI agent 能用 Motif 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "能。内置目录本身就能用，选择器里有常规控件。agent 是为了做目录里没有的东西。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "导出后的效果会和预览不一样吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。Motif 在预览和导出中渲染结果一致，你拖动播放头看到的那一版，就是落进文件里的那一版。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "能做目录里没有的 Motif 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "能。「描述—预览—打磨」这个循环就是为此存在的：agent 按你的描述写一个新的，而不是从现有选项里挑一个最接近的。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Motif 能跨项目复用吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。Motif 是参数化的，同一个叠加层可以带到下一个项目，你改的是它的参数值，而不是重做一遍。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这个功能收费吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不收费。Motif 是 WeftCut 的一部分，而 WeftCut 基于 MIT 许可免费开源，支持 macOS、Windows 与 Linux。也可以看看整体介绍。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="doc-nav">
+  <div class="doc-wrap doc-nav-in">
+    <a class="doc-brand" href="/zh/" aria-label="WeftCut — 返回首页">
+      <img src="/assets/icon.svg" alt="" width="26" height="26" />
+      <span>WeftCut</span>
+    </a>
+    <nav class="doc-links" aria-label="页面">
+      <a href="/zh/mcp/">MCP</a>
+      <a href="/zh/ai-video-editor/">AI 剪辑</a>
+      <a href="/zh/motifs/" aria-current="page">Motif</a>
+    </nav>
+    <a class="doc-lang" href="/motifs/" hreflang="en" lang="en" aria-label="Switch to English" title="English"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.15"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="2.65" ry="6.2"/><path d="M2.2 5.9h11.6M2.2 10.1h11.6"/></svg></a>
+    <a class="doc-gh" href="https://github.com/UncleChair/WeftCut" rel="noopener"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.6-.18-3.29-.82-3.29-3.56 0-.79.28-1.43.74-1.93-.07-.18-.32-.91.07-1.9 0 0 .6-.19 1.97.74A6.8 6.8 0 0 1 8 3.8a6.8 6.8 0 0 1 1.79.24c1.37-.93 1.97-.74 1.97-.74.39.99.14 1.72.07 1.9.46.5.74 1.14.74 1.93 0 2.75-1.69 3.38-3.3 3.56.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg><span>GitHub</span></a>
+  </div>
+</header>
+<main class="doc-wrap doc-body">
+<h1 id="s1">代码即动效</h1>
+<p>Motif 是 WeftCut 里的一种动态叠加层——字幕条、倒计时、带动效的标题——它以参数化的代码形式存在，而不是一段压平的素材。你的 agent 本来就擅长写代码，Motif 就是这件事变成动效的地方。</p>
+<h2 id="motif">Motif 到底是什么</h2>
+<p>它不是拖进时间线的视频文件，也不是只有三个滑块的预设。Motif 是一个小巧的参数化网页叠加层：它有自己的控件，像其他图层一样在时间线上播放，放进去之后参数仍然可以继续改。</p>
+<p>最关键的一点是，它在预览和导出里的渲染结果像素一致。你拖动播放头看到的画面，就是最后落进文件里的画面——没有另一条渲染路径，也没有最后一刻的意外。</p>
+<h2 id="s3">先从现成的开始</h2>
+<p>WeftCut 内置了一批起点，选择器里带实时预览：</p>
+<ul><li><strong>字幕条</strong>：进出场带动画的姓名与头衔条</li><li><strong>倒计时</strong>：按你设定的节奏走的计时器</li><li><strong>文字特效</strong>：带动效的标题与说明文字</li></ul>
+<p>选一个，调一下控件，它就在时间线上了。这一步完全不需要 agent。</p>
+<h2 id="agent">也可以让 agent 直接写一个</h2>
+<p>有意思的地方在这里：大语言模型真正擅长的事情——写小段、精确、带参数的代码——恰好就是 Motif 的形态。</p>
+<ol><li><strong>描述</strong>：告诉 agent 你想要什么，标题、字幕条、说明框，甚至一个还不存在的设计都行。</li><li><strong>预览</strong>：agent 把想法变成一个 Motif，马上可以在时间线上播放。</li><li><strong>打磨</strong>：在实际画面里继续调——改参数，或者再让它改一版——直到对为止。</li></ol>
+<p>你说「给这场戏加一个标题、一个字幕条和一个倒计时」，拿到的是三个真实可编辑的图层，而不是三条建议。</p>
+<h2 id="s5">是参数，不是副本</h2>
+<p>因为 Motif 是参数化的，做好的样式天然可复用。改掉文字，它就是另一张卡片，而不是另一个素材。下一个项目继续用，它仍然是一份需要维护的东西，而不是一个塞满近似导出文件的文件夹。</p>
+<p>这也让它很适合成批交给 agent：重排一整组叠加层的样式或内容，是一次参数改动，不是重画一遍。</p>
+<h2 id="s6">它在整个编辑器里的位置</h2>
+<p>Motif 只是众多图层类型中的一种。它和你的片段、字幕、特效待在同一条时间线上，同样支持关键帧，也走同一条导出路径，输出到 H.264、HEVC、10-bit AV1、ProRes 或 DNxHR。</p>
+<p>通过 MCP 接入的 agent 可以像执行其他剪辑操作一样创建、放置和调整 Motif——接入方式见 <a href="/zh/mcp/">MCP 说明</a>。</p>
+<h2 id="s7">常见问题</h2>
+<h3 id="ai-agent-motif">不用 AI agent 能用 Motif 吗？</h3>
+<p>能。内置目录本身就能用，选择器里有常规控件。agent 是为了做目录里没有的东西。</p>
+<h3 id="s9">导出后的效果会和预览不一样吗？</h3>
+<p>不会。Motif 在预览和导出中渲染结果一致，你拖动播放头看到的那一版，就是落进文件里的那一版。</p>
+<h3 id="motif">能做目录里没有的 Motif 吗？</h3>
+<p>能。「描述—预览—打磨」这个循环就是为此存在的：agent 按你的描述写一个新的，而不是从现有选项里挑一个最接近的。</p>
+<h3 id="motif">Motif 能跨项目复用吗？</h3>
+<p>可以。Motif 是参数化的，同一个叠加层可以带到下一个项目，你改的是它的参数值，而不是重做一遍。</p>
+<h3 id="s12">这个功能收费吗？</h3>
+<p>不收费。Motif 是 WeftCut 的一部分，而 WeftCut 基于 MIT 许可免费开源，支持 macOS、Windows 与 Linux。也可以看看<a href="/zh/ai-video-editor/">整体介绍</a>。</p>
+</main>
+<footer class="doc-foot">
+  <div class="doc-wrap">
+    <p><a href="/zh/">返回 weftcut.com</a> · <a href="https://github.com/UncleChair/WeftCut/tree/main/docs" rel="noopener">文档</a></p>
+    <p>应用以 MIT 许可开源，随附 FFmpeg（LGPL 解码库 / GPL 命令行组件）。</p>
+    <p>© 2026 WeftCut 贡献者</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -7,13 +7,55 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://weftcut.com/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://weftcut.com/"/>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://weftcut.com/zh/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://weftcut.com/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://weftcut.com/"/>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://weftcut.com/mcp/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weftcut.com/mcp/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/mcp/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weftcut.com/mcp/"/>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://weftcut.com/zh/mcp/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weftcut.com/mcp/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/mcp/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weftcut.com/mcp/"/>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://weftcut.com/ai-video-editor/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weftcut.com/ai-video-editor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/ai-video-editor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weftcut.com/ai-video-editor/"/>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://weftcut.com/zh/ai-video-editor/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weftcut.com/ai-video-editor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/ai-video-editor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weftcut.com/ai-video-editor/"/>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://weftcut.com/motifs/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weftcut.com/motifs/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/motifs/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weftcut.com/motifs/"/>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://weftcut.com/zh/motifs/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weftcut.com/motifs/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/motifs/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weftcut.com/motifs/"/>
+    <lastmod>2026-08-10</lastmod>
   </url>
 </urlset>
