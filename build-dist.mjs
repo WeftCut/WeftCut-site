@@ -43,6 +43,13 @@ const SHIP = [
   'llms.txt',
   'robots.txt',
   'sitemap.xml',
+  // IndexNow's proof of ownership. The protocol reads the key from the host
+  // root and nowhere else — a copy under .well-known/ would only authorise
+  // URLs beneath that path — so the filename is the key itself and cannot be
+  // tidied into something legible. Not a secret: it proves control of the
+  // origin, which is why publishing it is the whole mechanism. Pure ASCII, so
+  // it needs no _headers rule, for the reason robots.txt doesn't either.
+  '590200677363c58b75b92478d338fd06.txt',
 ]
 
 // worker.js is deliberately absent: wrangler loads it from the repo root as the

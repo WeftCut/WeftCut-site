@@ -156,6 +156,17 @@ looking. `npm start`, then `http://127.0.0.1:8080/mcp/`.
       `assets/og/card-en.png`
 - [ ] Google Search Console + Bing Webmaster verification (DNS TXT, or a static
       file — do **not** add a verification script tag)
+- [x] IndexNow key published at the host root, listed in `build-dist.mjs`'s SHIP
+      allowlist. Reaches Bing, Yandex, Seznam, Naver — **not Google**, which
+      never adopted the protocol, so Search Console stays a separate errand.
+- [ ] Cloudflare **Crawler Hints** (Caching → Configuration): the automatic half
+      of the same protocol, free on every plan, one toggle. Worth having, but it
+      fires when Cloudflare observes content *change* — a freshness signal, not
+      a discovery one. On a site nobody has crawled yet it does nothing, which
+      is why the seed below is a separate step.
+- [ ] One-time seed: POST all eight sitemap URLs to `api.indexnow.org` once the
+      key file is live. Deliberately not scripted in the repo — Crawler Hints
+      covers every subsequent change, so this runs exactly once.
 - [ ] DNSSEC, per README's outstanding list — unrelated to SEO but a trust
       signal that costs one dashboard visit
 
