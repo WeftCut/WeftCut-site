@@ -22,7 +22,7 @@ so the font MUST be rebuilt when that copy changes. --check is the CI guard.
 Requires fontTools + brotli:  python -m pip install fonttools brotli
 
 The reverted Maple Mono CN whole-page pipeline lives in git history, should it
-ever come back: `git show f467d9c:.work/harness/fonts.py`.
+ever come back: `git show 46eb6f5:.work/harness/fonts.py`.
 """
 import argparse
 import io
