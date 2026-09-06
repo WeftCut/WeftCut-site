@@ -1,6 +1,6 @@
 # weftcut-site
 
-Marketing homepage for [WeftCut](https://github.com/UncleChair/WeftCut) — the
+Marketing homepage for [WeftCut](https://github.com/WeftCut/WeftCut) — the
 agent-native desktop video editor. Static, zero-build, zero-dependency: plain
 HTML/CSS/JS, no frameworks, no external requests.
 

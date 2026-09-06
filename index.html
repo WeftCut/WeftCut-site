@@ -85,11 +85,12 @@
   "inLanguage": "en",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "isAccessibleForFree": true,
-  "license": "https://github.com/UncleChair/WeftCut/blob/main/LICENSE",
+  "license": "https://github.com/WeftCut/WeftCut/blob/main/LICENSE",
   "url": "https://weftcut.com/",
-  "sameAs": "https://github.com/UncleChair/WeftCut",
-  "author": { "@type": "Organization", "name": "WeftCut contributors", "url": "https://github.com/UncleChair/WeftCut" },
-  "softwareHelp": { "@type": "CreativeWork", "url": "https://github.com/UncleChair/WeftCut/tree/main/docs" },
+  "downloadUrl": "https://github.com/WeftCut/WeftCut/releases/latest",
+  "sameAs": "https://github.com/WeftCut/WeftCut",
+  "author": { "@type": "Organization", "name": "WeftCut contributors", "url": "https://github.com/WeftCut/WeftCut" },
+  "softwareHelp": { "@type": "CreativeWork", "url": "https://github.com/WeftCut/WeftCut/tree/main/docs" },
   "screenshot": [
     "https://weftcut.com/assets/shots/editor-hero.webp",
     "https://weftcut.com/assets/shots/agent-mode.webp",
@@ -131,13 +132,13 @@
   "@type": "SoftwareSourceCode",
   "name": "WeftCut",
   "description": "Source for WeftCut, a free and open source AI video editor that exposes the whole editor to AI agents over MCP.",
-  "codeRepository": "https://github.com/UncleChair/WeftCut",
+  "codeRepository": "https://github.com/WeftCut/WeftCut",
   "programmingLanguage": ["TypeScript", "Rust"],
   "runtimePlatform": "Electron",
-  "license": "https://github.com/UncleChair/WeftCut/blob/main/LICENSE",
+  "license": "https://github.com/WeftCut/WeftCut/blob/main/LICENSE",
   "url": "https://weftcut.com/",
   "inLanguage": "en",
-  "author": { "@type": "Organization", "name": "WeftCut contributors", "url": "https://github.com/UncleChair/WeftCut" }
+  "author": { "@type": "Organization", "name": "WeftCut contributors", "url": "https://github.com/WeftCut/WeftCut" }
 }
 </script>
 <!-- The FAQ section, structured. Both languages emit their own copy of this, so
@@ -216,7 +217,7 @@
     <a class="lang-switch" data-lang-switch href="/zh/" hreflang="zh-Hans" lang="zh-Hans" aria-label="切换到简体中文" title="简体中文">
       <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.15"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="2.65" ry="6.2"/><path d="M2.2 5.9h11.6M2.2 10.1h11.6"/></svg>
     </a>
-    <a class="gh" href="https://github.com/UncleChair/WeftCut" rel="noopener">
+    <a class="gh" href="https://github.com/WeftCut/WeftCut" rel="noopener">
       <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.6-.18-3.29-.82-3.29-3.56 0-.79.28-1.43.74-1.93-.07-.18-.32-.91.07-1.9 0 0 .6-.19 1.97.74A6.8 6.8 0 0 1 8 3.8a6.8 6.8 0 0 1 1.79.24c1.37-.93 1.97-.74 1.97-.74.39.99.14 1.72.07 1.9.46.5.74 1.14.74 1.93 0 2.75-1.69 3.38-3.3 3.56.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>
       <span>GitHub</span>
     </a>
@@ -232,17 +233,13 @@
       <h1 class="rv">Cut with your <em class="accent-agent">agent</em> and <em class="accent-code">code</em></h1>
       <p class="lede rv">Let the agent be the weft in your timeline—threading every cut, caption, and transition into place while you stay in control.</p>
       <p class="cta-row rv">
-        <!-- TEMPORARY: no public release exists yet, so /releases/latest just
-             redirects to an empty releases list. This is a <span> rather than a
-             disabled <a> on purpose: a link that goes nowhere is a screen reader
-             trap, and there is nothing to disable when there is nothing to
-             download. To put the button back, restore the anchor with
-             id="downloadButton" wrapping
-             #downloadPlatformIcon and #downloadButtonLabel; index.js's platform
-             detection and the CSS for those ids are both still in place and
-             re-arm the moment the ids exist again. -->
-        <span class="btn btn-pending" aria-disabled="true">Coming soon</span>
-        <a class="btn btn-ghost" href="https://github.com/UncleChair/WeftCut/tree/main/docs" rel="noopener">Read the docs</a>
+        <a class="btn btn-primary" id="downloadButton" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="Download WeftCut from GitHub Releases">
+          <span class="platform-icon" id="downloadPlatformIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M11 3h2v10.17l3.59-3.58L18 11l-6 6-6-6 1.41-1.41L11 13.17V3ZM5 19h14v2H5v-2Z"/></svg>
+          </span>
+          <span id="downloadButtonLabel">Download</span>
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/WeftCut/WeftCut/tree/main/docs" rel="noopener">Read the docs</a>
       </p>
       <p class="hero-meta rv">macOS · Windows · Linux&ensp;—&ensp;free &amp; open source&ensp;—&ensp;works with the agent you already use</p>
     </div>
@@ -537,11 +534,7 @@
         <div class="finale-cta">
           <p class="finale-line">Let the timeline keep up with <span class="finale-phrase">every idea.</span></p>
           <p class="cta-row">
-            <!-- TEMPORARY: the hero's twin. /releases/latest redirects to an
-                 empty releases list until v1 ships, so the finale degrades the
-                 same way rather than closing the page on a dead link — see the
-                 fuller note in the hero for how to put the button back. -->
-            <span class="btn btn-pending" aria-disabled="true">Coming soon</span>
+            <a class="btn btn-primary" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener">Get WeftCut</a>
           </p>
           <p class="finale-meta">macOS · Windows · Linux</p>
         </div>
@@ -550,7 +543,7 @@
           <p class="oss-eyebrow">Open source · MIT</p>
           <h3 id="oss-card-h">Open by design.</h3>
           <p>WeftCut is built in public and free to use, inspect, and extend. Your editor stays yours.</p>
-          <a class="btn btn-ghost" href="https://github.com/UncleChair/WeftCut" rel="noopener">
+          <a class="btn btn-ghost" href="https://github.com/WeftCut/WeftCut" rel="noopener">
             <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.6-.18-3.29-.82-3.29-3.56 0-.79.28-1.43.74-1.93-.07-.18-.32-.91.07-1.9 0 0 .6-.19 1.97.74A6.8 6.8 0 0 1 8 3.8a6.8 6.8 0 0 1 1.79.24c1.37-.93 1.97-.74 1.97-.74.39.99.14 1.72.07 1.9.46.5.74 1.14.74 1.93 0 2.75-1.69 3.38-3.3 3.56.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
             View the source
           </a>
@@ -656,8 +649,8 @@
       <a href="/mcp/">MCP</a>
       <a href="/ai-video-editor/">AI video editor</a>
       <a href="/motifs/">Motifs</a>
-      <a href="https://github.com/UncleChair/WeftCut" rel="noopener">GitHub</a>
-      <a href="https://github.com/UncleChair/WeftCut/tree/main/docs" rel="noopener">Docs</a>
+      <a href="https://github.com/WeftCut/WeftCut" rel="noopener">GitHub</a>
+      <a href="https://github.com/WeftCut/WeftCut/tree/main/docs" rel="noopener">Docs</a>
       <a href="/assets/agent-session.json">Agent session</a>
       <a data-lang-switch href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a>
     </nav>

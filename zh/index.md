@@ -1,4 +1,4 @@
-[WeftCut](#top) [Switch to English](https://weftcut.com/) [GitHub](https://github.com/UncleChair/WeftCut)
+[WeftCut](#top) [Switch to English](https://weftcut.com/) [GitHub](https://github.com/WeftCut/WeftCut)
 
 Agent原生的视频编辑器
 
@@ -6,7 +6,7 @@ Agent原生的视频编辑器
 
 让 agent 穿梭于时间线，将剪辑、字幕和转场一一编织到位，而你始终掌握全局。
 
-敬请期待 [查看文档](https://github.com/UncleChair/WeftCut/tree/main/docs)
+[下载](https://github.com/WeftCut/WeftCut/releases/latest) [查看文档](https://github.com/WeftCut/WeftCut/tree/main/docs)
 
 macOS · Windows · Linux — 免费开源 — 与你常用的 agent 协同工作
 
@@ -163,7 +163,7 @@ agent 会把想法做成 Motif，直接放到时间线上播放。
 
 让时间线跟上你的每一个想法。
 
-敬请期待
+[获取 WeftCut](https://github.com/WeftCut/WeftCut/releases/latest)
 
 macOS · Windows · Linux
 
@@ -173,7 +173,7 @@ macOS · Windows · Linux
 
 WeftCut 的开发全程公开，任何人都可免费使用、查看和扩展。你的剪辑工具，始终由你掌控。
 
-[查看源码](https://github.com/UncleChair/WeftCut)
+[查看源码](https://github.com/WeftCut/WeftCut)
 
 彩蛋 见微知著
 
@@ -207,6 +207,6 @@ WeftCut 的开发全程公开，任何人都可免费使用、查看和扩展。
 
 应用基于 MIT 许可证发布。随附 FFmpeg（LGPL 解码库 / GPL 命令行组件）。
 
-[MCP](https://weftcut.com/zh/mcp/) [AI 剪辑](https://weftcut.com/zh/ai-video-editor/) [Motif](https://weftcut.com/zh/motifs/) [GitHub](https://github.com/UncleChair/WeftCut) [文档](https://github.com/UncleChair/WeftCut/tree/main/docs) [agent 会话](https://weftcut.com/assets/agent-session.json) [English](https://weftcut.com/)
+[MCP](https://weftcut.com/zh/mcp/) [AI 剪辑](https://weftcut.com/zh/ai-video-editor/) [Motif](https://weftcut.com/zh/motifs/) [GitHub](https://github.com/WeftCut/WeftCut) [文档](https://github.com/WeftCut/WeftCut/tree/main/docs) [agent 会话](https://weftcut.com/assets/agent-session.json) [English](https://weftcut.com/)
 
 © 2026 WeftCut 贡献者

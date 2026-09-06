@@ -20,9 +20,9 @@
     "resources": {},
     "prompts": {}
   },
-  "documentation": "https://github.com/UncleChair/WeftCut/blob/main/docs/mcp.md",
+  "documentation": "https://github.com/WeftCut/WeftCut/blob/main/docs/mcp.md",
   "repository": {
-    "url": "https://github.com/UncleChair/WeftCut",
+    "url": "https://github.com/WeftCut/WeftCut",
     "source": "github"
   },
   "license": "MIT"

@@ -401,7 +401,7 @@ ${DOC_NAV.map((item) => {
 }).join('\n')}
     </nav>
     <a class="doc-lang" href="${chrome.switchHref(slug)}" hreflang="${chrome.switchLang}" lang="${chrome.switchLang}" aria-label="${chrome.switchAria}" title="${chrome.switchTitle}">${GLOBE_SVG}</a>
-    <a class="doc-gh" href="https://github.com/UncleChair/WeftCut" rel="noopener">${GH_SVG}<span>GitHub</span></a>
+    <a class="doc-gh" href="https://github.com/WeftCut/WeftCut" rel="noopener">${GH_SVG}<span>GitHub</span></a>
   </div>
 </header>
 <main class="doc-wrap doc-body">
@@ -409,7 +409,7 @@ ${html}
 </main>
 <footer class="doc-foot">
   <div class="doc-wrap">
-    <p><a href="${homeHref}">${chrome.backHome}</a> · <a href="https://github.com/UncleChair/WeftCut/tree/main/docs" rel="noopener">${chrome.docs}</a></p>
+    <p><a href="${homeHref}">${chrome.backHome}</a> · <a href="https://github.com/WeftCut/WeftCut/tree/main/docs" rel="noopener">${chrome.docs}</a></p>
     <p>${chrome.licence}</p>
     <p>${chrome.copyright}</p>
   </div>

@@ -38,6 +38,6 @@
 
 ## 链接
 
-- [代码仓库](https://github.com/UncleChair/WeftCut)
-- [文档](https://github.com/UncleChair/WeftCut/tree/main/docs)
-- [MCP 服务端文档](https://github.com/UncleChair/WeftCut/blob/main/docs/mcp.md)
+- [代码仓库](https://github.com/WeftCut/WeftCut)
+- [文档](https://github.com/WeftCut/WeftCut/tree/main/docs)
+- [MCP 服务端文档](https://github.com/WeftCut/WeftCut/blob/main/docs/mcp.md)

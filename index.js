@@ -103,10 +103,7 @@
     pio.observe(promptList);
   }
 
-  /* ---------- platform-aware download ----------
-     Dormant while the hero shows "Coming soon": the three ids below aren't in
-     the markup right now, so the guard below makes this a no-op. Restoring the
-     download button in index.html re-arms it with no change here. */
+  /* ---------- platform-aware download ---------- */
   const downloadButton = document.getElementById("downloadButton");
   const downloadPlatformIcon = document.getElementById("downloadPlatformIcon");
   const downloadButtonLabel = document.getElementById("downloadButtonLabel");
@@ -679,10 +676,10 @@
         license: app.license || "",
         price: app.offers ? `${app.offers.price} ${app.offers.priceCurrency}` : "",
         repository: app.url || "",
-        // Read off the page rather than hard-coded: the hero CTA is a disabled
-        // span until there's something to download, so its presence is the
-        // most current release signal this page has.
-        availability: document.querySelector(".btn-pending") ? "unreleased" : "released",
+        // Read off the page rather than hard-coded: the hero CTA only becomes
+        // a download link once there's something to download, so its presence
+        // is the most current release signal this page has.
+        availability: document.getElementById("downloadButton") ? "released" : "unreleased",
         pageLanguage: document.documentElement.lang || "",
         pageUrl: canonical ? canonical.href : location.href,
       };

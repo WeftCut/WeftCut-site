@@ -1,4 +1,4 @@
-[WeftCut](#top) [切换到简体中文](https://weftcut.com/zh/) [GitHub](https://github.com/UncleChair/WeftCut)
+[WeftCut](#top) [切换到简体中文](https://weftcut.com/zh/) [GitHub](https://github.com/WeftCut/WeftCut)
 
 The agent native video editor
 
@@ -6,7 +6,7 @@ The agent native video editor
 
 Let the agent be the weft in your timeline—threading every cut, caption, and transition into place while you stay in control.
 
-Coming soon [Read the docs](https://github.com/UncleChair/WeftCut/tree/main/docs)
+[Download](https://github.com/WeftCut/WeftCut/releases/latest) [Read the docs](https://github.com/WeftCut/WeftCut/tree/main/docs)
 
 macOS · Windows · Linux — free & open source — works with the agent you already use
 
@@ -163,7 +163,7 @@ Turn creative intent into real edits, refine every detail with full control, and
 
 Let the timeline keep up with every idea.
 
-Coming soon
+[Get WeftCut](https://github.com/WeftCut/WeftCut/releases/latest)
 
 macOS · Windows · Linux
 
@@ -173,7 +173,7 @@ Open source · MIT
 
 WeftCut is built in public and free to use, inspect, and extend. Your editor stays yours.
 
-[View the source](https://github.com/UncleChair/WeftCut)
+[View the source](https://github.com/WeftCut/WeftCut)
 
 Post-credits A few details
 
@@ -207,6 +207,6 @@ Post-credits A few details
 
 App licensed MIT. Bundles FFmpeg (LGPL decode libs / GPL CLI sidecar).
 
-[MCP](https://weftcut.com/mcp/) [AI video editor](https://weftcut.com/ai-video-editor/) [Motifs](https://weftcut.com/motifs/) [GitHub](https://github.com/UncleChair/WeftCut) [Docs](https://github.com/UncleChair/WeftCut/tree/main/docs) [Agent session](https://weftcut.com/assets/agent-session.json) [中文](https://weftcut.com/zh/)
+[MCP](https://weftcut.com/mcp/) [AI video editor](https://weftcut.com/ai-video-editor/) [Motifs](https://weftcut.com/motifs/) [GitHub](https://github.com/WeftCut/WeftCut) [Docs](https://github.com/WeftCut/WeftCut/tree/main/docs) [Agent session](https://weftcut.com/assets/agent-session.json) [中文](https://weftcut.com/zh/)
 
 © 2026 WeftCut contributors

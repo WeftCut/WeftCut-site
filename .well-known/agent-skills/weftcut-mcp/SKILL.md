@@ -87,5 +87,5 @@ right in a data structure and wrong on screen.
 ## Links
 
 - Product: https://weftcut.com/
-- MCP reference: https://github.com/UncleChair/WeftCut/blob/main/docs/mcp.md
-- Source (MIT): https://github.com/UncleChair/WeftCut
+- MCP reference: https://github.com/WeftCut/WeftCut/blob/main/docs/mcp.md
+- Source (MIT): https://github.com/WeftCut/WeftCut

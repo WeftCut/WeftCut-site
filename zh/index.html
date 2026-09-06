@@ -86,11 +86,12 @@
   "inLanguage": "zh-Hans",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "isAccessibleForFree": true,
-  "license": "https://github.com/UncleChair/WeftCut/blob/main/LICENSE",
+  "license": "https://github.com/WeftCut/WeftCut/blob/main/LICENSE",
   "url": "https://weftcut.com/",
-  "sameAs": "https://github.com/UncleChair/WeftCut",
-  "author": { "@type": "Organization", "name": "WeftCut 贡献者", "url": "https://github.com/UncleChair/WeftCut" },
-  "softwareHelp": { "@type": "CreativeWork", "url": "https://github.com/UncleChair/WeftCut/tree/main/docs" },
+  "downloadUrl": "https://github.com/WeftCut/WeftCut/releases/latest",
+  "sameAs": "https://github.com/WeftCut/WeftCut",
+  "author": { "@type": "Organization", "name": "WeftCut 贡献者", "url": "https://github.com/WeftCut/WeftCut" },
+  "softwareHelp": { "@type": "CreativeWork", "url": "https://github.com/WeftCut/WeftCut/tree/main/docs" },
   "screenshot": [
     "https://weftcut.com/assets/shots/editor-hero.webp",
     "https://weftcut.com/assets/shots/agent-mode.webp",
@@ -132,13 +133,13 @@
   "@type": "SoftwareSourceCode",
   "name": "WeftCut",
   "description": "WeftCut 的源代码。WeftCut 是一款免费开源的 AI 视频剪辑软件，通过 MCP 把整个编辑器开放给 AI agent。",
-  "codeRepository": "https://github.com/UncleChair/WeftCut",
+  "codeRepository": "https://github.com/WeftCut/WeftCut",
   "programmingLanguage": ["TypeScript", "Rust"],
   "runtimePlatform": "Electron",
-  "license": "https://github.com/UncleChair/WeftCut/blob/main/LICENSE",
+  "license": "https://github.com/WeftCut/WeftCut/blob/main/LICENSE",
   "url": "https://weftcut.com/",
   "inLanguage": "zh-Hans",
-  "author": { "@type": "Organization", "name": "WeftCut 贡献者", "url": "https://github.com/UncleChair/WeftCut" }
+  "author": { "@type": "Organization", "name": "WeftCut 贡献者", "url": "https://github.com/WeftCut/WeftCut" }
 }
 </script>
 <!-- The FAQ section, structured. Both languages emit their own copy of this, so
@@ -217,7 +218,7 @@
     <a class="lang-switch" data-lang-switch href="/" hreflang="en" lang="en" aria-label="Switch to English" title="English">
       <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.15"><circle cx="8" cy="8" r="6.2"/><ellipse cx="8" cy="8" rx="2.65" ry="6.2"/><path d="M2.2 5.9h11.6M2.2 10.1h11.6"/></svg>
     </a>
-    <a class="gh" href="https://github.com/UncleChair/WeftCut" rel="noopener">
+    <a class="gh" href="https://github.com/WeftCut/WeftCut" rel="noopener">
       <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.6-.18-3.29-.82-3.29-3.56 0-.79.28-1.43.74-1.93-.07-.18-.32-.91.07-1.9 0 0 .6-.19 1.97.74A6.8 6.8 0 0 1 8 3.8a6.8 6.8 0 0 1 1.79.24c1.37-.93 1.97-.74 1.97-.74.39.99.14 1.72.07 1.9.46.5.74 1.14.74 1.93 0 2.75-1.69 3.38-3.3 3.56.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>
       <span>GitHub</span>
     </a>
@@ -233,17 +234,13 @@
       <h1 class="rv">通过<em class="accent-agent">智能体</em>与<em class="accent-code">代码</em>完成剪辑</h1>
       <p class="lede rv">让 agent 穿梭于时间线，将剪辑、字幕和转场一一编织到位，而你始终掌握全局。</p>
       <p class="cta-row rv">
-        <!-- TEMPORARY: no public release exists yet, so /releases/latest just
-             redirects to an empty releases list. This is a <span> rather than a
-             disabled <a> on purpose: a link that goes nowhere is a screen reader
-             trap, and there is nothing to disable when there is nothing to
-             download. To put the button back, restore the anchor with
-             id="downloadButton" wrapping
-             #downloadPlatformIcon and #downloadButtonLabel; index.js's platform
-             detection and the CSS for those ids are both still in place and
-             re-arm the moment the ids exist again. -->
-        <span class="btn btn-pending" aria-disabled="true">敬请期待</span>
-        <a class="btn btn-ghost" href="https://github.com/UncleChair/WeftCut/tree/main/docs" rel="noopener">查看文档</a>
+        <a class="btn btn-primary" id="downloadButton" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="从 GitHub Releases 下载 WeftCut">
+          <span class="platform-icon" id="downloadPlatformIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M11 3h2v10.17l3.59-3.58L18 11l-6 6-6-6 1.41-1.41L11 13.17V3ZM5 19h14v2H5v-2Z"/></svg>
+          </span>
+          <span id="downloadButtonLabel">下载</span>
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/WeftCut/WeftCut/tree/main/docs" rel="noopener">查看文档</a>
       </p>
       <p class="hero-meta rv">macOS · Windows · Linux&ensp;—&ensp;免费开源&ensp;—&ensp;与你常用的 agent 协同工作</p>
     </div>
@@ -531,11 +528,7 @@
         <div class="finale-cta">
           <p class="finale-line">让时间线跟上你的<wbr /><span class="finale-phrase">每一个想法。</span></p>
           <p class="cta-row">
-            <!-- TEMPORARY: the hero's twin. /releases/latest redirects to an
-                 empty releases list until v1 ships, so the finale degrades the
-                 same way rather than closing the page on a dead link — see the
-                 fuller note in the hero for how to put the button back. -->
-            <span class="btn btn-pending" aria-disabled="true">敬请期待</span>
+            <a class="btn btn-primary" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener">获取 WeftCut</a>
           </p>
           <p class="finale-meta">macOS · Windows · Linux</p>
         </div>
@@ -544,7 +537,7 @@
           <p class="oss-eyebrow">开源 · MIT</p>
           <h3 id="oss-card-h">生而开放。</h3>
           <p>WeftCut 的开发全程公开，任何人都可免费使用、查看和扩展。你的剪辑工具，始终由你掌控。</p>
-          <a class="btn btn-ghost" href="https://github.com/UncleChair/WeftCut" rel="noopener">
+          <a class="btn btn-ghost" href="https://github.com/WeftCut/WeftCut" rel="noopener">
             <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.6-.18-3.29-.82-3.29-3.56 0-.79.28-1.43.74-1.93-.07-.18-.32-.91.07-1.9 0 0 .6-.19 1.97.74A6.8 6.8 0 0 1 8 3.8a6.8 6.8 0 0 1 1.79.24c1.37-.93 1.97-.74 1.97-.74.39.99.14 1.72.07 1.9.46.5.74 1.14.74 1.93 0 2.75-1.69 3.38-3.3 3.56.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
             查看源码
           </a>
@@ -650,8 +643,8 @@
       <a href="/zh/mcp/">MCP</a>
       <a href="/zh/ai-video-editor/">AI 剪辑</a>
       <a href="/zh/motifs/">Motif</a>
-      <a href="https://github.com/UncleChair/WeftCut" rel="noopener">GitHub</a>
-      <a href="https://github.com/UncleChair/WeftCut/tree/main/docs" rel="noopener">文档</a>
+      <a href="https://github.com/WeftCut/WeftCut" rel="noopener">GitHub</a>
+      <a href="https://github.com/WeftCut/WeftCut/tree/main/docs" rel="noopener">文档</a>
       <a href="/assets/agent-session.json">agent 会话</a>
       <a data-lang-switch href="/" hreflang="en" lang="en">English</a>
     </nav>

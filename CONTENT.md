@@ -12,7 +12,7 @@ come from the WeftCut product repository. Do not invent features.
   HTTP) with the full catalog of editing tools. The intelligence lives outside;
   the app bundles no models. **Everything an agent can do, you can do** — it is
   also a complete editor for humans.
-- Repo: https://github.com/UncleChair/WeftCut (link in nav + footer + OSS section)
+- Repo: https://github.com/WeftCut/WeftCut (link in nav + footer + OSS section)
 - License: MIT (app); bundles FFmpeg (LGPL decode libs / GPL CLI sidecar).
 - Platform: desktop, cross-platform (macOS / Windows / Linux), Electron shell.
 
