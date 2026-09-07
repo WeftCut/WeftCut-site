@@ -1,0 +1,13 @@
+{
+  "name": "Ridge Callout",
+  "size": [760, 300],
+  "default_duration_s": 4.0,
+  "content_duration_s": 1.2,
+  "settle_rafs": 1,
+  "props_schema": {
+    "value": { "type": "number", "default": 42, "min": 0, "max": 999 },
+    "kicker": { "type": "string", "default": "SHOTS CUT", "max_length": 24 },
+    "headline": { "type": "string", "default": "Aurora Ridge, act one", "max_length": 40 },
+    "accent": { "type": "color", "default": "#6696E6" }
+  }
+}
