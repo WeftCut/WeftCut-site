@@ -415,6 +415,78 @@
     }
   }
 
+  /* ---------- screenshot lightbox ----------
+     Every still on the page is a shot of the app's UI, and at grid width the
+     labels in it are unreadable. Clicking one opens it full-size over a dimmed
+     page. The affordance is added here rather than in the markup so a page
+     without JS never advertises an interaction it cannot perform. */
+  const zoomable = document.querySelectorAll(".film img");
+  if (zoomable.length) {
+    let overlay = null;
+    let opener = null;
+
+    const close = () => {
+      if (!overlay) return;
+      overlay.remove();
+      overlay = null;
+      document.removeEventListener("keydown", onKeydown);
+      if (opener) opener.focus();
+      opener = null;
+    };
+
+    function onKeydown(e) {
+      if (e.key === "Escape") close();
+    }
+
+    const open = (img) => {
+      close();
+      opener = img;
+      overlay = document.createElement("div");
+      overlay.className = "lightbox";
+      overlay.setAttribute("role", "dialog");
+      overlay.setAttribute("aria-modal", "true");
+      // The still's own alt text is the best name this dialog can have; it is
+      // what the reader just activated.
+      overlay.setAttribute("aria-label", img.alt || "");
+
+      const full = document.createElement("img");
+      full.src = img.currentSrc || img.src;
+      full.alt = img.alt;
+      overlay.appendChild(full);
+
+      const closeButton = document.createElement("button");
+      closeButton.type = "button";
+      closeButton.className = "lightbox-close";
+      closeButton.setAttribute("aria-label", t("zoomClose"));
+      closeButton.innerHTML =
+        '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">' +
+        '<path d="M3.5 3.5 12.5 12.5M12.5 3.5 3.5 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+      closeButton.addEventListener("click", close);
+      overlay.appendChild(closeButton);
+
+      // Anywhere off the picture closes it; the picture itself does not.
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) close();
+      });
+
+      document.body.appendChild(overlay);
+      document.addEventListener("keydown", onKeydown);
+      closeButton.focus();
+    };
+
+    for (const img of zoomable) {
+      img.setAttribute("role", "button");
+      img.setAttribute("tabindex", "0");
+      img.setAttribute("aria-haspopup", "dialog");
+      img.addEventListener("click", () => open(img));
+      img.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        e.preventDefault();
+        open(img);
+      });
+    }
+  }
+
   /* ---------- synced MCP tool-call replay ---------- */
   const demoVideo = document.getElementById("demoVideo");
   const logBody = document.getElementById("logBody");

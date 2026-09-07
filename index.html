@@ -191,6 +191,7 @@
   "logMetaMedian": "{count} calls · median {median}ms",
   "moreLines": "… +{n} lines (ctrl+o to expand)",
   "briefAria": "The brief handed to the agent",
+  "zoomClose": "Close the larger view",
   "callTitle": "{tool}({params})\n{status} in {ms}ms",
   "callOk": "ok",
   "callRejected": "rejected",
@@ -288,7 +289,8 @@
           <li>
             <span class="cue-tag">CONNECT</span>
             <p>Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a
-            minute. All local; nothing uploaded.</p>
+            minute. A Skill ships with it, giving your agent the full picture of what WeftCut
+            can do. All local; nothing uploaded.</p>
           </li>
           <li>
             <span class="cue-tag">THE CRAFT</span>
@@ -321,14 +323,14 @@
 
       <div class="frame-pair">
         <figure class="film rv">
-          <img src="/assets/shots/log-console.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut's live change feed, listing each agent action as it lands on the timeline" />
-          <figcaption>CHANGE FEED — EVERY AGENT MOVE, ON THE RECORD</figcaption>
+          <img src="/assets/shots/connect-agent.webp" width="1600" height="852" loading="lazy"
+               alt="WeftCut's Agent settings: a paste-ready MCP config, and the Skill WeftCut ships for your agent to install" />
+          <figcaption>QUICK TO CONNECT — THE FULL TOOLCHAIN, PLUS AN AGENT SKILL</figcaption>
         </figure>
         <figure class="film rv">
           <img src="/assets/shots/agent-mode.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut in agent mode: a simplified, focused UI while an external agent works on the project" />
-          <figcaption>AGENT MODE — A FOCUSED UI WHILE THE AGENT WORKS</figcaption>
+               alt="WeftCut in agent mode: a focused UI, with every agent move listed in the change feed beside the preview" />
+          <figcaption>AGENT MODE — A FOCUSED UI, EVERY MOVE ON THE RECORD</figcaption>
         </figure>
       </div>
     </div>
@@ -345,10 +347,10 @@
       </header>
 
       <div class="motif-showcase">
-        <figure class="film motif-picker-shot rv">
-          <img src="/assets/shots/motifs.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut's Motif picker showing a live countdown preview, editable controls, and a catalog of reusable overlays" />
-          <figcaption>PICK A STARTING POINT — OR MAKE ONE OF YOUR OWN</figcaption>
+        <figure class="film motif-live-shot rv">
+          <img src="/assets/shots/motif-live.webp" width="1600" height="852" loading="lazy"
+               alt="A brand-new Motif on the WeftCut timeline, rendering live in the program monitor while its props and its source sit open beside it" />
+          <figcaption>WHAT YOU SEE IS WHAT YOU GET — RENDERED INSTANTLY</figcaption>
         </figure>
 
         <div class="motif-export rv">
@@ -411,18 +413,18 @@
       <figure class="monitor rv">
         <video id="nleVideo" width="1600" height="852" poster="/assets/video/nle-tour-poster.jpg"
                controls muted playsinline preload="metadata"
-               aria-label="A tour of editing by hand in WeftCut: playback, scrubbing, splitting, trimming, keyframes, effects and export">
+               aria-label="A tour of editing by hand in WeftCut: playback, scrubbing, grouping clips into a composition, splitting, trimming, keyframes, effects and export">
           <source src="/assets/video/nle-tour.mp4" type="video/mp4" />
           <source src="/assets/video/nle-tour.webm" type="video/webm" />
         </video>
-        <figcaption>PLAYBACK · SCRUB · BLADE · TRIM · KEYFRAMES · EFFECTS · ⌘K → EXPORT</figcaption>
+        <figcaption>PLAYBACK · SCRUB · GROUP · BLADE · TRIM · KEYFRAMES · EFFECTS · CTRL-K → EXPORT</figcaption>
       </figure>
 
       <div class="feature-grid">
         <article class="fcard fcard-wide rv">
           <figure class="film">
-            <img class="timeline-closeup" src="/assets/shots/timeline-closeup.webp" width="1600" height="151" loading="lazy"
-                 alt="Close-up of the WeftCut timeline: clip filmstrips, an audio waveform and a keyframe curve lane" />
+            <img class="timeline-closeup" src="/assets/shots/timeline-closeup.webp" width="1600" height="202" loading="lazy"
+                 alt="Close-up of the WeftCut timeline: a caption row, clip filmstrips, an audio waveform and a keyframe curve lane" />
           </figure>
           <div class="fcard-body">
             <h3>Your story, clear at a glance</h3>
@@ -466,7 +468,7 @@
         <article class="fcard rv">
           <figure class="film">
             <img src="/assets/shots/captions.webp" width="1600" height="852" loading="lazy"
-                 alt="A styled caption on the program monitor with its editable text layer on the timeline" />
+                 alt="A styled caption on the program monitor, with the caption panel listing every cue beside it" />
           </figure>
           <div class="fcard-body">
             <h3>Titles &amp; captions</h3>
@@ -477,7 +479,7 @@
         <article class="fcard rv">
           <figure class="film">
             <img src="/assets/shots/search-palette.webp" width="1600" height="852" loading="lazy"
-                 alt="The Ctrl-K palette searching across commands, media, clips, captions and markers" />
+                 alt="The Ctrl-K palette matching a search across imported media and the clips already on the timeline" />
           </figure>
           <div class="fcard-body">
             <h3>Global search</h3>

@@ -192,6 +192,7 @@
   "logMetaMedian": "{count} 次调用 · 中位耗时 {median}ms",
   "moreLines": "… 还有 {n} 行（ctrl+o 展开）",
   "briefAria": "交给 agent 的任务简报",
+  "zoomClose": "关闭大图",
   "callTitle": "{tool}({params})\n{status} · 耗时 {ms}ms",
   "callOk": "成功",
   "callRejected": "被拒绝",
@@ -281,14 +282,14 @@
       <header class="sec-head rv">
         <p class="kicker"><span class="reel-no">第 01 场</span><span class="scene-no">差别所在</span></p>
         <h2 id="agent-h">原生设计，<em>面向智能体。</em></h2>
-        <p class="lede">WeftCut 通过标准 MCP 向智能体开放整套编辑能力——你能做的，智能体也能做。</p>
+        <p class="lede">WeftCut 通过标准 MCP 向 agent 开放整套编辑能力——你能做的，agent 也能做。</p>
       </header>
 
       <div class="agent-grid">
         <ul class="cue-list rv" role="list">
           <li>
             <span class="cue-tag">接入</span>
-            <p>进入「设置 → Agent」，复制配置，再粘贴到 Claude、Cursor 或任意 MCP 客户端，一分钟即可接入。全程在本地运行，无需上传素材。</p>
+            <p>进入「设置 → Agent」，复制配置，再粘贴到 Claude、Cursor 或任意 MCP 客户端，一分钟即可接入。附带 Skill，让 agent 全面了解 WeftCut 的能力。全程在本地运行，无需上传素材。</p>
           </li>
           <li>
             <span class="cue-tag">工具</span>
@@ -318,14 +319,14 @@
 
       <div class="frame-pair">
         <figure class="film rv">
-          <img src="/assets/shots/log-console.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut 的实时变更记录，逐条显示 agent 在时间线上完成的操作" />
-          <figcaption>变更记录 —— AGENT 的每一步都有迹可循</figcaption>
+          <img src="/assets/shots/connect-agent.webp" width="1600" height="852" loading="lazy"
+               alt="WeftCut 的 Agent 设置页：可直接粘贴的 MCP 配置，以及 WeftCut 随附、供 agent 安装的 Skill" />
+          <figcaption>快速接入 —— 完整工具链，附带 AGENT SKILL</figcaption>
         </figure>
         <figure class="film rv">
           <img src="/assets/shots/agent-mode.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut 的 agent 模式：外部 agent 处理项目时，界面会保持简洁专注" />
-          <figcaption>AGENT 模式 —— agent 工作时，界面保持简洁专注</figcaption>
+               alt="WeftCut 的 agent 模式：界面简洁专注，预览旁的变更记录逐条列出 agent 的每一步" />
+          <figcaption>AGENT 模式 —— 界面简洁专注，每一步都有迹可循</figcaption>
         </figure>
       </div>
     </div>
@@ -336,15 +337,15 @@
     <div class="wrap">
       <header class="sec-head rv">
         <p class="kicker"><span class="reel-no">第 02 场</span><span class="scene-no">代码即动效</span></p>
-        <h2 id="motifs-h">你的 agent 会写代码。<em>有了 Motif，它也会写动效。</em></h2>
+        <h2 id="motifs-h">你的智能体会写代码。<em>有了 Motif，它也会写动效。</em></h2>
         <p class="lede">描述你的创意，agent 会把它写为 Motif——让代码化作动效，让每种风格都能复用。</p>
       </header>
 
       <div class="motif-showcase">
-        <figure class="film motif-picker-shot rv">
-          <img src="/assets/shots/motifs.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut 的 Motif 选择器：实时倒计时预览、可编辑控件，以及可复用的叠加层目录" />
-          <figcaption>选择模板开始 —— 或从零创作</figcaption>
+        <figure class="film motif-live-shot rv">
+          <img src="/assets/shots/motif-live.webp" width="1600" height="852" loading="lazy"
+               alt="刚刚生成的 Motif 已落在 WeftCut 时间线上，节目监视器实时渲染，旁边同时展开它的参数与源码" />
+          <figcaption>所见即所得 —— 即时渲染</figcaption>
         </figure>
 
         <div class="motif-export rv">
@@ -406,18 +407,18 @@
       <figure class="monitor rv">
         <video id="nleVideo" width="1600" height="852" poster="/assets/video/nle-tour-poster.jpg"
                controls muted playsinline preload="metadata"
-               aria-label="WeftCut 手动剪辑功能演示：播放、逐帧浏览、切分、修剪、关键帧、特效与导出">
+               aria-label="WeftCut 手动剪辑功能演示：播放、逐帧浏览、将片段编组为合成、切分、修剪、关键帧、特效与导出">
           <source src="/assets/video/nle-tour.mp4" type="video/mp4" />
           <source src="/assets/video/nle-tour.webm" type="video/webm" />
         </video>
-        <figcaption>播放 · 拖动 · 切刀 · 修剪 · 关键帧 · 特效 · ⌘K → 导出</figcaption>
+        <figcaption>播放 · 拖动 · 编组 · 切刀 · 修剪 · 关键帧 · 特效 · CTRL-K → 导出</figcaption>
       </figure>
 
       <div class="feature-grid">
         <article class="fcard fcard-wide rv">
           <figure class="film">
-            <img class="timeline-closeup" src="/assets/shots/timeline-closeup.webp" width="1600" height="151" loading="lazy"
-                 alt="WeftCut 时间线特写：片段的胶片缩略图、音频波形和关键帧曲线轨" />
+            <img class="timeline-closeup" src="/assets/shots/timeline-closeup.webp" width="1600" height="202" loading="lazy"
+                 alt="WeftCut 时间线特写：字幕轨、片段的胶片缩略图、音频波形和关键帧曲线轨" />
           </figure>
           <div class="fcard-body">
             <h3>你的故事，一眼看清</h3>
@@ -461,7 +462,7 @@
         <article class="fcard rv">
           <figure class="film">
             <img src="/assets/shots/captions.webp" width="1600" height="852" loading="lazy"
-                 alt="节目监视器上带样式的字幕，以及时间线上对应的可编辑文字层" />
+                 alt="节目监视器上带样式的字幕，旁边的字幕面板逐条列出每一句" />
           </figure>
           <div class="fcard-body">
             <h3>标题与字幕</h3>
@@ -472,7 +473,7 @@
         <article class="fcard rv">
           <figure class="film">
             <img src="/assets/shots/search-palette.webp" width="1600" height="852" loading="lazy"
-                 alt="Ctrl-K 面板同时搜索命令、素材、片段、字幕和标记" />
+                 alt="Ctrl-K 面板在已导入素材与时间线上的片段中同时匹配" />
           </figure>
           <div class="fcard-body">
             <h3>全局搜索</h3>

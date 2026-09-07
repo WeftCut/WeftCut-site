@@ -25,11 +25,11 @@ claude · weftcut 真实会话 · 已同步
 
 ## 原生设计，*面向智能体。*
 
-WeftCut 通过标准 MCP 向智能体开放整套编辑能力——你能做的，智能体也能做。
+WeftCut 通过标准 MCP 向 agent 开放整套编辑能力——你能做的，agent 也能做。
 
 - 接入
 
-  进入「设置 → Agent」，复制配置，再粘贴到 Claude、Cursor 或任意 MCP 客户端，一分钟即可接入。全程在本地运行，无需上传素材。
+  进入「设置 → Agent」，复制配置，再粘贴到 Claude、Cursor 或任意 MCP 客户端，一分钟即可接入。附带 Skill，让 agent 全面了解 WeftCut 的能力。全程在本地运行，无需上传素材。
 - 工具
 
   剪辑所需的工具一应俱全：修剪、切分、转场、关键帧、特效、字幕、标记与撤销。
@@ -46,23 +46,23 @@ WeftCut 通过标准 MCP 向智能体开放整套编辑能力——你能做的�
 - 「在每个镜头切换处把这条素材切开，标上场次。」
 - 「把所有字幕的样式重做一遍——字再大一点，加柔和阴影。」
 
-![WeftCut 的实时变更记录，逐条显示 agent 在时间线上完成的操作](https://weftcut.com/assets/shots/log-console.webp)
+![WeftCut 的 Agent 设置页：可直接粘贴的 MCP 配置，以及 WeftCut 随附、供 agent 安装的 Skill](https://weftcut.com/assets/shots/connect-agent.webp)
 
-*变更记录 —— AGENT 的每一步都有迹可循*
+*快速接入 —— 完整工具链，附带 AGENT SKILL*
 
-![WeftCut 的 agent 模式：外部 agent 处理项目时，界面会保持简洁专注](https://weftcut.com/assets/shots/agent-mode.webp)
+![WeftCut 的 agent 模式：界面简洁专注，预览旁的变更记录逐条列出 agent 的每一步](https://weftcut.com/assets/shots/agent-mode.webp)
 
-*AGENT 模式 —— agent 工作时，界面保持简洁专注*
+*AGENT 模式 —— 界面简洁专注，每一步都有迹可循*
 
 第 02 场 代码即动效
 
-## 你的 agent 会写代码。*有了 Motif，它也会写动效。*
+## 你的智能体会写代码。*有了 Motif，它也会写动效。*
 
 描述你的创意，agent 会把它写为 Motif——让代码化作动效，让每种风格都能复用。
 
-![WeftCut 的 Motif 选择器：实时倒计时预览、可编辑控件，以及可复用的叠加层目录](https://weftcut.com/assets/shots/motifs.webp)
+![刚刚生成的 Motif 已落在 WeftCut 时间线上，节目监视器实时渲染，旁边同时展开它的参数与源码](https://weftcut.com/assets/shots/motif-live.webp)
 
-*选择模板开始 —— 或从零创作*
+*所见即所得 —— 即时渲染*
 
 「给这场加个标题、一条字幕条和一个倒计时。」 真实导出
 
@@ -95,9 +95,9 @@ agent 会把想法做成 Motif，直接放到时间线上播放。
 
 你依然拥有专业桌面剪辑软件应有的精度与控制；agent 使用同一套工具，每一项改动也都会清楚呈现在时间线上。
 
-*播放 · 拖动 · 切刀 · 修剪 · 关键帧 · 特效 · ⌘K → 导出*
+*播放 · 拖动 · 编组 · 切刀 · 修剪 · 关键帧 · 特效 · CTRL-K → 导出*
 
-![WeftCut 时间线特写：片段的胶片缩略图、音频波形和关键帧曲线轨](https://weftcut.com/assets/shots/timeline-closeup.webp)
+![WeftCut 时间线特写：字幕轨、片段的胶片缩略图、音频波形和关键帧曲线轨](https://weftcut.com/assets/shots/timeline-closeup.webp)
 
 ### 你的故事，一眼看清
 
@@ -121,13 +121,13 @@ agent 会把想法做成 Motif，直接放到时间线上播放。
 
 从预览画面吸取键色，就地完成抠像微调。
 
-![节目监视器上带样式的字幕，以及时间线上对应的可编辑文字层](https://weftcut.com/assets/shots/captions.webp)
+![节目监视器上带样式的字幕，旁边的字幕面板逐条列出每一句](https://weftcut.com/assets/shots/captions.webp)
 
 ### 标题与字幕
 
 导入 SRT、VTT 或 ASS，一步统一全片字幕样式。
 
-![Ctrl-K 面板同时搜索命令、素材、片段、字幕和标记](https://weftcut.com/assets/shots/search-palette.webp)
+![Ctrl-K 面板在已导入素材与时间线上的片段中同时匹配](https://weftcut.com/assets/shots/search-palette.webp)
 
 ### 全局搜索
 

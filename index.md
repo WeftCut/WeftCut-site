@@ -29,7 +29,7 @@ WeftCut opens the whole editor to your agent over standard MCP — everything yo
 
 - CONNECT
 
-  Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a minute. All local; nothing uploaded.
+  Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a minute. A Skill ships with it, giving your agent the full picture of what WeftCut can do. All local; nothing uploaded.
 - THE CRAFT
 
   The full editing vocabulary is on the table: trim, split, transitions, keyframes, effects, captions, markers, undo.
@@ -46,13 +46,13 @@ WeftCut opens the whole editor to your agent over standard MCP — everything yo
 - “Split this take at every shot change and label the scenes.”
 - “Restyle every caption — larger, with a soft shadow.”
 
-![WeftCut's live change feed, listing each agent action as it lands on the timeline](https://weftcut.com/assets/shots/log-console.webp)
+![WeftCut's Agent settings: a paste-ready MCP config, and the Skill WeftCut ships for your agent to install](https://weftcut.com/assets/shots/connect-agent.webp)
 
-*CHANGE FEED — EVERY AGENT MOVE, ON THE RECORD*
+*QUICK TO CONNECT — THE FULL TOOLCHAIN, PLUS AN AGENT SKILL*
 
-![WeftCut in agent mode: a simplified, focused UI while an external agent works on the project](https://weftcut.com/assets/shots/agent-mode.webp)
+![WeftCut in agent mode: a focused UI, with every agent move listed in the change feed beside the preview](https://weftcut.com/assets/shots/agent-mode.webp)
 
-*AGENT MODE — A FOCUSED UI WHILE THE AGENT WORKS*
+*AGENT MODE — A FOCUSED UI, EVERY MOVE ON THE RECORD*
 
 Scene 02 Code as motion
 
@@ -60,9 +60,9 @@ Scene 02 Code as motion
 
 Describe your idea. Let your agent turn it into a Motif — where code becomes motion and every look stays reusable.
 
-![WeftCut's Motif picker showing a live countdown preview, editable controls, and a catalog of reusable overlays](https://weftcut.com/assets/shots/motifs.webp)
+![A brand-new Motif on the WeftCut timeline, rendering live in the program monitor while its props and its source sit open beside it](https://weftcut.com/assets/shots/motif-live.webp)
 
-*PICK A STARTING POINT — OR MAKE ONE OF YOUR OWN*
+*WHAT YOU SEE IS WHAT YOU GET — RENDERED INSTANTLY*
 
 “Add a title, lower third, and countdown to this scene.” ACTUAL EXPORT
 
@@ -95,9 +95,9 @@ Scene 03 The human cut
 
 You keep the precision and control of a serious desktop editor. Your agent gets access to the same tools, while every change remains visible on your timeline.
 
-*PLAYBACK · SCRUB · BLADE · TRIM · KEYFRAMES · EFFECTS · ⌘K → EXPORT*
+*PLAYBACK · SCRUB · GROUP · BLADE · TRIM · KEYFRAMES · EFFECTS · CTRL-K → EXPORT*
 
-![Close-up of the WeftCut timeline: clip filmstrips, an audio waveform and a keyframe curve lane](https://weftcut.com/assets/shots/timeline-closeup.webp)
+![Close-up of the WeftCut timeline: a caption row, clip filmstrips, an audio waveform and a keyframe curve lane](https://weftcut.com/assets/shots/timeline-closeup.webp)
 
 ### Your story, clear at a glance
 
@@ -121,13 +121,13 @@ Stack, reorder, and fine-tune effects beside the preview.
 
 Sample the key color from the preview, then refine the result in place.
 
-![A styled caption on the program monitor with its editable text layer on the timeline](https://weftcut.com/assets/shots/captions.webp)
+![A styled caption on the program monitor, with the caption panel listing every cue beside it](https://weftcut.com/assets/shots/captions.webp)
 
 ### Titles & captions
 
 Import SRT, VTT, or ASS, then restyle the whole video in one step.
 
-![The Ctrl-K palette searching across commands, media, clips, captions and markers](https://weftcut.com/assets/shots/search-palette.webp)
+![The Ctrl-K palette matching a search across imported media and the clips already on the timeline](https://weftcut.com/assets/shots/search-palette.webp)
 
 ### Global search
 

@@ -288,10 +288,12 @@ Everything on the page is a real capture of the shipping app, not a mockup:
   summary — timestamps remapped to the compressed video timeline. The page
   replays it as a terminal, synced to the video.
 - `assets/video/nle-tour.mp4` — human-style interactions (playback, ruler
-  scrub, zoom, blade split, delete, trim, keyframe lanes, effect add,
-  Cmd+K → export, log console) driven via CDP input with an in-page cursor.
+  scrub, zoom, pre-compose into a Group and open it, blade split, trim,
+  keyframe lanes, effect chain, Ctrl+K → export) driven via CDP input with an
+  in-page cursor.
 - `assets/shots/*.webp` — `page.screenshot` stills of the app's panels
-  (agent mode, connect-agent snippet, export settings, eyedropper, …).
+  (agent mode, the Agent settings panel and its shipped Skill, a draft Motif
+  rendering on the timeline, export settings, eyedropper, …).
 - `assets/video/motif-showcase.mp4` (+ poster) — a real five-second WeftCut
   export combining Text FX, a lower third, and a countdown. The page plays it
   once when Scene 02 enters view.
@@ -304,14 +306,35 @@ Everything on the page is a real capture of the shipping app, not a mockup:
   synthesized pads — the embers bed carries a deliberate 3.2 s dead-air gap for
   the agent's silence detector to find. See `.work/harness/scenes.html`.
 
-The harness that produced all of this lives in `.work/harness/` (Playwright
-`_electron` + a minimal MCP client + ffmpeg screen capture; the hero session
-uses the newer `.work/harness/agent-session/` kit instead — CDP screencast
-recorder + `claude -p` runner + idle-cut composer). Legacy re-run order:
-`agent-demo.mjs` → `nle-tour.mjs` → `screenshots.mjs` → `addendum.mjs` →
-`postprocess.mjs`. It requires a WeftCut checkout built with
+The harness that produced all of this lives in `.work/harness/`: Playwright
+`_electron` + a minimal MCP client, against a WeftCut checkout built with
 `npm run build:e2e`. By default the checkout is discovered as a sibling named
 `WeftCut`; no workstation-specific paths are required.
+
+Scene 01–03 re-run order (the `win-*` kit — Windows-native, and portable
+because nothing in it shells out to a macOS capture device):
+
+```sh
+node .work/harness/win-shots.mjs      # every still → .work/shots/*.png
+node .work/harness/win-tour.mjs       # Scene 03's video → .work/videos/tour-run/
+node .work/harness/win-compose.mjs    # frames + timings → .work/videos/nle-tour.mp4
+node .work/harness/win-post.mjs       # the named files → assets/
+```
+
+`win-setup.mjs` holds what both capture scripts share: a 1600×852 CSS viewport
+sized through Electron's own content bounds, `growTimeline()` (the tour used to
+film a row half-hidden behind the status bar), and the demo timeline builder.
+`win-shots.mjs` also authors `.work/harness/motifs/ridge-callout.*` through
+`write_motif_draft`, so Scene 02's still is a Motif that did not exist before
+the run. `win-post.mjs` deliberately names the files it ships rather than
+sweeping `.work/shots/`, which still holds stills from older runs.
+
+The macOS originals are still here — `agent-demo.mjs` → `nle-tour.mjs` →
+`screenshots.mjs` → `addendum.mjs` → `postprocess.mjs` — but their recorder
+captures the screen with ffmpeg's `avfoundation` device and drives `Cmd`
+shortcuts, so they only run on a Mac. The hero session uses its own
+`.work/harness/agent-session/` kit — CDP screencast recorder + `claude -p`
+runner + idle-cut composer.
 
 Hero-session re-run order (`.work/harness/agent-session/`): generate footage
 (`scenes.html` + Playwright frame dump + ffmpeg), launch the app dev build with

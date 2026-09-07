@@ -134,14 +134,16 @@ mediabunny containers · MCP over streamable HTTP.
   full agent demo — one real MCP session ("Aurora Ridge" teaser: canvas-art
   footage aurora/ridgeline/lakeside/embers), CDP screen capture of the live
   app, idle time between calls cut; ends with the finished cut playing back.
-- assets/video/nle-tour.mp4 (+ .webm, poster): human NLE interactions (~53s).
+- assets/video/nle-tour.mp4 (+ .webm, poster): human NLE interactions (~68s) —
+  playback, ruler scrub, zoom, pre-compose into a Group (open it, then ungroup),
+  blade split, trim, keyframe lane, effect chain, Ctrl-K to the export dialog.
 - assets/agent-session.json: the real session transcript in terminal shape
   (prompt, agent messages, every tool call with its MCP display name, raw
   params and clipped `⎿` result, errors, closing summary) with timestamps
   remapped to the compressed video timeline.
 - assets/shots/*.webp: 1600w screenshots — editor-hero, timeline-closeup, curve-editor,
-  effects, search-palette, connect-agent, export, captions, motifs, agent-mode,
-  eyedropper, log-console.
+  effects, search-palette, connect-agent, export, captions, motif-live,
+  agent-mode, eyedropper.
 - assets/video/motif-showcase.mp4 (+ poster): real five-second product export
   combining animated Text FX, a lower third, and a countdown; plays once in
   Scene 02.
