@@ -172,7 +172,7 @@
     {
       "@type": "Question",
       "name": "What platforms does it run on?",
-      "acceptedAnswer": { "@type": "Answer", "text": "macOS, Windows and Linux — one desktop app, same feature set everywhere." }
+      "acceptedAnswer": { "@type": "Answer", "text": "macOS, Windows and Linux — one desktop app, same feature set everywhere. The ready-made builds cover Windows x64, Apple Silicon Macs and x86_64 Linux; every other target builds from source." }
     }
   ]
 }
@@ -185,6 +185,20 @@
 {
   "downloadFor": "Download for {platform}",
   "downloadAria": "Download WeftCut for {platform} from GitHub Releases",
+  "getFor": "Get WeftCut for {platform}",
+  "getAria": "Get WeftCut for {platform} from GitHub Releases",
+  "buildFromSource": "Build from source",
+  "buildAria": "Build WeftCut from source — setup instructions on GitHub",
+  "viewOnGitHub": "View on GitHub",
+  "repoAria": "The WeftCut repository on GitHub",
+  "noteWindows": "{file} · 64-bit · installs and updates itself",
+  "noteMacos": "{file} · Apple Silicon, macOS 13 or newer",
+  "caveatMacos": "Not notarized — how to open it anyway",
+  "noteLinux": "{file} · x86_64 · mark it executable, then run it",
+  "caveatLinux": "On Debian or Ubuntu? Take the .deb instead.",
+  "noteMacIntel": "No Intel Mac build — the bundled ffmpeg is Apple Silicon only. The source is the way in.",
+  "noteLinuxArm": "No arm64 Linux build yet — x86_64 only. The source is the way in.",
+  "noteMobile": "WeftCut is a desktop editor. Open this page on macOS, Windows or Linux to download it.",
   "logStatIdle": "{count} REAL CALLS · IN SYNC",
   "logStatProgress": "{done}/{count} · T+{time}",
   "logMeta": "{count} calls",
@@ -234,14 +248,53 @@
       <h1 class="rv">Cut with your <em class="accent-agent">agent</em> and <em class="accent-code">code</em></h1>
       <p class="lede rv">Let the agent be the weft in your timeline—threading every cut, caption, and transition into place while you stay in control.</p>
       <p class="cta-row rv">
-        <a class="btn btn-primary" id="downloadButton" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="Download WeftCut from GitHub Releases">
-          <span class="platform-icon" id="downloadPlatformIcon" aria-hidden="true">
+        <a class="btn btn-primary" id="downloadButton" data-download-cta="download" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="Download WeftCut from GitHub Releases">
+          <span class="platform-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M11 3h2v10.17l3.59-3.58L18 11l-6 6-6-6 1.41-1.41L11 13.17V3ZM5 19h14v2H5v-2Z"/></svg>
           </span>
-          <span id="downloadButtonLabel">Download</span>
+          <span class="btn-label">Download</span>
         </a>
         <a class="btn btn-ghost" href="https://github.com/WeftCut/WeftCut/tree/main/docs" rel="noopener">Read the docs</a>
       </p>
+      <!-- Left empty in the served HTML on purpose: index.js fills it once it
+           knows the platform, and a build note for a platform the visitor
+           isn't on is worse than no note at all. -->
+      <p class="dl-note" id="downloadNote"></p>
+      <!-- <details> rather than a scripted panel, so every installer stays
+           reachable — and indexable — with scripting off. The asset names carry
+           no version by CI contract, which is what makes these links permanent. -->
+      <details class="dl-all rv">
+        <summary>All platforms</summary>
+        <ul class="dl-list" role="list">
+          <li>
+            <span class="dl-os">Windows</span>
+            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe" rel="noopener">WeftCut-win-x64.exe</a>
+            <span class="dl-hint">64-bit · installs and updates itself</span>
+          </li>
+          <li>
+            <span class="dl-os">macOS</span>
+            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg" rel="noopener">WeftCut-mac-arm64.dmg</a>
+            <span class="dl-hint">Apple Silicon, macOS 13 or newer</span>
+          </li>
+          <li>
+            <span class="dl-os">Linux</span>
+            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage" rel="noopener">WeftCut-linux-x86_64.AppImage</a>
+            <span class="dl-hint">x86_64 · mark it executable, then run it</span>
+          </li>
+          <li>
+            <span class="dl-os">Linux</span>
+            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb" rel="noopener">WeftCut-linux-amd64.deb</a>
+            <span class="dl-hint">Debian and Ubuntu</span>
+          </li>
+          <li>
+            <span class="dl-os">Source</span>
+            <a href="https://github.com/WeftCut/WeftCut/blob/main/docs/setup.md" rel="noopener">docs/setup.md</a>
+            <span class="dl-hint">Intel Macs, ARM Linux, anything else — Node, Rust, one build</span>
+          </li>
+        </ul>
+        <p class="dl-fine">The macOS build is ad-hoc signed rather than notarized, so its first launch is blocked: open it once, then allow it under System Settings → Privacy and Security → Open Anyway.</p>
+        <p class="dl-fine">Every link here resolves to the newest release. <a href="https://github.com/WeftCut/WeftCut/releases" rel="noopener">The release list</a> keeps the older builds, their notes and their checksums.</p>
+      </details>
       <p class="hero-meta rv">macOS · Windows · Linux&ensp;—&ensp;free &amp; open source&ensp;—&ensp;works with the agent you already use</p>
     </div>
   </section>
@@ -536,7 +589,12 @@
         <div class="finale-cta">
           <p class="finale-line">Let the timeline keep up with <span class="finale-phrase">every idea.</span></p>
           <p class="cta-row">
-            <a class="btn btn-primary" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener">Get WeftCut</a>
+            <a class="btn btn-primary" data-download-cta="get" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="Get WeftCut from GitHub Releases">
+              <span class="platform-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M11 3h2v10.17l3.59-3.58L18 11l-6 6-6-6 1.41-1.41L11 13.17V3ZM5 19h14v2H5v-2Z"/></svg>
+              </span>
+              <span class="btn-label">Get WeftCut</span>
+            </a>
           </p>
           <p class="finale-meta">macOS · Windows · Linux</p>
         </div>
@@ -581,7 +639,7 @@
         </li>
         <li>
           <h3>What platforms does it run on?</h3>
-          <p>macOS, Windows and Linux — one desktop app, same feature set everywhere.</p>
+          <p>macOS, Windows and Linux — one desktop app, same feature set everywhere. The ready-made builds cover Windows x64, Apple Silicon Macs and x86_64 Linux; every other target builds from source.</p>
         </li>
       </ul>
     </div>

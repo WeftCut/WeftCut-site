@@ -18,9 +18,25 @@
 - Tool surface: ~66 tools/resources/prompts covering the full editing vocabulary
 - Rendering: PixiJS v8 + WebCodecs preview, streamed muxing export
 - License: MIT (bundles FFmpeg under LGPL/GPL lanes)
-- Platforms: macOS, Windows, Linux
+- Platforms: Windows x64, Apple Silicon macOS (13+), x86_64 Linux; any other
+  target builds from source
 - Also described as: an agent-native video editor, an MCP video editor, an AI
   agent video editor, or an open-source AI video editor — all the same product
+
+## Download
+
+Asset names carry no version, so each link below is permanent and always
+resolves to the current release.
+
+- Windows x64: [WeftCut-win-x64.exe](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe)
+- macOS, Apple Silicon: [WeftCut-mac-arm64.dmg](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg)
+- Linux x86_64: [WeftCut-linux-x86_64.AppImage](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage)
+  or [WeftCut-linux-amd64.deb](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb)
+- Anything else — an Intel Mac, an arm64 Linux box — builds from source:
+  [setup instructions](https://github.com/WeftCut/WeftCut/blob/main/docs/setup.md)
+
+The macOS build is ad-hoc signed and not notarized, so its first launch has to
+be allowed under System Settings → Privacy and Security.
 
 ## Pages
 

@@ -173,7 +173,7 @@
     {
       "@type": "Question",
       "name": "支持哪些平台？",
-      "acceptedAnswer": { "@type": "Answer", "text": "支持 macOS、Windows 和 Linux，所有平台均提供一致的功能。" }
+      "acceptedAnswer": { "@type": "Answer", "text": "支持 macOS、Windows 和 Linux，所有平台均提供一致的功能。现成的安装包覆盖 Windows x64、Apple Silicon Mac 与 x86_64 Linux；其他平台可自行从源码构建。" }
     }
   ]
 }
@@ -186,6 +186,20 @@
 {
   "downloadFor": "下载 {platform} 版",
   "downloadAria": "从 GitHub Releases 下载 WeftCut {platform} 版",
+  "getFor": "获取 WeftCut {platform} 版",
+  "getAria": "从 GitHub Releases 获取 WeftCut {platform} 版",
+  "buildFromSource": "从源码构建",
+  "buildAria": "从源码构建 WeftCut — 构建说明在 GitHub 上",
+  "viewOnGitHub": "在 GitHub 上查看",
+  "repoAria": "GitHub 上的 WeftCut 仓库",
+  "noteWindows": "{file} · 64 位 · 自动安装，自动更新",
+  "noteMacos": "{file} · Apple Silicon，macOS 13 及以上",
+  "caveatMacos": "未经过公证 — 首次启动如何放行",
+  "noteLinux": "{file} · x86_64 · 赋予可执行权限后直接运行",
+  "caveatLinux": "用 Debian 或 Ubuntu？改用 .deb 安装包。",
+  "noteMacIntel": "没有 Intel Mac 版本 — 随附的 ffmpeg 只有 Apple Silicon 构建。从源码构建是唯一的路。",
+  "noteLinuxArm": "暂无 arm64 Linux 版本 — 目前只有 x86_64。从源码构建是唯一的路。",
+  "noteMobile": "WeftCut 是桌面端剪辑软件。请在 macOS、Windows 或 Linux 上打开本页下载。",
   "logStatIdle": "{count} 次真实调用 · 已同步",
   "logStatProgress": "{done}/{count} · T+{time}",
   "logMeta": "{count} 次调用",
@@ -235,14 +249,53 @@
       <h1 class="rv">通过<em class="accent-agent">智能体</em>与<em class="accent-code">代码</em>完成剪辑</h1>
       <p class="lede rv">让 agent 穿梭于时间线，将剪辑、字幕和转场一一编织到位，而你始终掌握全局。</p>
       <p class="cta-row rv">
-        <a class="btn btn-primary" id="downloadButton" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="从 GitHub Releases 下载 WeftCut">
-          <span class="platform-icon" id="downloadPlatformIcon" aria-hidden="true">
+        <a class="btn btn-primary" id="downloadButton" data-download-cta="download" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="从 GitHub Releases 下载 WeftCut">
+          <span class="platform-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M11 3h2v10.17l3.59-3.58L18 11l-6 6-6-6 1.41-1.41L11 13.17V3ZM5 19h14v2H5v-2Z"/></svg>
           </span>
-          <span id="downloadButtonLabel">下载</span>
+          <span class="btn-label">下载</span>
         </a>
         <a class="btn btn-ghost" href="https://github.com/WeftCut/WeftCut/tree/main/docs" rel="noopener">查看文档</a>
       </p>
+      <!-- Left empty in the served HTML on purpose: index.js fills it once it
+           knows the platform, and a build note for a platform the visitor
+           isn't on is worse than no note at all. -->
+      <p class="dl-note" id="downloadNote"></p>
+      <!-- <details> rather than a scripted panel, so every installer stays
+           reachable — and indexable — with scripting off. The asset names carry
+           no version by CI contract, which is what makes these links permanent. -->
+      <details class="dl-all rv">
+        <summary>全部平台</summary>
+        <ul class="dl-list" role="list">
+          <li>
+            <span class="dl-os">Windows</span>
+            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe" rel="noopener">WeftCut-win-x64.exe</a>
+            <span class="dl-hint">64 位 · 自动安装，自动更新</span>
+          </li>
+          <li>
+            <span class="dl-os">macOS</span>
+            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg" rel="noopener">WeftCut-mac-arm64.dmg</a>
+            <span class="dl-hint">Apple Silicon，macOS 13 及以上</span>
+          </li>
+          <li>
+            <span class="dl-os">Linux</span>
+            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage" rel="noopener">WeftCut-linux-x86_64.AppImage</a>
+            <span class="dl-hint">x86_64 · 赋予可执行权限后直接运行</span>
+          </li>
+          <li>
+            <span class="dl-os">Linux</span>
+            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb" rel="noopener">WeftCut-linux-amd64.deb</a>
+            <span class="dl-hint">Debian 与 Ubuntu</span>
+          </li>
+          <li>
+            <span class="dl-os">源码</span>
+            <a href="https://github.com/WeftCut/WeftCut/blob/main/docs/setup.md" rel="noopener">docs/setup.md</a>
+            <span class="dl-hint">Intel Mac、ARM Linux 及其他平台 — 备好 Node 与 Rust，自行构建</span>
+          </li>
+        </ul>
+        <p class="dl-fine">macOS 版本只做了 ad-hoc 签名、未经过公证，因此首次启动会被系统拦截：先打开一次，再到「系统设置 → 隐私与安全性」中选择「仍要打开」。</p>
+        <p class="dl-fine">以上每个链接都指向最新发布版本；<a href="https://github.com/WeftCut/WeftCut/releases" rel="noopener">发布列表</a>中保留了历史版本、发布说明与校验值。</p>
+      </details>
       <p class="hero-meta rv">macOS · Windows · Linux&ensp;—&ensp;免费开源&ensp;—&ensp;与你常用的 agent 协同工作</p>
     </div>
   </section>
@@ -529,7 +582,12 @@
         <div class="finale-cta">
           <p class="finale-line">让时间线跟上你的<wbr /><span class="finale-phrase">每一个想法。</span></p>
           <p class="cta-row">
-            <a class="btn btn-primary" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener">获取 WeftCut</a>
+            <a class="btn btn-primary" data-download-cta="get" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="从 GitHub Releases 获取 WeftCut">
+              <span class="platform-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M11 3h2v10.17l3.59-3.58L18 11l-6 6-6-6 1.41-1.41L11 13.17V3ZM5 19h14v2H5v-2Z"/></svg>
+              </span>
+              <span class="btn-label">获取 WeftCut</span>
+            </a>
           </p>
           <p class="finale-meta">macOS · Windows · Linux</p>
         </div>
@@ -574,7 +632,7 @@
         </li>
         <li>
           <h3>支持哪些平台？</h3>
-          <p>支持 macOS、Windows 和 Linux，所有平台均提供一致的功能。</p>
+          <p>支持 macOS、Windows 和 Linux，所有平台均提供一致的功能。现成的安装包覆盖 Windows x64、Apple Silicon Mac 与 x86_64 Linux；其他平台可自行从源码构建。</p>
         </li>
       </ul>
     </div>

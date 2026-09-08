@@ -103,38 +103,149 @@
     pio.observe(promptList);
   }
 
-  /* ---------- platform-aware download ---------- */
-  const downloadButton = document.getElementById("downloadButton");
-  const downloadPlatformIcon = document.getElementById("downloadPlatformIcon");
-  const downloadButtonLabel = document.getElementById("downloadButtonLabel");
-  if (downloadButton && downloadPlatformIcon && downloadButtonLabel) {
-    const hintedPlatform = navigator.userAgentData && navigator.userAgentData.platform;
-    const platformSource = [hintedPlatform, navigator.platform, navigator.userAgent]
-      .filter(Boolean)
-      .join(" ");
-    const isUnsupportedMobile = /Android|iPhone|iPad|iPod|CrOS/i.test(platformSource);
+  /* ---------- platform-aware download ----------
+     The installers carry no version in their names — electron-builder's
+     artifactName is `${productName}-${os}-${arch}.${ext}` — so
+     releases/latest/download/<name> is a permanent link to the current build
+     and nothing here ever learns a version number. Those four names are the
+     whole shipping matrix: an Intel Mac or an arm64 Linux box is handed the
+     build instructions rather than a binary that cannot run on it. */
+  const REPO = "https://github.com/WeftCut/WeftCut";
+  const RELEASE = REPO + "/releases/latest";
+  const SETUP = REPO + "/blob/main/docs/setup.md";
+  const installer = (file) => ({ file, href: RELEASE + "/download/" + file });
+  const WIN = installer("WeftCut-win-x64.exe");
+  const MAC = installer("WeftCut-mac-arm64.dmg");
+  const APPIMAGE = installer("WeftCut-linux-x86_64.AppImage");
+  const DEB = installer("WeftCut-linux-amd64.deb");
 
-    let platform = { key: "generic", name: "" };
-    if (!isUnsupportedMobile && /Windows|Win32|Win64/i.test(platformSource)) {
-      platform = { key: "windows", name: "Windows" };
-    } else if (!isUnsupportedMobile && /macOS|Macintosh|MacIntel|MacPPC|Mac68K/i.test(platformSource)) {
-      platform = { key: "macos", name: "macOS" };
-    } else if (!isUnsupportedMobile && /Linux|X11/i.test(platformSource)) {
-      platform = { key: "linux", name: "Linux" };
-    }
+  const ICONS = {
+    windows: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M3 5.1 10.3 4v7H3V5.1Zm8.3-1.25L21 2.4V11h-9.7V3.85ZM3 12h7.3v7L3 17.9V12Zm8.3 0H21v8.6l-9.7-1.45V12Z"/></svg>',
+    macos: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M16.6 12.5c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.7-1.7-3.3-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 7 1.1 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.9.7 3.1.7 1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.8-1.1-2.8-4.1ZM14.3 5.9c.6-.8 1.1-2 1-3.1-1 .1-2.2.7-2.9 1.5-.6.7-1.1 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></svg>',
+    linux: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M3 4h18v16H3V4Zm2 2v12h14V6H5Zm1.5 2.2L9.3 11l-2.8 2.8 1.4 1.4 4.2-4.2-4.2-4.2-1.4 1.4ZM12 14h5v2h-5v-2Z"/></svg>',
+    source: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4Zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4Z"/></svg>',
+    github: '<svg viewBox="0 0 16 16" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.6-.18-3.29-.82-3.29-3.56 0-.79.28-1.43.74-1.93-.07-.18-.32-.91.07-1.9 0 0 .6-.19 1.97.74A6.8 6.8 0 0 1 8 3.8a6.8 6.8 0 0 1 1.79.24c1.37-.93 1.97-.74 1.97-.74.39.99.14 1.72.07 1.9.46.5.74 1.14.74 1.93 0 2.75-1.69 3.38-3.3 3.56.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>',
+  };
 
-    const platformIcons = {
-      generic: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M11 3h2v10.17l3.59-3.58L18 11l-6 6-6-6 1.41-1.41L11 13.17V3ZM5 19h14v2H5v-2Z"/></svg>',
-      windows: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M3 5.1 10.3 4v7H3V5.1Zm8.3-1.25L21 2.4V11h-9.7V3.85ZM3 12h7.3v7L3 17.9V12Zm8.3 0H21v8.6l-9.7-1.45V12Z"/></svg>',
-      macos: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M16.6 12.5c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.7-1.7-3.3-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 7 1.1 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.9.7 3.1.7 1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.8-1.1-2.8-4.1ZM14.3 5.9c.6-.8 1.1-2 1-3.1-1 .1-2.2.7-2.9 1.5-.6.7-1.1 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></svg>',
-      linux: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M3 4h18v16H3V4Zm2 2v12h14V6H5Zm1.5 2.2L9.3 11l-2.8 2.8 1.4 1.4 4.2-4.2-4.2-4.2-1.4 1.4ZM12 14h5v2h-5v-2Z"/></svg>',
+  // A `platform` means there is a binary to hand over and the CTA names it; its
+  // absence means the target ships no build, and `label`/`aria` carry the
+  // honest verb instead. `note` interpolates the file name, so the fine print
+  // can't name a file the button isn't actually linking to.
+  const TARGETS = {
+    windows: {
+      icon: "windows", platform: "Windows", href: WIN.href,
+      note: ["noteWindows", { file: WIN.file }],
+    },
+    macos: {
+      icon: "macos", platform: "macOS", href: MAC.href,
+      note: ["noteMacos", { file: MAC.file }],
+      caveat: ["caveatMacos", RELEASE],
+    },
+    linux: {
+      icon: "linux", platform: "Linux", href: APPIMAGE.href,
+      note: ["noteLinux", { file: APPIMAGE.file }],
+      caveat: ["caveatLinux", DEB.href],
+    },
+    macIntel: {
+      icon: "source", href: SETUP,
+      label: "buildFromSource", aria: "buildAria", note: ["noteMacIntel"],
+    },
+    linuxArm: {
+      icon: "source", href: SETUP,
+      label: "buildFromSource", aria: "buildAria", note: ["noteLinuxArm"],
+    },
+    mobile: {
+      icon: "github", href: REPO,
+      label: "viewOnGitHub", aria: "repoAria", note: ["noteMobile"],
+    },
+  };
+
+  const downloadCtas = document.querySelectorAll("[data-download-cta]");
+  if (downloadCtas.length) {
+    const note = document.getElementById("downloadNote");
+
+    const apply = (target) => {
+      for (const cta of downloadCtas) {
+        cta.href = target.href;
+        const icon = cta.querySelector(".platform-icon");
+        const label = cta.querySelector(".btn-label");
+        if (icon) icon.innerHTML = ICONS[target.icon];
+        if (!label) continue;
+        if (target.platform) {
+          const get = cta.dataset.downloadCta === "get";
+          label.textContent = t(get ? "getFor" : "downloadFor", { platform: target.platform });
+          cta.setAttribute(
+            "aria-label",
+            t(get ? "getAria" : "downloadAria", { platform: target.platform })
+          );
+        } else {
+          label.textContent = t(target.label);
+          cta.setAttribute("aria-label", t(target.aria));
+        }
+      }
+      if (!note) return;
+      const first = document.createElement("span");
+      first.textContent = t(target.note[0], target.note[1]);
+      note.replaceChildren(first);
+      if (target.caveat) {
+        // Every caveat is somewhere to go, not just something to know: the
+        // release's own install steps, or the package this platform probably
+        // wanted instead.
+        const link = document.createElement("a");
+        link.href = target.caveat[1];
+        link.rel = "noopener";
+        link.textContent = t(target.caveat[0]);
+        const second = document.createElement("span");
+        second.className = "dl-caveat";
+        second.appendChild(link);
+        note.appendChild(second);
+      }
+      note.classList.add("in");
     };
 
-    downloadPlatformIcon.innerHTML = platformIcons[platform.key];
-    downloadButton.dataset.platform = platform.key;
-    if (platform.name) {
-      downloadButtonLabel.textContent = t("downloadFor", { platform: platform.name });
-      downloadButton.setAttribute("aria-label", t("downloadAria", { platform: platform.name }));
+    const source = [
+      navigator.userAgentData && navigator.userAgentData.platform,
+      navigator.platform,
+      navigator.userAgent,
+    ]
+      .filter(Boolean)
+      .join(" ");
+    // An iPad reports itself as a Mac and would otherwise be offered a .dmg;
+    // touch points are all that still separates the two.
+    const isTablet = navigator.maxTouchPoints > 1 && /MacIntel|Macintosh/i.test(source);
+
+    const detect = (arch) => {
+      if (isTablet || /Android|iPhone|iPad|iPod|CrOS/i.test(source)) return TARGETS.mobile;
+      // Windows on ARM runs the x64 installer under emulation, so it needs no
+      // case of its own.
+      if (/Windows|Win32|Win64/i.test(source)) return TARGETS.windows;
+      if (/macOS|Macintosh|MacIntel|MacPPC|Mac68K/i.test(source)) {
+        return arch === "x86" ? TARGETS.macIntel : TARGETS.macos;
+      }
+      if (/Linux|X11/i.test(source)) return arch === "arm" ? TARGETS.linuxArm : TARGETS.linux;
+      return null;
+    };
+
+    // Two passes. The OS is readable synchronously; the architecture only comes
+    // from Chromium's high-entropy hints, and only through a promise. So the
+    // first pass assumes the architecture we ship for — right for every Mac
+    // still sold and every Linux desktop there's a build for — and the second
+    // corrects the minority rather than answering for everyone. When neither
+    // pass recognises the platform the markup is left alone: its own "Download"
+    // pointing at the release page is the honest fallback.
+    const detected = detect(null);
+    if (detected) apply(detected);
+    const hints = navigator.userAgentData;
+    if (hints && typeof hints.getHighEntropyValues === "function") {
+      hints.getHighEntropyValues(["architecture"]).then(
+        (values) => {
+          const refined = detect(values.architecture);
+          if (refined && refined !== detected) apply(refined);
+        },
+        () => {
+          /* the hints can be denied; the synchronous pass already stands */
+        }
+      );
     }
   }
 
@@ -752,6 +863,14 @@
         // a download link once there's something to download, so its presence
         // is the most current release signal this page has.
         availability: document.getElementById("downloadButton") ? "released" : "unreleased",
+        // The hero's own installer list, so an agent asked to fetch WeftCut
+        // gets the four real asset URLs instead of a release page to scrape.
+        downloads: [...document.querySelectorAll(".dl-list li")].map((row) => ({
+          target: clean(row.querySelector(".dl-os")),
+          file: clean(row.querySelector("a")),
+          url: row.querySelector("a").href,
+          notes: clean(row.querySelector(".dl-hint")),
+        })),
         pageLanguage: document.documentElement.lang || "",
         pageUrl: canonical ? canonical.href : location.href,
       };

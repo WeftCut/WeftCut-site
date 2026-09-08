@@ -170,6 +170,17 @@ see. `.work/harness/a11y.mjs` runs axe-core against a served page for that —
 It exists because an external auditor reported a malformed tree one finding at a
 time; running the whole rule set locally is faster than being told.
 
+The hero's download CTA has the same problem for the same reason: what it says
+depends on what the browser reports, so the served HTML only ever shows the
+fallback. `.work/harness/download-shots.mjs` fakes each platform at the
+navigator level — user agent, `platform`, `maxTouchPoints` and Chromium's
+high-entropy `architecture` hint — then prints the resulting label, href and
+note and shoots the hero. Seven states: the three with a build, the two without
+one (Intel Mac, arm64 Linux) that get the build instructions instead, and phone
+and tablet, which get the repository. Run it after touching either the detection
+in `index.js` or the installer names, which are set by the product repo's
+`electron-builder.yml` and pinned by its `scripts/release.mjs`.
+
 Three things are worth knowing before changing any of it.
 
 **The Markdown is negotiated, not converted at the edge.** Cloudflare's Markdown

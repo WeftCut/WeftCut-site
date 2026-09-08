@@ -8,6 +8,18 @@ Let the agent be the weft in your timeline—threading every cut, caption, and t
 
 [Download](https://github.com/WeftCut/WeftCut/releases/latest) [Read the docs](https://github.com/WeftCut/WeftCut/tree/main/docs)
 
+**All platforms**
+
+- Windows [WeftCut-win-x64.exe](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) 64-bit · installs and updates itself
+- macOS [WeftCut-mac-arm64.dmg](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg) Apple Silicon, macOS 13 or newer
+- Linux [WeftCut-linux-x86\_64.AppImage](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) x86\_64 · mark it executable, then run it
+- Linux [WeftCut-linux-amd64.deb](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) Debian and Ubuntu
+- Source [docs/setup.md](https://github.com/WeftCut/WeftCut/blob/main/docs/setup.md) Intel Macs, ARM Linux, anything else — Node, Rust, one build
+
+The macOS build is ad-hoc signed rather than notarized, so its first launch is blocked: open it once, then allow it under System Settings → Privacy and Security → Open Anyway.
+
+Every link here resolves to the newest release. [The release list](https://github.com/WeftCut/WeftCut/releases) keeps the older builds, their notes and their checksums.
+
 macOS · Windows · Linux — free & open source — works with the agent you already use
 
 Opening Scene One shot. All agent.
@@ -193,7 +205,7 @@ Post-credits A few details
   In your agent, not in the app — WeftCut ships no models. Optional analysis like transcription and scene description runs locally on your machine.
 - ### What platforms does it run on?
 
-  macOS, Windows and Linux — one desktop app, same feature set everywhere.
+  macOS, Windows and Linux — one desktop app, same feature set everywhere. The ready-made builds cover Windows x64, Apple Silicon Macs and x86\_64 Linux; every other target builds from source.
 
 1. [00 Intro](#top)
 2. [01 The Cut](#demo)

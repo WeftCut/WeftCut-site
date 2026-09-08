@@ -115,6 +115,7 @@ const BLOCK = new Set([
   'aside', 'nav', 'figure', 'figcaption', 'p', 'h1', 'h2', 'h3', 'h4', 'h5',
   'h6', 'ul', 'ol', 'li', 'blockquote', 'pre', 'hr', 'button', 'dl', 'dt',
   'dd', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'head', 'title',
+  'details', 'summary',
 ])
 
 const absolute = (url) => (url && url.startsWith('/') ? ORIGIN + url : url)
@@ -255,6 +256,14 @@ class Renderer {
     if (tag === 'pre') {
       const text = node.children.map(collectText).join('')
       return text.trim() ? ['```\n' + text.replace(/^\n+|\n+$/g, '') + '\n```'] : []
+    }
+
+    // A <details> is transparent — it falls through to the container case
+    // below, so a reader gets its contents whether or not it was open. Its
+    // <summary> is the label for what follows, not a heading of its own.
+    if (tag === 'summary') {
+      const text = this.inline(node).trim()
+      return text ? [`**${text}**`] : []
     }
 
     if (tag === 'figcaption') {

@@ -192,6 +192,10 @@ const KEEP = new RegExp(
       // Deliberately left in English: a terminal's own title bar, and the
       // platform names, which aren't translated in Chinese either.
       'claude &middot; weftcut', 'macOS · Windows · Linux',
+      // Installer file names and a repo path: literals, not copy.
+      'WeftCut-win-x64\\.exe', 'WeftCut-mac-arm64\\.dmg',
+      'WeftCut-linux-x86_64\\.AppImage', 'WeftCut-linux-amd64\\.deb',
+      'docs/setup\\.md',
     ].join('|') +
     ')$'
 )

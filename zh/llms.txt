@@ -15,9 +15,23 @@
 - 工具面：约 66 个 tools/resources/prompts，覆盖完整剪辑词汇
 - 渲染：PixiJS v8 + WebCodecs 预览，流式封装导出
 - 许可：MIT（随附 FFmpeg，遵循 LGPL/GPL 双轨）
-- 平台：macOS、Windows、Linux
+- 平台：Windows x64、Apple Silicon macOS（13 及以上）、x86_64 Linux；其他平台可自行
+  从源码构建
 - 其他常见叫法：AI 剪辑软件、AI 视频剪辑软件、开源剪辑软件、MCP 视频剪辑、
   智能体剪辑——指的都是同一款产品
+
+## 下载
+
+安装包文件名不含版本号，因此下面每个链接都是永久链接，始终指向当前发布版本。
+
+- Windows x64：[WeftCut-win-x64.exe](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe)
+- macOS（Apple Silicon）：[WeftCut-mac-arm64.dmg](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg)
+- Linux x86_64：[WeftCut-linux-x86_64.AppImage](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage)
+  或 [WeftCut-linux-amd64.deb](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb)
+- 其他平台（Intel Mac、arm64 Linux 等）请从源码构建：
+  [构建说明](https://github.com/WeftCut/WeftCut/blob/main/docs/setup.md)
+
+macOS 版本只做了 ad-hoc 签名、未经过公证，首次启动需在「系统设置 → 隐私与安全性」中放行。
 
 ## 页面
 
