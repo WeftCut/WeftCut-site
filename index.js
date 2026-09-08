@@ -109,16 +109,17 @@
      releases/latest/download/<name> is a permanent link to the current build
      and nothing here ever learns a version number. Those four names are the
      whole shipping matrix: an Intel Mac or an arm64 Linux box is handed the
-     build instructions rather than a binary that cannot run on it. */
+     repository rather than a binary that cannot run on it, and a 32-bit
+     machine is told plainly that there is no build. */
   const REPO = "https://github.com/WeftCut/WeftCut";
   const RELEASE = REPO + "/releases/latest";
-  const SETUP = REPO + "/blob/main/docs/setup.md";
   const installer = (file) => ({ file, href: RELEASE + "/download/" + file });
   const WIN = installer("WeftCut-win-x64.exe");
   const MAC = installer("WeftCut-mac-arm64.dmg");
   const APPIMAGE = installer("WeftCut-linux-x86_64.AppImage");
   const DEB = installer("WeftCut-linux-amd64.deb");
 
+  // The installer rows in index.html inline these same glyphs.
   const ICONS = {
     windows: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M3 5.1 10.3 4v7H3V5.1Zm8.3-1.25L21 2.4V11h-9.7V3.85ZM3 12h7.3v7L3 17.9V12Zm8.3 0H21v8.6l-9.7-1.45V12Z"/></svg>',
     macos: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M16.6 12.5c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.7-1.7-3.3-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 7 1.1 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.9.7 3.1.7 1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.8-1.1-2.8-4.1ZM14.3 5.9c.6-.8 1.1-2 1-3.1-1 .1-2.2.7-2.9 1.5-.6.7-1.1 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></svg>',
@@ -129,30 +130,41 @@
 
   // A `platform` means there is a binary to hand over and the CTA names it; its
   // absence means the target ships no build, and `label`/`aria` carry the
-  // honest verb instead. `note` interpolates the file name, so the fine print
-  // can't name a file the button isn't actually linking to.
+  // honest verb instead. `note` and `caveat` are only for what the button and
+  // the list don't already say: why there is no build, or the catch on the one
+  // there is. `row` names the entry in the hero's installer list that would
+  // only repeat the button.
   const TARGETS = {
     windows: {
+      icon: "windows", platform: "Windows", href: WIN.href, row: "windows",
+    },
+    windowsArm: {
       icon: "windows", platform: "Windows", href: WIN.href,
-      note: ["noteWindows", { file: WIN.file }],
+      note: ["noteWindowsArm"], row: "windows",
     },
     macos: {
-      icon: "macos", platform: "macOS", href: MAC.href,
-      note: ["noteMacos", { file: MAC.file }],
+      icon: "macos", platform: "macOS", href: MAC.href, row: "macos",
       caveat: ["caveatMacos", RELEASE],
     },
     linux: {
-      icon: "linux", platform: "Linux", href: APPIMAGE.href,
-      note: ["noteLinux", { file: APPIMAGE.file }],
+      icon: "linux", platform: "Linux", href: APPIMAGE.href, row: "linux",
       caveat: ["caveatLinux", DEB.href],
     },
     macIntel: {
-      icon: "source", href: SETUP,
-      label: "buildFromSource", aria: "buildAria", note: ["noteMacIntel"],
+      icon: "source", href: REPO,
+      label: "buildFromSource", aria: "buildAria", note: ["noteMacIntel"], row: "source",
     },
     linuxArm: {
-      icon: "source", href: SETUP,
-      label: "buildFromSource", aria: "buildAria", note: ["noteLinuxArm"],
+      icon: "source", href: REPO,
+      label: "buildFromSource", aria: "buildAria", note: ["noteLinuxArm"], row: "source",
+    },
+    win32: {
+      icon: "github", href: REPO,
+      label: "viewOnGitHub", aria: "repoAria", note: ["noteWin32"],
+    },
+    linux32: {
+      icon: "github", href: REPO,
+      label: "viewOnGitHub", aria: "repoAria", note: ["noteLinux32"],
     },
     mobile: {
       icon: "github", href: REPO,
@@ -163,6 +175,7 @@
   const downloadCtas = document.querySelectorAll("[data-download-cta]");
   if (downloadCtas.length) {
     const note = document.getElementById("downloadNote");
+    const rows = document.querySelectorAll(".dl-list li[data-target]");
 
     const apply = (target) => {
       for (const cta of downloadCtas) {
@@ -183,10 +196,16 @@
           cta.setAttribute("aria-label", t(target.aria));
         }
       }
+      // The list is for every other machine: the build the button already
+      // offers is dropped from it.
+      for (const li of rows) li.hidden = li.dataset.target === target.row;
       if (!note) return;
-      const first = document.createElement("span");
-      first.textContent = t(target.note[0], target.note[1]);
-      note.replaceChildren(first);
+      const parts = [];
+      if (target.note) {
+        const line = document.createElement("span");
+        line.textContent = t(target.note[0], target.note[1]);
+        parts.push(line);
+      }
       if (target.caveat) {
         // Every caveat is somewhere to go, not just something to know: the
         // release's own install steps, or the package this platform probably
@@ -195,12 +214,13 @@
         link.href = target.caveat[1];
         link.rel = "noopener";
         link.textContent = t(target.caveat[0]);
-        const second = document.createElement("span");
-        second.className = "dl-caveat";
-        second.appendChild(link);
-        note.appendChild(second);
+        const line = document.createElement("span");
+        line.className = "dl-caveat";
+        line.appendChild(link);
+        parts.push(line);
       }
-      note.classList.add("in");
+      note.replaceChildren(...parts);
+      note.classList.toggle("in", parts.length > 0);
     };
 
     const source = [
@@ -214,32 +234,55 @@
     // touch points are all that still separates the two.
     const isTablet = navigator.maxTouchPoints > 1 && /MacIntel|Macintosh/i.test(source);
 
-    const detect = (arch) => {
+    // What the UA string still admits about the CPU. Firefox reports it
+    // faithfully: "Linux aarch64", "Linux i686", and a Windows UA with neither
+    // Win64 nor WOW64 is a 32-bit OS. Chromium froze these tokens to x86_64 and
+    // Win64 years ago, so there they only ever confirm the default and the
+    // truth comes from the high-entropy hints below. Nothing here reads an
+    // architecture off a Mac — every Mac says "MacIntel".
+    const fromString = {
+      arch: /aarch64|arm64|armv\d/i.test(source) ? "arm" : null,
+      bits: /Win64|WOW64|x86_64|amd64|aarch64|arm64/i.test(source)
+        ? "64"
+        : /Windows|i[3-6]86|armv[5-7]/i.test(source) ? "32" : null,
+    };
+
+    const detect = ({ arch, bits }) => {
       if (isTablet || /Android|iPhone|iPad|iPod|CrOS/i.test(source)) return TARGETS.mobile;
-      // Windows on ARM runs the x64 installer under emulation, so it needs no
-      // case of its own.
-      if (/Windows|Win32|Win64/i.test(source)) return TARGETS.windows;
+      if (/Windows|Win32|Win64/i.test(source)) {
+        // The x64 installer runs on Windows on ARM through emulation, so ARM
+        // gets the same file with a note; 32-bit Windows gets no file at all.
+        if (bits === "32") return TARGETS.win32;
+        return arch === "arm" ? TARGETS.windowsArm : TARGETS.windows;
+      }
       if (/macOS|Macintosh|MacIntel|MacPPC|Mac68K/i.test(source)) {
         return arch === "x86" ? TARGETS.macIntel : TARGETS.macos;
       }
-      if (/Linux|X11/i.test(source)) return arch === "arm" ? TARGETS.linuxArm : TARGETS.linux;
+      if (/Linux|X11/i.test(source)) {
+        if (arch === "arm") return TARGETS.linuxArm;
+        return bits === "32" ? TARGETS.linux32 : TARGETS.linux;
+      }
       return null;
     };
 
-    // Two passes. The OS is readable synchronously; the architecture only comes
-    // from Chromium's high-entropy hints, and only through a promise. So the
-    // first pass assumes the architecture we ship for — right for every Mac
-    // still sold and every Linux desktop there's a build for — and the second
-    // corrects the minority rather than answering for everyone. When neither
-    // pass recognises the platform the markup is left alone: its own "Download"
-    // pointing at the release page is the honest fallback.
-    const detected = detect(null);
+    // Two passes. The OS and whatever the UA string admits are readable
+    // synchronously; Chromium's architecture and bitness only come through
+    // its high-entropy hints, and only through a promise. So the first pass
+    // assumes the CPU we ship for wherever the string is silent — right for
+    // every Mac still sold and every Linux desktop there's a build for — and
+    // the second corrects the minority rather than answering for everyone.
+    // When neither pass recognises the platform the markup is left alone: its
+    // own "Download" pointing at the release page is the honest fallback.
+    const detected = detect(fromString);
     if (detected) apply(detected);
     const hints = navigator.userAgentData;
     if (hints && typeof hints.getHighEntropyValues === "function") {
-      hints.getHighEntropyValues(["architecture"]).then(
+      hints.getHighEntropyValues(["architecture", "bitness"]).then(
         (values) => {
-          const refined = detect(values.architecture);
+          const refined = detect({
+            arch: values.architecture || fromString.arch,
+            bits: values.bitness || fromString.bits,
+          });
           if (refined && refined !== detected) apply(refined);
         },
         () => {
@@ -247,6 +290,42 @@
         }
       );
     }
+  }
+
+  /* ---------- download menu ----------
+     <details> gives the toggle and the no-script fallback for free; what it
+     lacks is light dismiss, so a click elsewhere, Escape, or picking a
+     download closes it here. */
+  const menu = document.querySelector(".dl-menu");
+  if (menu) {
+    const summary = menu.querySelector("summary");
+    const panel = menu.querySelector(".dl-panel");
+    document.addEventListener("pointerdown", (e) => {
+      if (menu.open && !menu.contains(e.target)) menu.open = false;
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        summary.focus();
+      }
+    });
+    menu.addEventListener("click", (e) => {
+      if (e.target.closest(".dl-list a")) menu.open = false;
+    });
+
+    // Below the button by default; above it when the viewport would cut the
+    // panel off. A closed <details> has nothing to measure, so opening is
+    // taken over from the summary: open it, read the real height, place it —
+    // all in one task, so the panel never paints in one spot and jumps.
+    summary.addEventListener("click", (e) => {
+      if (menu.open) return;
+      e.preventDefault();
+      menu.open = true;
+      const height = panel.offsetHeight;
+      const rect = menu.getBoundingClientRect();
+      const below = innerHeight - rect.bottom - 8;
+      menu.classList.toggle("is-up", below < height && rect.top - 8 >= height);
+    });
   }
 
   /* ---------- SMPTE helpers ---------- */
@@ -865,12 +944,16 @@
         availability: document.getElementById("downloadButton") ? "released" : "unreleased",
         // The hero's own installer list, so an agent asked to fetch WeftCut
         // gets the four real asset URLs instead of a release page to scrape.
-        downloads: [...document.querySelectorAll(".dl-list li")].map((row) => ({
-          target: clean(row.querySelector(".dl-os")),
-          file: clean(row.querySelector("a")),
-          url: row.querySelector("a").href,
-          notes: clean(row.querySelector(".dl-hint")),
-        })),
+        downloads: [...document.querySelectorAll(".dl-list li")].map((row) => {
+          const url = row.querySelector("a").href;
+          return {
+            target: clean(row.querySelector(".dl-os")),
+            // The asset name is the URL's last segment; the source row has none.
+            file: url.includes("/releases/latest/download/") ? url.split("/").pop() : "",
+            url,
+            notes: clean(row.querySelector(".dl-hint")),
+          };
+        }),
         pageLanguage: document.documentElement.lang || "",
         pageUrl: canonical ? canonical.href : location.href,
       };

@@ -189,16 +189,16 @@
   "getFor": "获取 WeftCut {platform} 版",
   "getAria": "从 GitHub Releases 获取 WeftCut {platform} 版",
   "buildFromSource": "从源码构建",
-  "buildAria": "从源码构建 WeftCut — 构建说明在 GitHub 上",
+  "buildAria": "从源码构建 WeftCut — 仓库在 GitHub 上",
   "viewOnGitHub": "在 GitHub 上查看",
   "repoAria": "GitHub 上的 WeftCut 仓库",
-  "noteWindows": "{file} · 64 位 · 自动安装，自动更新",
-  "noteMacos": "{file} · Apple Silicon，macOS 13 及以上",
   "caveatMacos": "未经过公证 — 首次启动如何放行",
-  "noteLinux": "{file} · x86_64 · 赋予可执行权限后直接运行",
   "caveatLinux": "用 Debian 或 Ubuntu？改用 .deb 安装包。",
   "noteMacIntel": "没有 Intel Mac 版本 — 随附的 ffmpeg 只有 Apple Silicon 构建。从源码构建是唯一的路。",
   "noteLinuxArm": "暂无 arm64 Linux 版本 — 目前只有 x86_64。从源码构建是唯一的路。",
+  "noteWindowsArm": "x64 版本 — 在 Windows on ARM 上通过模拟层运行",
+  "noteWin32": "没有 32 位版本 — WeftCut 需要 64 位 Windows。",
+  "noteLinux32": "没有 32 位 Linux 版本 — 目前只有 x86_64。",
   "noteMobile": "WeftCut 是桌面端剪辑软件。请在 macOS、Windows 或 Linux 上打开本页下载。",
   "logStatIdle": "{count} 次真实调用 · 已同步",
   "logStatProgress": "{done}/{count} · T+{time}",
@@ -248,54 +248,60 @@
       <p class="kicker rv">Agent原生的视频编辑器</p>
       <h1 class="rv">通过<em class="accent-agent">智能体</em>与<em class="accent-code">代码</em>完成剪辑</h1>
       <p class="lede rv">让 agent 穿梭于时间线，将剪辑、字幕和转场一一编织到位，而你始终掌握全局。</p>
-      <p class="cta-row rv">
-        <a class="btn btn-primary" id="downloadButton" data-download-cta="download" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="从 GitHub Releases 下载 WeftCut">
-          <span class="platform-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M11 3h2v10.17l3.59-3.58L18 11l-6 6-6-6 1.41-1.41L11 13.17V3ZM5 19h14v2H5v-2Z"/></svg>
-          </span>
-          <span class="btn-label">下载</span>
-        </a>
+      <div class="cta-row rv">
+        <div class="dl-split">
+          <a class="btn btn-primary" id="downloadButton" data-download-cta="download" href="https://github.com/WeftCut/WeftCut/releases/latest" rel="noopener" aria-label="从 GitHub Releases 下载 WeftCut">
+            <span class="platform-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M11 3h2v10.17l3.59-3.58L18 11l-6 6-6-6 1.41-1.41L11 13.17V3ZM5 19h14v2H5v-2Z"/></svg>
+            </span>
+            <span class="btn-label">下载</span>
+          </a>
+          <!-- <details> rather than a scripted menu, so every installer stays
+               reachable — and indexable — with scripting off. The asset names carry
+               no version by CI contract, which is what makes these links permanent. -->
+          <details class="dl-menu">
+            <summary class="btn btn-primary dl-menu-toggle">
+              <span class="sr-only">全部下载</span>
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="dl-panel">
+              <ul class="dl-list" role="list">
+                <li data-target="windows">
+                  <span class="dl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M3 5.1 10.3 4v7H3V5.1Zm8.3-1.25L21 2.4V11h-9.7V3.85ZM3 12h7.3v7L3 17.9V12Zm8.3 0H21v8.6l-9.7-1.45V12Z"/></svg></span>
+                  <a class="dl-os" href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe" rel="noopener">Windows</a>
+                  <span class="dl-hint">64 位 · 自动安装，自动更新</span>
+                </li>
+                <li data-target="macos">
+                  <span class="dl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M16.6 12.5c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.7-1.7-3.3-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 7 1.1 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.9.7 3.1.7 1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.8-1.1-2.8-4.1ZM14.3 5.9c.6-.8 1.1-2 1-3.1-1 .1-2.2.7-2.9 1.5-.6.7-1.1 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></svg></span>
+                  <a class="dl-os" href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg" rel="noopener">macOS</a>
+                  <span class="dl-hint">Apple Silicon，macOS 13 及以上</span>
+                </li>
+                <li data-target="linux">
+                  <span class="dl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M3 4h18v16H3V4Zm2 2v12h14V6H5Zm1.5 2.2L9.3 11l-2.8 2.8 1.4 1.4 4.2-4.2-4.2-4.2-1.4 1.4ZM12 14h5v2h-5v-2Z"/></svg></span>
+                  <a class="dl-os" href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage" rel="noopener">Linux</a>
+                  <span class="dl-hint">AppImage · x86_64 · chmod +x 后直接运行</span>
+                </li>
+                <li data-target="deb">
+                  <span class="dl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2 3 6.5v11L12 22l9-4.5v-11L12 2Zm0 2.2 6.3 3.2L12 10.5 5.7 7.4 12 4.2ZM5 9.1l6 3v7.3l-6-3V9.1Zm8 10.3v-7.3l6-3v7.3l-6 3Z"/></svg></span>
+                  <a class="dl-os" href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb" rel="noopener">Debian / Ubuntu</a>
+                  <span class="dl-hint">.deb · amd64 · 用 dpkg 或 apt 安装</span>
+                </li>
+                <li data-target="source">
+                  <span class="dl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4Zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4Z"/></svg></span>
+                  <a class="dl-os" href="https://github.com/WeftCut/WeftCut" rel="noopener">其他平台</a>
+                  <span class="dl-hint">从源码构建 · Intel Mac、ARM Linux</span>
+                </li>
+              </ul>
+              <p class="dl-fine">所有链接均指向最新版本 · <a href="https://github.com/WeftCut/WeftCut/releases" rel="noopener">历史版本、发布说明与校验值</a></p>
+            </div>
+          </details>
+        </div>
         <a class="btn btn-ghost" href="https://github.com/WeftCut/WeftCut/tree/main/docs" rel="noopener">查看文档</a>
-      </p>
+      </div>
       <!-- Left empty in the served HTML on purpose: index.js fills it once it
            knows the platform, and a build note for a platform the visitor
            isn't on is worse than no note at all. -->
       <p class="dl-note" id="downloadNote"></p>
-      <!-- <details> rather than a scripted panel, so every installer stays
-           reachable — and indexable — with scripting off. The asset names carry
-           no version by CI contract, which is what makes these links permanent. -->
-      <details class="dl-all rv">
-        <summary>全部平台</summary>
-        <ul class="dl-list" role="list">
-          <li>
-            <span class="dl-os">Windows</span>
-            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe" rel="noopener">WeftCut-win-x64.exe</a>
-            <span class="dl-hint">64 位 · 自动安装，自动更新</span>
-          </li>
-          <li>
-            <span class="dl-os">macOS</span>
-            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg" rel="noopener">WeftCut-mac-arm64.dmg</a>
-            <span class="dl-hint">Apple Silicon，macOS 13 及以上</span>
-          </li>
-          <li>
-            <span class="dl-os">Linux</span>
-            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage" rel="noopener">WeftCut-linux-x86_64.AppImage</a>
-            <span class="dl-hint">x86_64 · 赋予可执行权限后直接运行</span>
-          </li>
-          <li>
-            <span class="dl-os">Linux</span>
-            <a href="https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb" rel="noopener">WeftCut-linux-amd64.deb</a>
-            <span class="dl-hint">Debian 与 Ubuntu</span>
-          </li>
-          <li>
-            <span class="dl-os">源码</span>
-            <a href="https://github.com/WeftCut/WeftCut/blob/main/docs/setup.md" rel="noopener">docs/setup.md</a>
-            <span class="dl-hint">Intel Mac、ARM Linux 及其他平台 — 备好 Node 与 Rust，自行构建</span>
-          </li>
-        </ul>
-        <p class="dl-fine">macOS 版本只做了 ad-hoc 签名、未经过公证，因此首次启动会被系统拦截：先打开一次，再到「系统设置 → 隐私与安全性」中选择「仍要打开」。</p>
-        <p class="dl-fine">以上每个链接都指向最新发布版本；<a href="https://github.com/WeftCut/WeftCut/releases" rel="noopener">发布列表</a>中保留了历史版本、发布说明与校验值。</p>
-      </details>
       <p class="hero-meta rv">macOS · Windows · Linux&ensp;—&ensp;免费开源&ensp;—&ensp;与你常用的 agent 协同工作</p>
     </div>
   </section>

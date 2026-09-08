@@ -6,19 +6,19 @@ The agent native video editor
 
 Let the agent be the weft in your timeline—threading every cut, caption, and transition into place while you stay in control.
 
-[Download](https://github.com/WeftCut/WeftCut/releases/latest) [Read the docs](https://github.com/WeftCut/WeftCut/tree/main/docs)
+[Download](https://github.com/WeftCut/WeftCut/releases/latest)
 
-**All platforms**
+**All downloads**
 
-- Windows [WeftCut-win-x64.exe](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) 64-bit · installs and updates itself
-- macOS [WeftCut-mac-arm64.dmg](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg) Apple Silicon, macOS 13 or newer
-- Linux [WeftCut-linux-x86\_64.AppImage](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) x86\_64 · mark it executable, then run it
-- Linux [WeftCut-linux-amd64.deb](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) Debian and Ubuntu
-- Source [docs/setup.md](https://github.com/WeftCut/WeftCut/blob/main/docs/setup.md) Intel Macs, ARM Linux, anything else — Node, Rust, one build
+- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) 64-bit · installs and updates itself
+- [macOS](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg) Apple Silicon, macOS 13 or newer
+- [Linux](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) AppImage · x86\_64 · chmod +x, then run
+- [Debian / Ubuntu](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) .deb · amd64 · installs with dpkg or apt
+- [Other platforms](https://github.com/WeftCut/WeftCut) Build from source · Intel Macs, ARM Linux
 
-The macOS build is ad-hoc signed rather than notarized, so its first launch is blocked: open it once, then allow it under System Settings → Privacy and Security → Open Anyway.
+Every link resolves to the newest release · [older builds, notes and checksums](https://github.com/WeftCut/WeftCut/releases)
 
-Every link here resolves to the newest release. [The release list](https://github.com/WeftCut/WeftCut/releases) keeps the older builds, their notes and their checksums.
+[Read the docs](https://github.com/WeftCut/WeftCut/tree/main/docs)
 
 macOS · Windows · Linux — free & open source — works with the agent you already use
 

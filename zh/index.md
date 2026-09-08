@@ -6,19 +6,19 @@ Agent原生的视频编辑器
 
 让 agent 穿梭于时间线，将剪辑、字幕和转场一一编织到位，而你始终掌握全局。
 
-[下载](https://github.com/WeftCut/WeftCut/releases/latest) [查看文档](https://github.com/WeftCut/WeftCut/tree/main/docs)
+[下载](https://github.com/WeftCut/WeftCut/releases/latest)
 
-**全部平台**
+**全部下载**
 
-- Windows [WeftCut-win-x64.exe](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) 64 位 · 自动安装，自动更新
-- macOS [WeftCut-mac-arm64.dmg](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg) Apple Silicon，macOS 13 及以上
-- Linux [WeftCut-linux-x86\_64.AppImage](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) x86\_64 · 赋予可执行权限后直接运行
-- Linux [WeftCut-linux-amd64.deb](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) Debian 与 Ubuntu
-- 源码 [docs/setup.md](https://github.com/WeftCut/WeftCut/blob/main/docs/setup.md) Intel Mac、ARM Linux 及其他平台 — 备好 Node 与 Rust，自行构建
+- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) 64 位 · 自动安装，自动更新
+- [macOS](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg) Apple Silicon，macOS 13 及以上
+- [Linux](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) AppImage · x86\_64 · chmod +x 后直接运行
+- [Debian / Ubuntu](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) .deb · amd64 · 用 dpkg 或 apt 安装
+- [其他平台](https://github.com/WeftCut/WeftCut) 从源码构建 · Intel Mac、ARM Linux
 
-macOS 版本只做了 ad-hoc 签名、未经过公证，因此首次启动会被系统拦截：先打开一次，再到「系统设置 → 隐私与安全性」中选择「仍要打开」。
+所有链接均指向最新版本 · [历史版本、发布说明与校验值](https://github.com/WeftCut/WeftCut/releases)
 
-以上每个链接都指向最新发布版本；[发布列表](https://github.com/WeftCut/WeftCut/releases)中保留了历史版本、发布说明与校验值。
+[查看文档](https://github.com/WeftCut/WeftCut/tree/main/docs)
 
 macOS · Windows · Linux — 免费开源 — 与你常用的 agent 协同工作
 

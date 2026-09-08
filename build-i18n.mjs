@@ -185,17 +185,16 @@ const KEEP = new RegExp(
   '^(?:' +
     [
       'WeftCut', 'GitHub', 'MCP', 'Claude', 'Cursor', 'Codex', 'FFmpeg', 'MIT',
-      'macOS', 'Windows', 'Linux', 'agent-session\\.json', 'claude · weftcut',
+      'macOS', 'Windows', 'Linux', 'Debian / Ubuntu', 'agent-session\\.json', 'claude · weftcut',
       'Motif', 'AI', 'Agent', 'agent', 'English', 'IN', 'CUT', 'FX', 'EDIT',
       'END', 'FAQ', 'A/B', 'H\\.264', 'HEVC', 'AV1', 'ProRes', 'DNxHR', 'SRT',
       'VTT', 'ASS', 'Ctrl-K', 'WEFTCUT', 'AGENT', 'SCENE', 'T\\+',
       // Deliberately left in English: a terminal's own title bar, and the
       // platform names, which aren't translated in Chinese either.
       'claude &middot; weftcut', 'macOS · Windows · Linux',
-      // Installer file names and a repo path: literals, not copy.
+      // Installer file names: literals, not copy.
       'WeftCut-win-x64\\.exe', 'WeftCut-mac-arm64\\.dmg',
       'WeftCut-linux-x86_64\\.AppImage', 'WeftCut-linux-amd64\\.deb',
-      'docs/setup\\.md',
     ].join('|') +
     ')$'
 )
