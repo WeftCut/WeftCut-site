@@ -84,6 +84,25 @@ things are checked:
 - **Agent-skill digests.** Every `sha256` in the discovery index still matches the
   bytes of the skill it names.
 
+### A `_headers` edit does not reach cached pages
+
+The deploy log is not evidence a header change landed. Assets are served
+`max-age=0, must-revalidate` and the edge revalidates by ETag, which is computed
+over the *body* — so a path whose body is byte-identical revalidates 304 and
+Cloudflare keeps its stored header set, including the header just fixed.
+`wrangler deploy` reports Success either way, because no asset body was uploaded.
+
+A path whose body changed in the same deploy picks the new headers up unaided;
+the rest need a manual purge. `node .work/harness/purge-list.mjs` works out
+which is which — it diffs the `_headers` blocks against `HEAD` (or any ref),
+subtracts the paths whose bodies changed, drops the patterns Custom Purge can't
+take a literal URL for, and prints what's left. Purging needs a Zone:Cache Purge
+token, which wrangler's OAuth token does not carry, so it is a dashboard action:
+Caching → Configuration → Purge Cache → Custom Purge. Confirm the new rule is
+actually live first by fetching the path with a throwaway query string
+(`?cb=1`) — a distinct URL bypasses the stored header set, which is how you
+tell a stale cache apart from a rule that never deployed.
+
 The production domain `https://weftcut.com` is written out in `index.html`
 (canonical, OG, JSON-LD), `_headers` (canonical + hreflang), `robots.txt`, and
 `ORIGIN` in `build-sitemap.mjs`. If it ever changes, replace it in all four and

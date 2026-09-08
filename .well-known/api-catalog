@@ -9,7 +9,7 @@
           "title": "Drive a real video editor over MCP — connection, capabilities, and what stays local"
         },
         {
-          "href": "https://github.com/UncleChair/WeftCut/blob/main/docs/mcp.md",
+          "href": "https://github.com/WeftCut/WeftCut/blob/main/docs/mcp.md",
           "type": "text/html",
           "title": "WeftCut MCP server — connection, auth, and tool reference"
         }
@@ -30,7 +30,7 @@
       ],
       "author": [
         {
-          "href": "https://github.com/UncleChair/WeftCut",
+          "href": "https://github.com/WeftCut/WeftCut",
           "type": "text/html",
           "title": "WeftCut source repository"
         }
