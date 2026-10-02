@@ -67,7 +67,9 @@ const git = (...args) => {
   return status === 0 ? stdout.trim() : null
 }
 
-const asDate = (iso) => iso.slice(0, 10)
+// Normalize git's offset timestamps to UTC, as the dirty-tree clock and file
+// mtimes already are. Committing a page must not change its calendar date.
+const asDate = (iso) => new Date(iso).toISOString().slice(0, 10)
 
 /** Last content change for one page, as YYYY-MM-DD. */
 function lastmod(source) {
