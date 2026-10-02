@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Motifs — Animated Lower Thirds and Overlays | WeftCut</title>
-<meta name="description" content="Motifs are parameterised animated overlays in WeftCut — lower thirds, countdowns, text effects — that your AI agent can write from a plain description, and that render identically in preview and export." />
+<title>Motifs — 2D Animation, 3D Scenes and Motion Graphics | WeftCut</title>
+<meta name="description" content="Motifs are parameterised animated overlays in WeftCut — animated titles, 2D drawings and 3D scenes — that your AI agent can write from a plain description, and that render identically in preview and export." />
 <link rel="canonical" href="https://weftcut.com/motifs/" />
 <link rel="alternate" hreflang="en" href="https://weftcut.com/motifs/" />
 <link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/motifs/" />
@@ -14,15 +14,15 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="WeftCut" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:title" content="Motifs — Animated Lower Thirds and Overlays | WeftCut" />
-<meta property="og:description" content="Motifs are parameterised animated overlays in WeftCut — lower thirds, countdowns, text effects — that your AI agent can write from a plain description, and that render identically in preview and export." />
+<meta property="og:title" content="Motifs — 2D Animation, 3D Scenes and Motion Graphics | WeftCut" />
+<meta property="og:description" content="Motifs are parameterised animated overlays in WeftCut — animated titles, 2D drawings and 3D scenes — that your AI agent can write from a plain description, and that render identically in preview and export." />
 <meta property="og:url" content="https://weftcut.com/motifs/" />
 <meta property="og:image" content="https://weftcut.com/assets/og/card-en.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Motifs — Animated Lower Thirds and Overlays | WeftCut" />
-<meta name="twitter:description" content="Motifs are parameterised animated overlays in WeftCut — lower thirds, countdowns, text effects — that your AI agent can write from a plain description, and that render identically in preview and export." />
+<meta name="twitter:title" content="Motifs — 2D Animation, 3D Scenes and Motion Graphics | WeftCut" />
+<meta name="twitter:description" content="Motifs are parameterised animated overlays in WeftCut — animated titles, 2D drawings and 3D scenes — that your AI agent can write from a plain description, and that render identically in preview and export." />
 <meta name="twitter:image" content="https://weftcut.com/assets/og/card-en.png" />
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="/pages.css" />
@@ -30,8 +30,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Motifs — Animated Lower Thirds and Overlays | WeftCut",
-  "description": "Motifs are parameterised animated overlays in WeftCut — lower thirds, countdowns, text effects — that your AI agent can write from a plain description, and that render identically in preview and export.",
+  "name": "Motifs — 2D Animation, 3D Scenes and Motion Graphics | WeftCut",
+  "description": "Motifs are parameterised animated overlays in WeftCut — animated titles, 2D drawings and 3D scenes — that your AI agent can write from a plain description, and that render identically in preview and export.",
   "url": "https://weftcut.com/motifs/",
   "inLanguage": "en",
   "keywords": "animated lower third, lower third generator, countdown overlay video, programmatic motion graphics, code-driven video overlay, reusable overlay template, motion graphics in video editor, animated titles",
@@ -130,7 +130,7 @@
 </header>
 <main class="doc-wrap doc-body">
 <h1 id="code-as-motion">Code as motion</h1>
-<p>A Motif is an animated overlay in WeftCut — a lower third, a countdown, a title with a text effect — defined as parameterised code rather than as a flattened clip. Your agent already knows how to write code. Motifs are how that turns into motion.</p>
+<p>A Motif is an animated overlay in WeftCut — an animated title, a 2D drawing, a 3D scene — defined as parameterised code rather than as a flattened clip. Your agent already knows how to write code. Motifs are how that turns into motion.</p>
 <h2 id="what-a-motif-actually-is">What a Motif actually is</h2>
 <p>Not a video file you drop on the timeline, and not a preset with three sliders. A Motif is a small parameterised web overlay: it has its own controls, it plays on the timeline like any other layer, and its parameters stay editable after it is placed.</p>
 <p>The important property is that it renders pixel-identically in preview and in export. What you scrub past is what lands in the file — no separate render path, no surprise at the end.</p>
@@ -141,12 +141,13 @@
 <h2 id="or-have-your-agent-write-one">Or have your agent write one</h2>
 <p>This is where it gets interesting, because the thing an LLM is genuinely good at — writing small, precise, parameterised code — is exactly what a Motif is.</p>
 <ol><li><strong>Describe.</strong> Tell your agent what you want, whether that is a title, a lower third, a callout, or a design that does not exist yet.</li><li><strong>Preview.</strong> The agent turns the idea into a Motif you can play on the timeline immediately.</li><li><strong>Polish.</strong> Refine it in context — adjust the parameters, or ask for a change — until it is right.</li></ol>
-<p>Ask for &quot;a title, a lower third and a countdown for this scene&quot; and you get three real, editable layers rather than three suggestions.</p>
+<p>Our showcase project includes a portrait drawn stroke by stroke: the outline appears first, followed by hair and accessories. Its controls change the stroke color, line weight, detail level and drawing duration. <a href="/#motifs">Watch the real export on the homepage</a>.</p>
+<p>Motifs can also build 3D scenes using WebGL and packaged local assets. These custom examples extend the built-in catalog; they are authored designs, not bundled presets.</p>
 <h2 id="parameters-not-copies">Parameters, not copies</h2>
 <p>Because a Motif is parameterised, the finished look is reusable. Change the text and it is a different card, not a different asset. Use it again in the next edit and it stays one thing to maintain, not a folder of near-identical exports.</p>
 <p>That also makes them good to hand to an agent in bulk: restyling or repopulating a set of overlays is a parameter change, not a redraw.</p>
 <h2 id="how-this-fits-the-rest-of-the-editor">How this fits the rest of the editor</h2>
-<p>Motifs are one layer type among many. They sit on the same timeline as your clips, captions and effects, they respect keyframes, and they export through the same path to H.264, HEVC, 10-bit AV1, ProRes or DNxHR.</p>
+<p>Motifs are one layer type among many. They sit on the same timeline as your clips, captions and effects, their layer transforms and opacity support keyframes, and they export through the same path to H.264, HEVC, 10-bit AV1, ProRes or DNxHR.</p>
 <p>An agent connected over MCP can create, place and adjust them alongside every other editing operation — see <a href="/mcp/">the MCP page</a> for what that connection looks like.</p>
 <h2 id="questions">Questions</h2>
 <h3 id="do-i-need-an-ai-agent-to-use-motifs">Do I need an AI agent to use Motifs?</h3>

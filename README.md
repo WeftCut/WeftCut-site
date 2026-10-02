@@ -302,6 +302,11 @@ be rebuilt whenever those headings change; `--check` is the guard. Upstream's
 
 Everything on the page is a real capture of the shipping app, not a mockup:
 
+- `assets/video/motif-portrait.mp4` — the 2D portrait drawing from the existing
+  **WeftCut 能力展示** project export, excerpted at 10.25–15.05 seconds to exclude
+  the neighboring scenes. Silent H.264, 1280×720 at 60 fps; the poster is the
+  completed drawing at 4.3 seconds into the excerpt. The homepage pairs this
+  actual export with the original Motif's stroke, detail and duration controls.
 - `assets/video/agent-session.mp4` — one real agent session, end to end: a
   headless Claude Code agent (`claude -p` + the app's MCP server over
   streamable HTTP) was handed a creative brief and four clips, and built the

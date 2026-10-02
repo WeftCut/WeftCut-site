@@ -351,6 +351,8 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
   align-items: center;
   gap: 9px;
   font: 600 14px var(--sans);
+  min-height: 44px;
+  line-height: 1.25;
   letter-spacing: 0.02em;
   padding: 12px 22px;
   border-radius: 8px;
@@ -426,6 +428,7 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
    that drops the full installer list. The shadow and the hover lift live on
    the wrapper so the two halves move as one control. */
 .dl-split {
+  --download-height: 44px;
   position: relative;
   z-index: 48; /* above the scroll rail, below the nav */
   display: inline-flex;
@@ -437,11 +440,13 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
 .dl-split:has(> .btn:hover, > .dl-menu > summary:hover) { transform: translateY(-1px); }
 .dl-split .btn { box-shadow: none; }
 .dl-split .btn:hover { transform: none; }
-.dl-split > .btn { border-radius: 8px 0 0 8px; border-right: 0; }
-.dl-menu { display: flex; }
+.dl-split > .btn { height: var(--download-height); border-radius: 8px 0 0 8px; border-right: 0; }
+/* Safari lays summary outside details' flex formatting context. Give both
+   halves a definite size instead of relying on flex: 1 to stretch summary. */
+.dl-menu { height: var(--download-height); }
 .dl-menu-toggle {
-  flex: 1;
-  display: flex;
+  height: var(--download-height);
+  display: grid;
   align-items: center;
   justify-content: center;
   padding: 0 10px 0 9px;
@@ -812,20 +817,17 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
 }
 .motif-showcase {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(340px, 1fr);
+  grid-template-columns: minmax(0, 1.8fr) minmax(260px, 1fr);
   gap: clamp(20px, 3vw, 34px);
   align-items: stretch;
 }
-.motif-live-shot {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-.motif-live-shot img {
-  flex: 1;
-  min-height: 0;
-  object-fit: cover;
-}
+.motif-process { min-width: 0; padding: 24px 0; }
+.motif-process h3 { font-size: 22px; margin-bottom: 16px; }
+.motif-process p { color: var(--dim); font-size: 14px; line-height: 1.75; }
+.motif-controls { margin-top: 24px; }
+.motif-controls div { padding: 14px 0; border-top: 1px solid var(--border2); }
+.motif-controls dt { color: var(--code-accent); font: 600 11px var(--mono); margin-bottom: 5px; }
+.motif-controls dd { color: var(--dim); font-size: 13px; line-height: 1.65; }
 .motif-export {
   min-width: 0;
   display: flex;
@@ -876,24 +878,22 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
   object-fit: cover;
 }
 .motif-replay-button {
-  position: absolute;
-  z-index: 2;
-  right: 9px;
-  bottom: 9px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 3px 6px;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px 12px;
   border: 1px solid rgba(230, 233, 239, 0.3);
   border-radius: 999px;
   color: rgba(230, 233, 239, 0.82);
   background: rgba(8, 9, 11, 0.62);
-  font: 600 8px var(--mono);
+  font: 600 10px var(--mono);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-shadow: inherit;
   cursor: pointer;
   transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+  align-self: flex-end;
 }
 .motif-replay-button:hover {
   color: var(--text);

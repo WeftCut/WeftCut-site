@@ -1,6 +1,6 @@
 # Code as motion
 
-A Motif is an animated overlay in WeftCut — a lower third, a countdown, a title with a text effect — defined as parameterised code rather than as a flattened clip. Your agent already knows how to write code. Motifs are how that turns into motion.
+A Motif is an animated overlay in WeftCut — an animated title, a 2D drawing, a 3D scene — defined as parameterised code rather than as a flattened clip. Your agent already knows how to write code. Motifs are how that turns into motion.
 
 ## What a Motif actually is
 
@@ -26,7 +26,9 @@ This is where it gets interesting, because the thing an LLM is genuinely good at
 2. **Preview.** The agent turns the idea into a Motif you can play on the timeline immediately.
 3. **Polish.** Refine it in context — adjust the parameters, or ask for a change — until it is right.
 
-Ask for "a title, a lower third and a countdown for this scene" and you get three real, editable layers rather than three suggestions.
+Our showcase project includes a portrait drawn stroke by stroke: the outline appears first, followed by hair and accessories. Its controls change the stroke color, line weight, detail level and drawing duration. [Watch the real export on the homepage](/#motifs).
+
+Motifs can also build 3D scenes using WebGL and packaged local assets. These custom examples extend the built-in catalog; they are authored designs, not bundled presets.
 
 ## Parameters, not copies
 
@@ -36,7 +38,7 @@ That also makes them good to hand to an agent in bulk: restyling or repopulating
 
 ## How this fits the rest of the editor
 
-Motifs are one layer type among many. They sit on the same timeline as your clips, captions and effects, they respect keyframes, and they export through the same path to H.264, HEVC, 10-bit AV1, ProRes or DNxHR.
+Motifs are one layer type among many. They sit on the same timeline as your clips, captions and effects, their layer transforms and opacity support keyframes, and they export through the same path to H.264, HEVC, 10-bit AV1, ProRes or DNxHR.
 
 An agent connected over MCP can create, place and adjust them alongside every other editing operation — see [the MCP page](/mcp/) for what that connection looks like.
 

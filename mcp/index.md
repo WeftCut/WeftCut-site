@@ -1,43 +1,35 @@
 # Drive a real video editor over MCP
 
-WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or a client you wrote yourself, and the agent gets the same editing vocabulary you have — trim, split, keyframes, effects, captions, markers, export — landing live on your timeline while you watch.
+WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or a client you wrote yourself, and the agent gets the same editing vocabulary you have — trim, split, keyframes, effects, captions, markers, audio — landing live on your timeline while you watch.
 
 Most editors bolt AI on as a feature: one button that does the one thing a vendor picked for you. WeftCut instead exposes the editor itself as a tool surface, and ships no models at all. The intelligence lives in whatever agent you connect.
 
 ## What the agent can actually do
 
-The server registers roughly 66 tools, resources and prompts, covering about 40 distinct editing operations. Not a summarise-and-suggest wrapper — these are the real operations, and they mutate the real project.
+The MCP catalog covers the editing workflow: timeline changes, motion, captions, audio, analysis, Motif authoring and project history. These tools edit the project you see in the app. Export is started from the app’s Export UI.
 
-- **Timeline.** Place, move, trim and split clips on an A/B-roll timeline, frame-aligned to SMPTE timecode. `auto_split_by_shot` cuts at every detected shot change; `detect_silences` finds the dead air.
-- **Motion.** Keyframes with bézier easing, set and adjusted directly.
+- **Timeline.** Place, move, trim and split clips on an A/B-roll timeline, frame-aligned to SMPTE timecode. `auto_split_by_shot` cuts at every detected shot change; `detect_pauses` finds pauses; `remove_pauses` cuts them and closes the gaps in one undoable edit.
+- **Motion.** Keyframes with bézier easing, tangent controls, motion paths and extrapolation.
 - **Look.** Per-layer effect chains, including chroma key.
 - **Text.** Styled title layers, and `apply_subtitles` to bring in SRT, VTT or ASS as editable caption layers — including restyling every caption in the project in one undoable step.
-- **Motifs.** Animated, parameterised overlays — lower thirds, countdowns — that render identically in preview and export. See [Motifs](/motifs/).
-- **Structure.** Groups with auto-paired A/V, markers, and checkpoints.
+- **Motifs.** Parameterised motion graphics — titles, 2D drawings and 3D scenes — that render identically in preview and export. See [Motifs](/motifs/).
+- **Audio.** Role-based gain and mute/solo controls, raw audio extraction, transcription and cloud voiceover.
+- **Structure.** Nested compositions, linked A/V, markers and checkpoints.
 - **Safety.** `dry_run` validates an operation before it touches anything, and undo/redo works on agent edits exactly as it does on yours.
 
 ## Connect in a minute
 
-Open Settings → Agent, copy the snippet, paste it into your client. For Claude Desktop that is one block of JSON:
+Open Settings → Agent and copy the connection prompt or client configuration. The recommended connection uses the bundled `weftcut-mcp` bridge: its configuration survives app restarts, port changes and token rotations. No separate Node installation is needed.
 
-```json
-{
-  "mcpServers": {
-    "weftcut": {
-      "url": "http://127.0.0.1:50831/mcp",
-      "headers": { "Authorization": "Bearer <token>" }
-    }
-  }
-}
-```
+For clients that cannot launch a stdio server, HTTP-direct remains available. Copy the current endpoint and token from the app; do not hard-code a port. The app also ships an agent Skill covering editing and Motif authoring.
 
-The port and token are generated per install — take the real values from Settings → Agent rather than copying the ones above. Cursor, Codex and any other MCP client take the same details in whatever shape they prefer.
+For detailed setup, see the [current connection documentation](https://github.com/WeftCut/WeftCut/blob/main/docs/mcp.md).
 
 ## What stays on your machine
 
-Everything. The server speaks MCP over streamable HTTP and binds to loopback (`127.0.0.1`) only, with bearer-token auth and DNS-rebinding protection in front of it. There is no WeftCut account, no cloud round trip, and no upload of your footage.
+Editing and export run locally. The in-app MCP server binds to loopback (`127.0.0.1`) only, with bearer-token authentication and DNS-rebinding protection.
 
-Your agent is the one exception, and it is one you already chose: if you connect Claude, the conversation goes wherever Claude's conversations go. The video does not — the agent sends editing commands to the app, not your media.
+Your connected agent follows its own provider’s data policy. Optional cloud transcription or vision sends the requested audio or frames to the provider you configure; use local engines to keep that analysis on your machine.
 
 ## You stay in control
 
@@ -49,9 +41,9 @@ Agent edits are not a black box that hands you a finished file.
 
 ## Let it look before it cuts
 
-Optional analysis runs locally and gives the agent something to reason about: shot detection, silence detection, frame comparison, transcription via Whisper or a local sidecar, and scene description through a local vision model where one is available.
+Shot detection, pause detection and frame comparison run locally. Transcription can use a cloud provider or a downloaded local engine such as whisper.cpp or FunASR. Scene description supports local vision models or a configured cloud provider. Agents can also extract raw clip audio for their own speech workflow.
 
-These are opt-in and local-first. WeftCut bundles no models of its own.
+These tools are optional. The installer bundles no model weights; local engines and models are downloaded when you choose them.
 
 ## It is a complete editor without any of this
 
@@ -61,11 +53,11 @@ If you never connect an agent, nothing is missing. WeftCut is a full desktop NLE
 
 ### Which MCP clients work with WeftCut?
 
-Any of them. Claude Desktop, Cursor and Codex are the ones most people arrive with, but the server implements standard MCP over streamable HTTP, so a client you wrote this afternoon works the same way.
+Any of them. Claude Desktop, Cursor and Codex are the ones most people arrive with, but the server implements standard MCP through the bundled stdio bridge or HTTP-direct, so your own client can connect too.
 
 ### Does WeftCut include an AI model?
 
-No. WeftCut ships no models and makes no inference calls of its own. The agent you connect supplies the intelligence, and optional analysis like transcription runs locally on your machine.
+The installer includes no model weights. Your connected agent provides the editing intelligence. Optional speech and vision tools can use downloaded local engines or cloud providers you configure.
 
 ### Can the agent break my project?
 

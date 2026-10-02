@@ -9,13 +9,13 @@
 > markers, checkpoints, undo) that land in the UI in real time. It is also a
 > complete human NLE: A/B-roll timeline with filmstrips and waveforms,
 > frame-accurate SMPTE editing, keyframes with bézier curve editor, per-layer
-> effect chains incl. chroma key, captions (SRT/VTT/ASS), animated Motif
-> overlays, role-based audio mixing, and H.264/HEVC/AV1/ProRes export up to
+> effect chains incl. chroma key, captions (SRT/VTT/ASS), 2D/3D Motif
+> motion graphics, role-based audio mixing, and H.264/HEVC/AV1/ProRes export up to
 > 10-bit. No bundled models; the intelligence lives in the agent you connect.
 
 - Type: desktop NLE (non-linear editor), Electron + React + Rust (napi-rs) core
-- Agent protocol: MCP over streamable HTTP (127.0.0.1), bearer-token auth
-- Tool surface: ~66 tools/resources/prompts covering the full editing vocabulary
+- Agent protocol: bundled stdio bridge, or streamable HTTP on localhost with bearer-token auth
+- Tool surface: timeline editing, captions, motion paths, audio, analysis, Motifs and history; export uses the app UI
 - Rendering: PixiJS v8 + WebCodecs preview, streamed muxing export
 - License: MIT (bundles FFmpeg under LGPL/GPL lanes)
 - Platforms: Windows x64, Apple Silicon macOS (13+), x86_64 Linux; any other
@@ -41,9 +41,9 @@ be allowed under System Settings → Privacy and Security.
 ## Pages
 
 - [Drive a real video editor over MCP](https://weftcut.com/mcp/): how an agent
-  connects, what it can do, and what never leaves the machine
+  connects, what it can do, and how local and optional cloud analysis work
 - [What "AI video editor" means here](https://weftcut.com/ai-video-editor/): no
-  bundled models, no upload, no watermark — and how that compares to a cloud tool
+  bundled model weights, local editing, no watermark — and how that compares to a cloud tool
 - [Motifs — code as motion](https://weftcut.com/motifs/): parameterised animated
   overlays an agent can write from a description
 
@@ -61,3 +61,7 @@ Every page above is also available as Markdown at the same URL under
 - [Repository](https://github.com/WeftCut/WeftCut)
 - [Documentation](https://github.com/WeftCut/WeftCut/tree/main/docs)
 - [MCP server docs](https://github.com/WeftCut/WeftCut/blob/main/docs/mcp.md)
+
+Optional speech and vision analysis can use downloaded local engines or a
+configured cloud provider. Cloud analysis sends requested audio or frames to
+that provider; local editing and export need no upload.

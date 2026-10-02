@@ -6,7 +6,6 @@
     "Whitespace in keys is normalised to single spaces; HTML entities are not.",
     "Run: node build-i18n.mjs"
   ],
-
   "locale": {
     "lang": "zh-Hans",
     "hreflang": "zh-Hans",
@@ -18,14 +17,14 @@
     "switchLang": "en",
     "switchAria": "Switch to English",
     "switchTitle": "English",
-    "preload": ["/assets/fonts/wenkai-gb-medium.woff2"],
+    "preload": [
+      "/assets/fonts/wenkai-gb-medium.woff2"
+    ],
     "mdHref": "/zh/index.md",
     "ogImage": "https://weftcut.com/assets/og/card-zh.png"
   },
-
   "html": {
     "WeftCut — Open Source AI Video Editor for MCP Agents": "WeftCut — 免费开源的 AI 视频剪辑软件，支持 Claude 等 AI Agent",
-
     "The agent native video editor": "Agent原生的视频编辑器",
     "Cut with your <em class=\"accent-agent\">agent</em> and <em class=\"accent-code\">code</em>": "通过<em class=\"accent-agent\">智能体</em>与<em class=\"accent-code\">代码</em>完成剪辑",
     "Let the agent be the weft in your timeline—threading every cut, caption, and transition into place while you stay in control.": "让 agent 穿梭于时间线，将剪辑、字幕和转场一一编织到位，而你始终掌握全局。",
@@ -40,26 +39,21 @@
     "Build from source · Intel Macs, ARM Linux": "从源码构建 · Intel Mac、ARM Linux",
     "Every link resolves to the newest release · <a href=\"https://github.com/WeftCut/WeftCut/releases\" rel=\"noopener\">older builds, notes and checksums</a>": "所有链接均指向最新版本 · <a href=\"https://github.com/WeftCut/WeftCut/releases\" rel=\"noopener\">历史版本、发布说明与校验值</a>",
     "macOS · Windows · Linux&ensp;—&ensp;free &amp; open source&ensp;—&ensp;works with the agent you already use": "macOS · Windows · Linux&ensp;—&ensp;免费开源&ensp;—&ensp;与你常用的 agent 协同工作",
-
     "Opening Scene": "开场",
     "One shot. All agent.": "一镜到底，全部由 agent 完成。",
     "Real session. <em>Full recording.</em>": "真实会话，<em>完整录屏。</em>",
     "An agent edits the video end to end over MCP, with no human intervention. On the right, the same session's log replays line by line.": "Agent 经 MCP 独立完成整段视频剪辑，全程无人干预；右侧同步逐行回放同一会话日志。",
     "REAL SESSION · IN SYNC": "真实会话 · 已同步",
     "<span id=\"logMeta\">real session</span> · click any line to seek<br />trace: <a href=\"/assets/agent-session.json\">agent-session.json</a>": "<span id=\"logMeta\">真实会话</span> · 点击任意行跳转<br />轨迹：<a href=\"/assets/agent-session.json\">agent-session.json</a>",
-
     "Scene 01": "第 01 场",
     "The differentiator": "差别所在",
     "Native by design. <em>For agents.</em>": "原生设计，<em>面向智能体。</em>",
-    "WeftCut opens the whole editor to your agent over standard MCP — everything you can do, the agent can do.": "WeftCut 通过标准 MCP 向 agent 开放整套编辑能力——你能做的，agent 也能做。",
     "CONNECT": "接入",
-    "Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a minute. A Skill ships with it, giving your agent the full picture of what WeftCut can do. All local; nothing uploaded.": "进入「设置 → Agent」，复制配置，再粘贴到 Claude、Cursor 或任意 MCP 客户端，一分钟即可接入。附带 Skill，让 agent 全面了解 WeftCut 的能力。全程在本地运行，无需上传素材。",
     "THE CRAFT": "工具",
     "The full editing vocabulary is on the table: trim, split, transitions, keyframes, effects, captions, markers, undo.": "剪辑所需的工具一应俱全：修剪、切分、转场、关键帧、特效、字幕、标记与撤销。",
     "CONTROL": "掌控",
-    "Edits land live under a checkpoint — review the change feed, or undo and take back the wheel anytime.": "每项操作都会实时出现在时间线上，并自动建立检查点。你可以查看变更记录，也可以随时撤销并重新接手。",
+    "Edits land live under a checkpoint — review the change feed, or undo and take back the wheel anytime.": "改动实时落在时间线上。通过检查点与变更记录审阅，或随时撤销并重新接手。",
     "INSIGHT": "洞察",
-    "Optional local analysis lets the agent look before it cuts: shots, silences, transcription, scene description.": "借助可选的本地分析，agent 可以先理解素材，再开始剪辑：识别镜头与静音、转写语音、描述画面。",
     "things you can say": "直接告诉 agent",
     "plain words → real edits": "说句话，剪辑就落到时间线",
     "&ldquo;Cut the silences out of this interview and tighten the pauses.&rdquo;": "「删掉这段采访里的无声部分，再把停顿收紧一点。」",
@@ -67,25 +61,16 @@
     "&ldquo;Restyle every caption — larger, with a soft shadow.&rdquo;": "「把所有字幕的样式重做一遍——字再大一点，加柔和阴影。」",
     "QUICK TO CONNECT — THE FULL TOOLCHAIN, PLUS AN AGENT SKILL": "快速接入 —— 完整工具链，附带 AGENT SKILL",
     "AGENT MODE — A FOCUSED UI, EVERY MOVE ON THE RECORD": "AGENT 模式 —— 界面简洁专注，每一步都有迹可循",
-
     "Scene 02": "第 02 场",
     "Code as motion": "代码即动效",
     "Your agent knows code. <em>With Motifs, it knows motion.</em>": "你的智能体会写代码。<em>有了 Motif，它也会写动效。</em>",
-    "Describe your idea. Let your agent turn it into a Motif — where code becomes motion and every look stays reusable.": "描述你的创意，agent 会把它写为 Motif——让代码化作动效，让每种风格都能复用。",
-    "WHAT YOU SEE IS WHAT YOU GET — RENDERED INSTANTLY": "所见即所得 —— 即时渲染",
-    "&ldquo;Add a title, lower third, and countdown to this scene.&rdquo;": "「给这场加个标题、一条字幕条和一个倒计时。」",
     "ACTUAL EXPORT": "真实导出",
     "Replay": "重播",
-    "Text FX": "文字特效",
-    "Lower third": "字幕条",
-    "Countdown": "倒计时",
     "Describe": "描述",
-    "Whether it&rsquo;s a title, lower third, callout, or an entirely new design, tell your agent what you want.": "无论是标题、字幕条、标注，还是全新的设计，告诉 agent 你想要什么。",
     "Preview": "预览",
     "Your agent turns the idea into a Motif you can play on the timeline.": "agent 会把想法做成 Motif，直接放到时间线上播放。",
     "Polish": "打磨",
     "Refine it in context and reuse the finished look in your next edit.": "结合画面继续调整，做好的样式也能留到下一次剪辑复用。",
-
     "Scene 03": "第 03 场",
     "The human cut": "属于人类",
     "Full control for humans.<br /><em>Full&nbsp;access&nbsp;for&nbsp;agents.</em>": "创作由你掌控。<br /><em>工具向智能体开放。</em>",
@@ -94,18 +79,15 @@
     "Your story, clear at a glance": "你的故事，一眼看清",
     "A professional timeline that works the way you expect.": "熟悉的专业时间线，上手即用。",
     "Keyframes &amp; curves": "关键帧与曲线",
-    "Edit Bézier curves directly on the timeline, without breaking your flow.": "直接在时间线上调整贝塞尔曲线，不打断剪辑节奏。",
     "Per-clip effect chains": "逐片段特效链",
     "Stack, reorder, and fine-tune effects beside the preview.": "在预览画面旁叠加、排序并精调特效。",
     "Chroma key with live picking": "色度抠像与实时取色",
     "Sample the key color from the preview, then refine the result in place.": "从预览画面吸取键色，就地完成抠像微调。",
     "Titles &amp; captions": "标题与字幕",
-    "Import SRT, VTT, or ASS, then restyle the whole video in one step.": "导入 SRT、VTT 或 ASS，一步统一全片字幕样式。",
     "Global search": "全局搜索",
     "Press Ctrl-K to find commands, media, clips, captions, and markers—even in pinyin.": "按下 Ctrl-K，搜索命令、素材、片段、字幕与标记，也支持拼音。",
     "Professional export": "专业导出",
     "Export H.264, HEVC, 10-bit AV1, ProRes, or DNxHR—full timeline or selected ranges.": "支持 H.264、HEVC、10 位 AV1、ProRes 与 DNxHR，可导出全片或指定范围。",
-
     "Epilogue": "尾声",
     "At the speed of ideas": "所想即所得",
     "From first thought to final cut—<em>without losing momentum.</em>": "从灵感到成片，<em>一气呵成。</em>",
@@ -126,7 +108,6 @@
     "Open by design.": "生而开放。",
     "WeftCut is built in public and free to use, inspect, and extend. Your editor stays yours.": "WeftCut 的开发全程公开，任何人都可免费使用、查看和扩展。你的剪辑工具，始终由你掌控。",
     "View the source": "查看源码",
-
     "Post-credits": "彩蛋",
     "A few details": "见微知著",
     "Frequently asked": "常见问题",
@@ -137,30 +118,44 @@
     "Does it work without an agent?": "不接 agent 也能用吗？",
     "Yes — it&rsquo;s a complete editor on its own: timeline, keyframes, effects, captions, motifs, audio mixing, and export up to 10-bit AV1 and ProRes.": "能。WeftCut 本身就是一款完整的剪辑软件，提供时间线、关键帧、特效、字幕、Motif、音频混音，并支持 10 位 AV1、ProRes 等格式导出。",
     "Where does the AI run?": "AI 在哪里运行？",
-    "In your agent, not in the app — WeftCut ships no models. Optional analysis like transcription and scene description runs locally on your machine.": "AI 能力来自你接入的 agent，而不是应用本身；WeftCut 不附带任何模型。转写、画面描述等可选分析均在本机运行。",
     "What platforms does it run on?": "支持哪些平台？",
     "macOS, Windows and Linux — one desktop app, same feature set everywhere. The ready-made builds cover Windows x64, Apple Silicon Macs and x86_64 Linux; every other target builds from source.": "支持 macOS、Windows 和 Linux，所有平台均提供一致的功能。现成的安装包覆盖 Windows x64、Apple Silicon Mac 与 x86_64 Linux；其他平台可自行从源码构建。",
-
     "Intro": "开场",
     "The Cut": "实录",
     "Agent Native": "Agent原生",
     "Motifs": "Motif",
     "Editor": "编辑器",
     "Finale": "终章",
-
     "App licensed MIT. Bundles FFmpeg (LGPL decode libs / GPL CLI sidecar).": "应用基于 MIT 许可证发布。随附 FFmpeg（LGPL 解码库 / GPL 命令行组件）。",
     "Docs": "文档",
     "Agent session": "agent 会话",
-    "© 2026 WeftCut contributors": "© 2026 WeftCut 贡献者"
+    "© 2026 WeftCut contributors": "© 2026 WeftCut 贡献者",
+    "Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a minute. A Skill ships with it, giving your agent the full picture of what WeftCut can do. Editing and export stay on your machine.": "设置 → Agent，复制、粘贴，一分钟接入 Claude、Cursor 或任意 MCP 客户端。随附的 Skill 让 agent 了解 WeftCut 的完整能力。剪辑与导出在本机完成。",
+    "Let the agent look and listen before it cuts: shots, pauses, transcription, scene description. Choose local engines or configure a cloud provider.": "让 agent 先看、先听，再开始剪辑：识别镜头与停顿、转写语音、描述画面。可选择本地引擎，或配置云端服务。",
+    "From animated titles to 2D drawings and 3D scenes, describe your idea. Your agent turns it into a Motif you can refine and reuse.": "从动态标题到 2D 绘制与 3D 场景，描述你的想法，agent 会把它变成可以打磨、复用的 Motif。",
+    "&ldquo;Draw this portrait, one line at a time.&rdquo;": "「让这幅肖像一笔一笔地画出来。」",
+    "2D drawing": "2D 绘制",
+    "Reusable": "可复用",
+    "Ask for a title, an illustrated animation, a 3D scene, or an entirely new design.": "告诉 agent 你想要一个标题、一段插画动画、一个 3D 场景，或一个全新的设计。",
+    "Shape motion with Bézier curves, motion paths, and tangent controls.": "通过贝塞尔曲线、运动路径和切线控制，塑造每一段运动。",
+    "Transcribe speech or import SRT, VTT, or ASS, then restyle every caption in one step.": "转写语音，或导入 SRT、VTT、ASS，一步统一所有字幕样式。",
+    "Your connected agent provides the editing intelligence. WeftCut bundles no model weights. Optional speech and vision tools use local engines you download or cloud providers you configure.": "剪辑智能来自你接入的 agent。WeftCut 不附带模型权重。可选的语音与视觉工具使用你下载的本地引擎，或你配置的云端服务。",
+    "A drawing with its own controls.": "一幅画，也有自己的控件。",
+    "This portrait comes from our WeftCut showcase project. The lines draw in sequence, then the hair and accessories complete the expression.": "这幅肖像来自我们的 WeftCut 能力展示项目。线条依次绘出，再由头发与饰品补全神态。",
+    "Stroke": "描边",
+    "Change the line color and weight.": "调整线条的颜色与粗细。",
+    "Detail": "细节",
+    "Choose the outline or the full drawing.": "选择只画轮廓，或绘制完整细节。",
+    "Timing": "时长",
+    "Set how long the drawing takes to appear.": "设定绘制过程的时长。",
+    "WeftCut brings your agent onto the timeline over standard MCP — real edits, visible as they happen.": "通过标准 MCP，让你的 agent 直接参与时间线上的剪辑，每一项真实改动都即时可见。"
   },
-
   "attrs": {
     "WeftCut — Open Source AI Video Editor for MCP Agents": "WeftCut — 免费开源的 AI 视频剪辑软件，支持 Claude 等 AI Agent",
-    "WeftCut is a free, open source AI video editor for macOS, Windows and Linux. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live.": "WeftCut 是一款免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。接入 Claude、Cursor 或任意 MCP 客户端，让 AI 剪辑真实落到时间线上，每一项改动都可实时查看并撤销。不内置模型，不上传云端。",
+    "WeftCut is a free, open source AI video editor for macOS, Windows and Linux. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live.": "WeftCut 是一款免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。接入 Claude、Cursor 或任意 MCP 客户端，让 AI 剪辑真实落到时间线上，每一项改动都可实时查看并撤销。不附带模型权重，剪辑与导出在本机完成。",
     "A free, open source AI video editor for macOS, Windows and Linux. Connect Claude, Cursor, or any MCP client — and review every edit as it lands on your timeline, live.": "一款免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。",
     "A free, open source AI video editor for humans and AI agents alike. Connect Claude, Cursor, or any MCP client — and review every edit live.": "一款免费开源的 AI 视频剪辑软件，同时面向创作者与 AI agent。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 的每一项改动。",
     "WeftCut — Cut with your agent and code. Free, open source AI video editor for macOS, Windows and Linux.": "WeftCut — 通过智能体与代码完成剪辑。免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。",
-
     "WeftCut — back to top": "WeftCut — 回到顶部",
     "Introduction": "简介",
     "Download WeftCut from GitHub Releases": "从 GitHub Releases 下载 WeftCut",
@@ -170,8 +165,6 @@
     "Example prompts you can hand your agent": "可以直接交给 agent 的指令示例",
     "WeftCut's Agent settings: a paste-ready MCP config, and the Skill WeftCut ships for your agent to install": "WeftCut 的 Agent 设置页：可直接粘贴的 MCP 配置，以及 WeftCut 随附、供 agent 安装的 Skill",
     "WeftCut in agent mode: a focused UI, with every agent move listed in the change feed beside the preview": "WeftCut 的 agent 模式：界面简洁专注，预览旁的变更记录逐条列出 agent 的每一步",
-    "A brand-new Motif on the WeftCut timeline, rendering live in the program monitor while its props and its source sit open beside it": "刚刚生成的 Motif 已落在 WeftCut 时间线上，节目监视器实时渲染，旁边同时展开它的参数与源码",
-    "A five-second WeftCut export combining animated Text FX, a lower third, and a countdown": "一段五秒的 WeftCut 真实导出：动态文字特效、字幕条和倒计时",
     "Replay Motif export": "重播 Motif 导出示例",
     "A tour of editing by hand in WeftCut: playback, scrubbing, grouping clips into a composition, splitting, trimming, keyframes, effects and export": "WeftCut 手动剪辑功能演示：播放、逐帧浏览、将片段编组为合成、切分、修剪、关键帧、特效与导出",
     "Close-up of the WeftCut timeline: a caption row, clip filmstrips, an audio waveform and a keyframe curve lane": "WeftCut 时间线特写：字幕轨、片段的胶片缩略图、音频波形和关键帧曲线轨",
@@ -183,7 +176,6 @@
     "The export dialog with codec settings: H.264, HEVC, AV1, ProRes and DNxHR": "导出对话框及编码设置：H.264、HEVC、AV1、ProRes 与 DNxHR",
     "How WeftCut keeps the edit moving": "WeftCut 如何让剪辑流畅推进",
     "Footer": "页脚",
-
     "Page timeline": "页面时间线",
     "Page position": "页面位置",
     "The Cut demonstration": "实录演示",
@@ -192,24 +184,20 @@
     "The editor": "编辑器",
     "At the speed of ideas": "所想即所得",
     "Frequently asked questions": "常见问题",
-
     "TITLE CARD · INTRODUCTION": "片头 · 简介",
     "OPENING SCENE · AGENT SESSION": "开场 · AGENT 会话",
     "SCENE 01 · AGENT-NATIVE": "第 01 场 · 为 AGENT 而生",
     "SCENE 02 · CODE AS MOTION": "第 02 场 · 代码即动效",
     "SCENE 03 · THE HUMAN CUT": "第 03 场 · 属于人类",
     "EPILOGUE · AT THE SPEED OF IDEAS": "尾声 · 所想即所得",
-    "POST-CREDITS · A FEW DETAILS": "彩蛋 · 一些细节"
+    "POST-CREDITS · A FEW DETAILS": "彩蛋 · 一些细节",
+    "A real WeftCut export of a 2D portrait drawn stroke by stroke, from its outline to hair and accessories": "WeftCut 真实导出的 2D 肖像动画：从轮廓到头发与饰品，一笔一笔完成绘制"
   },
-
   "jsonld": {
     "A cross-platform desktop video editor where AI agents are first-class citizens. Connect Claude, Cursor, or any MCP client — and audit its edits to your timeline live.": "一款原生支持 AI agent 的跨平台桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。",
-
     "AI video editor, open source video editor, MCP video editor, video editor MCP server, agent-native video editor, Claude video editing, Cursor video editing, AI agent video editor, free video editor, offline AI video editing, non-linear editor, NLE, video editor for Linux": "AI 视频剪辑软件, AI剪辑, AI视频剪辑, 开源剪辑软件, 免费剪辑软件, 无水印剪辑软件, MCP 视频剪辑, Claude 剪视频, AI Agent 剪辑, 智能体剪辑, 本地 AI 剪辑, 剪映替代, 非线性剪辑软件, Linux 视频剪辑软件",
-
     "Source for WeftCut, a free and open source AI video editor that exposes the whole editor to AI agents over MCP.": "WeftCut 的源代码。WeftCut 是一款免费开源的 AI 视频剪辑软件，通过 MCP 把整个编辑器开放给 AI agent。",
     "WeftCut contributors": "WeftCut 贡献者",
-
     "Agent-native: the entire editor is exposed to AI agents as an MCP tool surface on localhost": "原生面向 agent：整个编辑器以 MCP 工具接口的形式开放在本机，供 AI agent 调用",
     "A/B-roll timeline with filmstrip thumbnails and audio waveforms": "A/B 卷时间线，带胶片缩略图与音频波形",
     "Frame-accurate SMPTE timecode editing": "基于 SMPTE 时间码的帧级精确剪辑",
@@ -220,7 +208,6 @@
     "Role-based audio mixing": "按角色分组的音频混音",
     "Export to H.264, HEVC, AV1 and ProRes, up to 10-bit": "导出 H.264、HEVC、AV1 与 ProRes，最高 10 位色深",
     "No bundled AI models — the agent you connect is the intelligence": "不内置 AI 模型，智能能力来自你接入的 agent",
-
     "Is WeftCut free?": "WeftCut 免费吗？",
     "Yes — free and open source under the MIT license. FFmpeg is bundled under its own LGPL/GPL terms.": "是的。WeftCut 免费使用，并基于 MIT 许可证开源；随附的 FFmpeg 遵循其自身的 LGPL/GPL 许可条款。",
     "Which agents can I connect?": "支持接入哪些 agent？",
@@ -228,11 +215,10 @@
     "Does it work without an agent?": "不接 agent 也能用吗？",
     "Yes — it's a complete editor on its own: timeline, keyframes, effects, captions, motifs, audio mixing, and export up to 10-bit AV1 and ProRes.": "能。WeftCut 本身就是一款完整的剪辑软件，提供时间线、关键帧、特效、字幕、Motif、音频混音，并支持 10 位 AV1、ProRes 等格式导出。",
     "Where does the AI run?": "AI 在哪里运行？",
-    "In your agent, not in the app — WeftCut ships no models. Optional analysis like transcription and scene description runs locally on your machine.": "AI 能力来自你接入的 agent，而不是应用本身；WeftCut 不附带任何模型。转写、画面描述等可选分析均在本机运行。",
     "What platforms does it run on?": "支持哪些平台？",
-    "macOS, Windows and Linux — one desktop app, same feature set everywhere. The ready-made builds cover Windows x64, Apple Silicon Macs and x86_64 Linux; every other target builds from source.": "支持 macOS、Windows 和 Linux，所有平台均提供一致的功能。现成的安装包覆盖 Windows x64、Apple Silicon Mac 与 x86_64 Linux；其他平台可自行从源码构建。"
+    "macOS, Windows and Linux — one desktop app, same feature set everywhere. The ready-made builds cover Windows x64, Apple Silicon Macs and x86_64 Linux; every other target builds from source.": "支持 macOS、Windows 和 Linux，所有平台均提供一致的功能。现成的安装包覆盖 Windows x64、Apple Silicon Mac 与 x86_64 Linux；其他平台可自行从源码构建。",
+    "Your connected agent provides the editing intelligence. WeftCut bundles no model weights. Optional speech and vision tools use local engines you download or cloud providers you configure.": "剪辑智能来自你接入的 agent。WeftCut 不附带模型权重。可选的语音与视觉工具使用你下载的本地引擎，或你配置的云端服务。"
   },
-
   "ui": {
     "downloadFor": "下载 {platform} 版",
     "downloadAria": "从 GitHub Releases 下载 WeftCut {platform} 版",
@@ -263,7 +249,6 @@
     "callAria": "{tool} —— 跳转视频",
     "messageAria": "agent 消息 —— 跳转视频",
     "traceUnavailable": "会话轨迹不可用 —— 见 /assets/agent-session.json",
-
     "mcpProductTool": "本页所述的 WeftCut 事实：它是什么、支持哪些平台、采用何种许可协议，以及是否已有公开发布版本。",
     "mcpCapabilitiesTool": "WeftCut 的能力，按本页的分节列出——面向 agent 的 MCP 接口、时间线与剪辑功能，以及开源条款。",
     "mcpFaqTool": "本页直接回答的问题：WeftCut 是否免费、可以连接哪些 agent、没有 agent 能否使用、AI 在哪里运行，以及支持哪些平台。",

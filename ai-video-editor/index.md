@@ -4,7 +4,7 @@ WeftCut is a free, open source AI video editor for macOS, Windows and Linux. It 
 
 ## The short answer: it ships no AI models
 
-Most tools called AI video editors run models the vendor chose, on the vendor's servers, on footage you uploaded. WeftCut does none of that. There is no bundled model, no inference endpoint, no account, and nothing to upload.
+Most tools called AI video editors run models the vendor chose, on the vendor's servers, on footage you uploaded. WeftCut does none of that. The installer bundles no model weights, and editing and export run on your machine. Optional speech and vision tools can use downloaded local engines or cloud providers you configure.
 
 What it has instead is an open door. The whole editor is exposed to whatever AI agent you already use — Claude, Cursor, Codex, or your own — over the standard Model Context Protocol, on your own machine. The agent brings the intelligence; WeftCut brings the timeline, and the agent's edits land on it live where you can see and undo them. That is covered in detail on [the MCP page](/mcp/).
 
@@ -14,13 +14,13 @@ So: the AI is real, and it does real editing. It just isn't ours, and it isn't r
 
 | | Typical cloud AI editor | WeftCut |
 | --- | --- | --- |
-| Where your footage goes | uploaded to the vendor | stays on your machine |
+| Where your footage goes | uploaded to the vendor | local editing; optional cloud analysis |
 | Where the AI runs | the vendor's models, their choice | the agent you already chose |
 | Price | subscription, often per seat | free |
 | Watermark | common on free tiers | none |
 | Export ceiling | depends on your tier | 10-bit AV1, ProRes, DNxHR |
 | Source code | closed | open, MIT, auditable |
-| Works offline | no | yes, apart from your agent |
+| Works offline | no | editing and export; downloaded local engines |
 
 The row that matters most depends on who you are. For a lot of people it is the first one.
 
@@ -32,7 +32,7 @@ Plain requests, real edits:
 - "Split this take at every shot change and label the scenes."
 - "Restyle every caption — larger, with a soft shadow."
 
-Each of those becomes ordinary timeline operations you can inspect, adjust or undo. Optional analysis — transcription, shot detection, silence detection, scene description — also runs locally, so the agent can look at the footage before it cuts without the footage going anywhere.
+Each of those becomes ordinary timeline operations you can inspect, adjust or undo. Shot detection, pause detection and frame comparison run locally. Transcription and scene description can use local engines or your configured cloud provider, so the agent can look and listen before it cuts.
 
 ## It is a serious editor with the AI switched off
 
@@ -42,8 +42,8 @@ Connect nothing and you still have a complete non-linear editor:
 - Keyframe animation with a bézier curve editor, edited in the timeline
 - Per-layer effect chains, including chroma key with a live eyedropper
 - Titles and captions, importing SRT, VTT and ASS as editable layers
-- [Motifs](/motifs/): animated, reusable overlays like lower thirds and countdowns
-- Role-based audio mixing for dialogue, music and effects
+- [Motifs](/motifs/): reusable motion graphics, from titles to 2D drawings and 3D scenes
+- Role-based audio mixing for dialogue, music, effects and voiceover, with live meters and denoise
 - A Ctrl-K palette over commands, media, clips, captions and markers
 
 ## Platforms and export
@@ -64,11 +64,11 @@ No. There is no watermark on any export, at any resolution, in any format.
 
 ### Does my video get uploaded anywhere?
 
-No. Editing and export are local, and the optional analysis features are local too. WeftCut has no account system and no server to upload to.
+Editing and export are local. If you configure a cloud transcription or vision provider, the requested audio or frames are sent to that provider. Use local engines to keep analysis on your machine; your connected agent has its own data policy.
 
 ### Does it work without an internet connection?
 
-The editor does, completely. The only part that needs a network is the AI agent you connect, because that agent is a separate program talking to its own provider.
+Editing and export work offline. Local speech and vision analysis work after the engine and model downloads are complete. Cloud analysis, cloud voiceover and a cloud-backed agent need a network connection.
 
 ### Does it run on Linux?
 
@@ -76,4 +76,4 @@ Yes — macOS, Windows and Linux get one desktop app with the same feature set, 
 
 ### Which AI models does it use?
 
-None of its own. WeftCut bundles no models. The agent you connect supplies the intelligence, and optional local analysis uses on-device tools such as Whisper for transcription.
+The connected agent supplies the editing intelligence. WeftCut bundles no model weights. For optional analysis, choose local engines such as whisper.cpp or FunASR, or configure a cloud speech or vision provider.

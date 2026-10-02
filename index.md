@@ -37,11 +37,11 @@ Scene 01 The differentiator
 
 ## Native by design. *For agents.*
 
-WeftCut opens the whole editor to your agent over standard MCP — everything you can do, the agent can do.
+WeftCut brings your agent onto the timeline over standard MCP — real edits, visible as they happen.
 
 - CONNECT
 
-  Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a minute. A Skill ships with it, giving your agent the full picture of what WeftCut can do. All local; nothing uploaded.
+  Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a minute. A Skill ships with it, giving your agent the full picture of what WeftCut can do. Editing and export stay on your machine.
 - THE CRAFT
 
   The full editing vocabulary is on the table: trim, split, transitions, keyframes, effects, captions, markers, undo.
@@ -50,7 +50,7 @@ WeftCut opens the whole editor to your agent over standard MCP — everything yo
   Edits land live under a checkpoint — review the change feed, or undo and take back the wheel anytime.
 - INSIGHT
 
-  Optional local analysis lets the agent look before it cuts: shots, silences, transcription, scene description.
+  Let the agent look and listen before it cuts: shots, pauses, transcription, scene description. Choose local engines or configure a cloud provider.
 
 *things you can say plain words → real edits*
 
@@ -70,23 +70,35 @@ Scene 02 Code as motion
 
 ## Your agent knows code. *With Motifs, it knows motion.*
 
-Describe your idea. Let your agent turn it into a Motif — where code becomes motion and every look stays reusable.
+From animated titles to 2D drawings and 3D scenes, describe your idea. Your agent turns it into a Motif you can refine and reuse.
 
-![A brand-new Motif on the WeftCut timeline, rendering live in the program monitor while its props and its source sit open beside it](https://weftcut.com/assets/shots/motif-live.webp)
+“Draw this portrait, one line at a time.” ACTUAL EXPORT
 
-*WHAT YOU SEE IS WHAT YOU GET — RENDERED INSTANTLY*
-
-“Add a title, lower third, and countdown to this scene.” ACTUAL EXPORT
+2D drawing Code as motion Reusable
 
 `[Replay]`
 
-Text FX Lower third Countdown
+### A drawing with its own controls.
+
+This portrait comes from our WeftCut showcase project. The lines draw in sequence, then the hair and accessories complete the expression.
+
+Stroke
+
+Change the line color and weight.
+
+Detail
+
+Choose the outline or the full drawing.
+
+Timing
+
+Set how long the drawing takes to appear.
 
 01
 
 ### Describe
 
-Whether it’s a title, lower third, callout, or an entirely new design, tell your agent what you want.
+Ask for a title, an illustrated animation, a 3D scene, or an entirely new design.
 
 02
 
@@ -119,7 +131,7 @@ A professional timeline that works the way you expect.
 
 ### Keyframes & curves
 
-Edit Bézier curves directly on the timeline, without breaking your flow.
+Shape motion with Bézier curves, motion paths, and tangent controls.
 
 ![A blur and chroma key stacked in the effect chain for a selected clip](https://weftcut.com/assets/shots/effects.webp)
 
@@ -137,7 +149,7 @@ Sample the key color from the preview, then refine the result in place.
 
 ### Titles & captions
 
-Import SRT, VTT, or ASS, then restyle the whole video in one step.
+Transcribe speech or import SRT, VTT, or ASS, then restyle every caption in one step.
 
 ![The Ctrl-K palette matching a search across imported media and the clips already on the timeline](https://weftcut.com/assets/shots/search-palette.webp)
 
@@ -202,7 +214,7 @@ Post-credits A few details
   Yes — it’s a complete editor on its own: timeline, keyframes, effects, captions, motifs, audio mixing, and export up to 10-bit AV1 and ProRes.
 - ### Where does the AI run?
 
-  In your agent, not in the app — WeftCut ships no models. Optional analysis like transcription and scene description runs locally on your machine.
+  Your connected agent provides the editing intelligence. WeftCut bundles no model weights. Optional speech and vision tools use local engines you download or cloud providers you configure.
 - ### What platforms does it run on?
 
   macOS, Windows and Linux — one desktop app, same feature set everywhere. The ready-made builds cover Windows x64, Apple Silicon Macs and x86\_64 Linux; every other target builds from source.

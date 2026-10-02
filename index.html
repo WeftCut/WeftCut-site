@@ -69,8 +69,7 @@
 })();
 </script>
 <link rel="stylesheet" href="/index.css" />
-<!-- No softwareVersion, downloadUrl, datePublished or aggregateRating until a
-     release and ratings actually exist. Add them in the commit that ships v1. -->
+<!-- Keep the download URL evergreen; omit version and rating claims. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -167,7 +166,7 @@
     {
       "@type": "Question",
       "name": "Where does the AI run?",
-      "acceptedAnswer": { "@type": "Answer", "text": "In your agent, not in the app — WeftCut ships no models. Optional analysis like transcription and scene description runs locally on your machine." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Your connected agent provides the editing intelligence. WeftCut bundles no model weights. Optional speech and vision tools use local engines you download or cloud providers you configure." }
     },
     {
       "@type": "Question",
@@ -340,7 +339,7 @@
       <header class="sec-head rv">
         <p class="kicker"><span class="reel-no">Scene 01</span><span class="scene-no">The differentiator</span></p>
         <h2 id="agent-h">Native by design. <em>For agents.</em></h2>
-        <p class="lede">WeftCut opens the whole editor to your agent over standard MCP — everything you can do, the agent can do.</p>
+        <p class="lede">WeftCut brings your agent onto the timeline over standard MCP — real edits, visible as they happen.</p>
       </header>
 
       <div class="agent-grid">
@@ -349,7 +348,7 @@
             <span class="cue-tag">CONNECT</span>
             <p>Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a
             minute. A Skill ships with it, giving your agent the full picture of what WeftCut
-            can do. All local; nothing uploaded.</p>
+            can do. Editing and export stay on your machine.</p>
           </li>
           <li>
             <span class="cue-tag">THE CRAFT</span>
@@ -363,8 +362,8 @@
           </li>
           <li>
             <span class="cue-tag">INSIGHT</span>
-            <p>Optional local analysis lets the agent look before it cuts: shots, silences,
-            transcription, scene description.</p>
+            <p>Let the agent look and listen before it cuts: shots, pauses, transcription,
+            scene description. Choose local engines or configure a cloud provider.</p>
           </li>
         </ul>
 
@@ -401,49 +400,53 @@
       <header class="sec-head rv">
         <p class="kicker"><span class="reel-no">Scene 02</span><span class="scene-no">Code as motion</span></p>
         <h2 id="motifs-h">Your agent knows code. <em>With Motifs, it knows motion.</em></h2>
-        <p class="lede">Describe your idea. Let your agent turn it into a Motif — where code
-        becomes motion and every look stays reusable.</p>
+        <p class="lede">From animated titles to 2D drawings and 3D scenes, describe your idea.
+        Your agent turns it into a Motif you can refine and reuse.</p>
       </header>
 
       <div class="motif-showcase">
-        <figure class="film motif-live-shot rv">
-          <img src="/assets/shots/motif-live.webp" width="1600" height="852" loading="lazy"
-               alt="A brand-new Motif on the WeftCut timeline, rendering live in the program monitor while its props and its source sit open beside it" />
-          <figcaption>WHAT YOU SEE IS WHAT YOU GET — RENDERED INSTANTLY</figcaption>
-        </figure>
-
         <div class="motif-export rv">
           <div class="motif-output-head">
-            <span class="mono-dim">&ldquo;Add a title, lower third, and countdown to this scene.&rdquo;</span>
+            <span class="mono-dim">&ldquo;Draw this portrait, one line at a time.&rdquo;</span>
             <span class="motif-output-badge">ACTUAL EXPORT</span>
           </div>
           <figure class="motif-export-frame">
-            <video id="motifExportVideo" width="960" height="540" muted playsinline preload="metadata"
-                   poster="/assets/video/motif-showcase-poster.jpg"
-                   aria-label="A five-second WeftCut export combining animated Text FX, a lower third, and a countdown">
-              <source src="/assets/video/motif-showcase.mp4" type="video/mp4" />
+            <video id="motifExportVideo" width="1280" height="720" muted playsinline controls preload="metadata"
+                   poster="/assets/video/motif-portrait-poster.jpg"
+                   aria-label="A real WeftCut export of a 2D portrait drawn stroke by stroke, from its outline to hair and accessories">
+              <source src="/assets/video/motif-portrait.mp4" type="video/mp4" />
             </video>
-            <button id="motifReplayButton" class="motif-replay-button" type="button" aria-label="Replay Motif export">
-              <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true" focusable="false">
-                <path d="M13.25 5.25A6 6 0 1 0 14 8" />
-                <path d="M13.25 1.75v3.5h-3.5" />
-              </svg>
-              <span>Replay</span>
-            </button>
           </figure>
           <div class="motif-export-legend" aria-hidden="true">
-            <span><i></i>Text FX</span>
-            <span><i></i>Lower third</span>
-            <span><i></i>Countdown</span>
+            <span><i></i>2D drawing</span>
+            <span><i></i>Code as motion</span>
+            <span><i></i>Reusable</span>
           </div>
+          <button id="motifReplayButton" class="motif-replay-button" type="button" aria-label="Replay Motif export">
+            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false">
+              <path d="M13.25 5.25A6 6 0 1 0 14 8" />
+              <path d="M13.25 1.75v3.5h-3.5" />
+            </svg>
+            <span>Replay</span>
+          </button>
         </div>
+        <aside class="motif-process rv">
+          <h3>A drawing with its own controls.</h3>
+          <p>This portrait comes from our WeftCut showcase project. The lines draw in sequence,
+          then the hair and accessories complete the expression.</p>
+          <dl class="motif-controls">
+            <div><dt>Stroke</dt><dd>Change the line color and weight.</dd></div>
+            <div><dt>Detail</dt><dd>Choose the outline or the full drawing.</dd></div>
+            <div><dt>Timing</dt><dd>Set how long the drawing takes to appear.</dd></div>
+          </dl>
+        </aside>
       </div>
 
       <div class="motif-benefits rv">
         <article>
           <span class="motif-benefit-no">01</span>
           <h3>Describe</h3>
-          <p>Whether it&rsquo;s a title, lower third, callout, or an entirely new design, tell your agent what you want.</p>
+          <p>Ask for a title, an illustrated animation, a 3D scene, or an entirely new design.</p>
         </article>
         <article>
           <span class="motif-benefit-no">02</span>
@@ -498,7 +501,7 @@
           </figure>
           <div class="fcard-body">
             <h3>Keyframes &amp; curves</h3>
-            <p>Edit Bézier curves directly on the timeline, without breaking your flow.</p>
+            <p>Shape motion with Bézier curves, motion paths, and tangent controls.</p>
           </div>
         </article>
 
@@ -531,7 +534,7 @@
           </figure>
           <div class="fcard-body">
             <h3>Titles &amp; captions</h3>
-            <p>Import SRT, VTT, or ASS, then restyle the whole video in one step.</p>
+            <p>Transcribe speech or import SRT, VTT, or ASS, then restyle every caption in one step.</p>
           </div>
         </article>
 
@@ -641,7 +644,7 @@
         </li>
         <li>
           <h3>Where does the AI run?</h3>
-          <p>In your agent, not in the app — WeftCut ships no models. Optional analysis like transcription and scene description runs locally on your machine.</p>
+          <p>Your connected agent provides the editing intelligence. WeftCut bundles no model weights. Optional speech and vision tools use local engines you download or cloud providers you configure.</p>
         </li>
         <li>
           <h3>What platforms does it run on?</h3>

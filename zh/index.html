@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>WeftCut — 免费开源的 AI 视频剪辑软件，支持 Claude 等 AI Agent</title>
-<meta name="description" content="WeftCut 是一款免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。接入 Claude、Cursor 或任意 MCP 客户端，让 AI 剪辑真实落到时间线上，每一项改动都可实时查看并撤销。不内置模型，不上传云端。" />
+<meta name="description" content="WeftCut 是一款免费开源的 AI 视频剪辑软件，支持 macOS、Windows 与 Linux。接入 Claude、Cursor 或任意 MCP 客户端，让 AI 剪辑真实落到时间线上，每一项改动都可实时查看并撤销。不附带模型权重，剪辑与导出在本机完成。" />
 <link rel="canonical" href="https://weftcut.com/zh/" />
 <!-- Each language self-canonicalises and declares the full set, itself included.
      x-default points at English. Mirrored in sitemap.xml. -->
@@ -70,8 +70,7 @@
 })();
 </script>
 <link rel="stylesheet" href="/index.css" />
-<!-- No softwareVersion, downloadUrl, datePublished or aggregateRating until a
-     release and ratings actually exist. Add them in the commit that ships v1. -->
+<!-- Keep the download URL evergreen; omit version and rating claims. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -168,7 +167,7 @@
     {
       "@type": "Question",
       "name": "AI 在哪里运行？",
-      "acceptedAnswer": { "@type": "Answer", "text": "AI 能力来自你接入的 agent，而不是应用本身；WeftCut 不附带任何模型。转写、画面描述等可选分析均在本机运行。" }
+      "acceptedAnswer": { "@type": "Answer", "text": "剪辑智能来自你接入的 agent。WeftCut 不附带模型权重。可选的语音与视觉工具使用你下载的本地引擎，或你配置的云端服务。" }
     },
     {
       "@type": "Question",
@@ -341,14 +340,14 @@
       <header class="sec-head rv">
         <p class="kicker"><span class="reel-no">第 01 场</span><span class="scene-no">差别所在</span></p>
         <h2 id="agent-h">原生设计，<em>面向智能体。</em></h2>
-        <p class="lede">WeftCut 通过标准 MCP 向 agent 开放整套编辑能力——你能做的，agent 也能做。</p>
+        <p class="lede">通过标准 MCP，让你的 agent 直接参与时间线上的剪辑，每一项真实改动都即时可见。</p>
       </header>
 
       <div class="agent-grid">
         <ul class="cue-list rv" role="list">
           <li>
             <span class="cue-tag">接入</span>
-            <p>进入「设置 → Agent」，复制配置，再粘贴到 Claude、Cursor 或任意 MCP 客户端，一分钟即可接入。附带 Skill，让 agent 全面了解 WeftCut 的能力。全程在本地运行，无需上传素材。</p>
+            <p>设置 → Agent，复制、粘贴，一分钟接入 Claude、Cursor 或任意 MCP 客户端。随附的 Skill 让 agent 了解 WeftCut 的完整能力。剪辑与导出在本机完成。</p>
           </li>
           <li>
             <span class="cue-tag">工具</span>
@@ -356,11 +355,11 @@
           </li>
           <li>
             <span class="cue-tag">掌控</span>
-            <p>每项操作都会实时出现在时间线上，并自动建立检查点。你可以查看变更记录，也可以随时撤销并重新接手。</p>
+            <p>改动实时落在时间线上。通过检查点与变更记录审阅，或随时撤销并重新接手。</p>
           </li>
           <li>
             <span class="cue-tag">洞察</span>
-            <p>借助可选的本地分析，agent 可以先理解素材，再开始剪辑：识别镜头与静音、转写语音、描述画面。</p>
+            <p>让 agent 先看、先听，再开始剪辑：识别镜头与停顿、转写语音、描述画面。可选择本地引擎，或配置云端服务。</p>
           </li>
         </ul>
 
@@ -397,48 +396,51 @@
       <header class="sec-head rv">
         <p class="kicker"><span class="reel-no">第 02 场</span><span class="scene-no">代码即动效</span></p>
         <h2 id="motifs-h">你的智能体会写代码。<em>有了 Motif，它也会写动效。</em></h2>
-        <p class="lede">描述你的创意，agent 会把它写为 Motif——让代码化作动效，让每种风格都能复用。</p>
+        <p class="lede">从动态标题到 2D 绘制与 3D 场景，描述你的想法，agent 会把它变成可以打磨、复用的 Motif。</p>
       </header>
 
       <div class="motif-showcase">
-        <figure class="film motif-live-shot rv">
-          <img src="/assets/shots/motif-live.webp" width="1600" height="852" loading="lazy"
-               alt="刚刚生成的 Motif 已落在 WeftCut 时间线上，节目监视器实时渲染，旁边同时展开它的参数与源码" />
-          <figcaption>所见即所得 —— 即时渲染</figcaption>
-        </figure>
-
         <div class="motif-export rv">
           <div class="motif-output-head">
-            <span class="mono-dim">「给这场加个标题、一条字幕条和一个倒计时。」</span>
+            <span class="mono-dim">「让这幅肖像一笔一笔地画出来。」</span>
             <span class="motif-output-badge">真实导出</span>
           </div>
           <figure class="motif-export-frame">
-            <video id="motifExportVideo" width="960" height="540" muted playsinline preload="metadata"
-                   poster="/assets/video/motif-showcase-poster.jpg"
-                   aria-label="一段五秒的 WeftCut 真实导出：动态文字特效、字幕条和倒计时">
-              <source src="/assets/video/motif-showcase.mp4" type="video/mp4" />
+            <video id="motifExportVideo" width="1280" height="720" muted playsinline controls preload="metadata"
+                   poster="/assets/video/motif-portrait-poster.jpg"
+                   aria-label="WeftCut 真实导出的 2D 肖像动画：从轮廓到头发与饰品，一笔一笔完成绘制">
+              <source src="/assets/video/motif-portrait.mp4" type="video/mp4" />
             </video>
-            <button id="motifReplayButton" class="motif-replay-button" type="button" aria-label="重播 Motif 导出示例">
-              <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true" focusable="false">
-                <path d="M13.25 5.25A6 6 0 1 0 14 8" />
-                <path d="M13.25 1.75v3.5h-3.5" />
-              </svg>
-              <span>重播</span>
-            </button>
           </figure>
           <div class="motif-export-legend" aria-hidden="true">
-            <span><i></i>文字特效</span>
-            <span><i></i>字幕条</span>
-            <span><i></i>倒计时</span>
+            <span><i></i>2D 绘制</span>
+            <span><i></i>代码即动效</span>
+            <span><i></i>可复用</span>
           </div>
+          <button id="motifReplayButton" class="motif-replay-button" type="button" aria-label="重播 Motif 导出示例">
+            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false">
+              <path d="M13.25 5.25A6 6 0 1 0 14 8" />
+              <path d="M13.25 1.75v3.5h-3.5" />
+            </svg>
+            <span>重播</span>
+          </button>
         </div>
+        <aside class="motif-process rv">
+          <h3>一幅画，也有自己的控件。</h3>
+          <p>这幅肖像来自我们的 WeftCut 能力展示项目。线条依次绘出，再由头发与饰品补全神态。</p>
+          <dl class="motif-controls">
+            <div><dt>描边</dt><dd>调整线条的颜色与粗细。</dd></div>
+            <div><dt>细节</dt><dd>选择只画轮廓，或绘制完整细节。</dd></div>
+            <div><dt>时长</dt><dd>设定绘制过程的时长。</dd></div>
+          </dl>
+        </aside>
       </div>
 
       <div class="motif-benefits rv">
         <article>
           <span class="motif-benefit-no">01</span>
           <h3>描述</h3>
-          <p>无论是标题、字幕条、标注，还是全新的设计，告诉 agent 你想要什么。</p>
+          <p>告诉 agent 你想要一个标题、一段插画动画、一个 3D 场景，或一个全新的设计。</p>
         </article>
         <article>
           <span class="motif-benefit-no">02</span>
@@ -492,7 +494,7 @@
           </figure>
           <div class="fcard-body">
             <h3>关键帧与曲线</h3>
-            <p>直接在时间线上调整贝塞尔曲线，不打断剪辑节奏。</p>
+            <p>通过贝塞尔曲线、运动路径和切线控制，塑造每一段运动。</p>
           </div>
         </article>
 
@@ -525,7 +527,7 @@
           </figure>
           <div class="fcard-body">
             <h3>标题与字幕</h3>
-            <p>导入 SRT、VTT 或 ASS，一步统一全片字幕样式。</p>
+            <p>转写语音，或导入 SRT、VTT、ASS，一步统一所有字幕样式。</p>
           </div>
         </article>
 
@@ -634,7 +636,7 @@
         </li>
         <li>
           <h3>AI 在哪里运行？</h3>
-          <p>AI 能力来自你接入的 agent，而不是应用本身；WeftCut 不附带任何模型。转写、画面描述等可选分析均在本机运行。</p>
+          <p>剪辑智能来自你接入的 agent。WeftCut 不附带模型权重。可选的语音与视觉工具使用你下载的本地引擎，或你配置的云端服务。</p>
         </li>
         <li>
           <h3>支持哪些平台？</h3>

@@ -1,6 +1,6 @@
 # WeftCut marketing site — shared fact sheet & content spec
 
-This file is the single source of truth for all three design variants. Facts here
+This file records the product facts and content spec for the selected site. Facts here
 come from the WeftCut product repository. Do not invent features.
 
 ## Product facts
@@ -20,15 +20,20 @@ come from the WeftCut product repository. Do not invent features.
 
 - Built-in MCP server, streamable HTTP on `127.0.0.1:<port>/mcp`, bearer-token
   auth, DNS-rebinding protection, localhost only.
-- ~40 tools (66 registered incl. resources/prompts): place/trim/split clips,
-  `auto_split_by_shot`, `detect_silences`, restyle titles, keyframes with easing,
+- A growing MCP catalog: place/trim/split clips,
+  `auto_split_by_shot`, `detect_pauses` / `remove_pauses`, restyle titles, keyframes with easing,
   effect chains, groups, markers, captions (`apply_subtitles` SRT/VTT/ASS),
   motifs, checkpoints, undo/redo, `dry_run` validation, multi-agent change feed,
   `begin_agent_session` (UI flips into a simplified agent mode).
 - Edits land in the UI in real time — the human keeps editing alongside.
-- Optional analysis tools: shot detection, silence detection, frame compare,
-  transcription (Whisper / local sidecars), scene description (local VLM first).
-- Snippet to connect (Claude Desktop):
+- Optional analysis: local shot/pause detection and frame comparison;
+  transcription and scene description use downloaded local engines or configured
+  cloud providers. The installer includes no model weights. Cloud analysis sends
+  requested audio or frames to the chosen provider. Export uses the app UI.
+- Recommended connection: the bundled `weftcut-mcp` stdio bridge, which follows
+  app restarts, port changes and token rotation. Settings → Agent supplies the
+  client configuration or connection prompt. HTTP-direct is the fallback:
+
 ```json
 {
   "mcpServers": {
@@ -48,7 +53,7 @@ come from the WeftCut product repository. Do not invent features.
 - Effects: per-layer chains (blur, chroma key with live eyedropper).
 - Titles & captions: styled text layers; SRT/VTT/ASS import as editable caption
   layers; corpus-wide restyle in one undo step.
-- Motifs: animated parameterized web overlays (lower thirds, countdowns) rendered
+- Motifs: parameterized motion graphics (titles, 2D drawings, 3D scenes) rendered
   pixel-identically in preview and export.
 - Audio: role-based mixing (dialogue/music/effects), gain, pan, fades,
   sample-accurate export via Rust mixer.
@@ -103,9 +108,9 @@ mediabunny containers · MCP over streamable HTTP.
    or usage instructions.
 6. Footer: GitHub, docs (link repo /docs), license note, copyright 2026 WeftCut contributors.
 
-## SEO/GEO requirements (all variants)
+## SEO/GEO requirements
 
-- Static HTML, zero build step, semantic tags (header/main/section/article/footer,
+- Static HTML, generated localized pages, semantic tags (header/main/section/article/footer,
   one h1, descriptive h2s), fast: no frameworks, vanilla JS only.
 - `<title>` + meta description per page; Open Graph + Twitter card meta (use
   assets/shots/editor-hero.png as og:image); canonical link.
@@ -114,7 +119,7 @@ mediabunny containers · MCP over streamable HTTP.
   license MIT, url = repo).
 - A visible FAQ section (3-5 Q&As, e.g. "Is WeftCut free?", "Which agents can I
   connect?", "Does it work without an agent?", "What platforms?") — good for GEO.
-- robots.txt + sitemap.xml at site root (list all three variant URLs).
+- robots.txt + sitemap.xml at site root (homepage and documentary pages in both languages).
 - Images: width/height attrs, lazy loading below the fold, descriptive alt text.
 - Videos: muted+playsinline+loop for ambient, controls for demos, poster attr.
 
@@ -128,7 +133,7 @@ mediabunny containers · MCP over streamable HTTP.
 - App font stack: UI sans (Inter-ish); use system stacks or self-host nothing —
   system-ui is fine; mono: ui-monospace/SFMono.
 
-## Assets (all under assets/, shared by variants)
+## Assets (all under assets/)
 
 - assets/video/agent-session.mp4 (+ .webm, poster agent-session-poster.jpg):
   full agent demo — one real MCP session ("Aurora Ridge" teaser: canvas-art
@@ -144,9 +149,13 @@ mediabunny containers · MCP over streamable HTTP.
 - assets/shots/*.webp: 1600w screenshots — editor-hero, timeline-closeup, curve-editor,
   effects, search-palette, connect-agent, export, captions, motif-live,
   agent-mode, eyedropper.
-- assets/video/motif-showcase.mp4 (+ poster): real five-second product export
-  combining animated Text FX, a lower third, and a countdown; plays once in
-  Scene 02.
+- assets/video/motif-portrait.mp4 (+ motif-portrait-poster.jpg): 4.8-second
+  excerpt (10.25–15.05 s) from the existing WeftCut 能力展示 project export.
+  A 2D portrait draws stroke by stroke, including hair and accessories.
+  Silent H.264, 1280×720 at 60 fps. Plays once in Scene 02, with controls and replay.
+  The original Motif exposes stroke color/weight, outline/details and draw_seconds.
+- assets/video/motif-showcase.mp4 (+ poster): archived Text FX / lower-third /
+  countdown example; no longer the homepage showcase.
 - assets/shots/motif-text-fx.png: transparent frame retained from the real Motif
   capture path.
 - assets/icon.svg: the app icon (copy from repo).
@@ -159,7 +168,7 @@ mediabunny containers · MCP over streamable HTTP.
 romance: Georgia serif display headlines with letterspaced small-caps kickers,
 hairline film-ruler dividers, SCENE-numbered sections. Hero: centered copy, then
 the agent demo as one unit — bare frameless video (left) beside the synced
-action terminal (right), both at matched height in a fixed 2.66:1 unit.
+action terminal (right), both at matched height in a fixed 2.92:1 unit on desktop.
 Opening Scene (agent demo) → Scene 01 agent-native → Scene 02 Motifs / code as
 motion → Scene 03 "the human cut" (nle-tour) → Epilogue "at the speed of ideas"
 product finale → Post-credits FAQ.
