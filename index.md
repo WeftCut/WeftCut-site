@@ -41,26 +41,19 @@ WeftCut brings your agent onto the timeline over standard MCP — real edits, vi
 
 - CONNECT
 
-  Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a minute. A Skill ships with it, giving your agent the full picture of what WeftCut can do. Editing and export stay on your machine.
-- THE CRAFT
-
-  The full editing vocabulary is on the table: trim, split, transitions, keyframes, effects, captions, markers, undo.
-- CONTROL
-
-  Audit the result with Timeline diff, review the passages flagged by Tacks, and approve or revert the changes.
+  Settings → Agent, copy, paste — Claude, Cursor, or any MCP client connects in a minute. WeftCut's built-in Skill harness keeps every step your agent takes within bounds.
 - INSIGHT
 
   Let the agent look and listen before it cuts: shots, pauses, transcription, scene description. Choose local engines or configure a cloud provider.
+- THE CRAFT
 
-*things you can say plain words → real edits*
+  The full editing vocabulary is on the table: trim, split, transitions, keyframes, effects, captions, markers, undo.
+
+*tell your agent describe the edit in plain words*
 
 - “Flag pauses with Tacks so I can review them before you cut.”
 - “Split this take at every shot change and label the scenes.”
 - “Restyle every caption — larger, with a soft shadow.”
-
-![WeftCut's Agent settings: a paste-ready MCP config, and the Skill WeftCut ships for your agent to install](https://weftcut.com/assets/shots/connect-agent.webp)
-
-*QUICK TO CONNECT — THE FULL TOOLCHAIN, PLUS AN AGENT SKILL*
 
 ![Agent view showing added, removed and modified clips in Changes, with change and Tack ranges on the timeline](https://weftcut.com/assets/shots/timeline-review.png)
 

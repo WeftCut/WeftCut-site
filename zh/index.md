@@ -41,26 +41,19 @@ claude · weftcut 真实会话 · 已同步
 
 - 接入
 
-  设置 → Agent，复制、粘贴，一分钟接入 Claude、Cursor 或任意 MCP 客户端。随附的 Skill 让 agent 了解 WeftCut 的完整能力。剪辑与导出在本机完成。
-- 工具
-
-  剪辑所需的工具一应俱全：修剪、切分、转场、关键帧、特效、字幕、标记与撤销。
-- 掌控
-
-  用时间线差异核对结果，通过批注审阅智能体指出的片段，再批准或撤回改动。
+  设置 → Agent，复制、粘贴，一分钟接入 Claude、Cursor 或任意 MCP 客户端。WeftCut 自带的 Skill harness 会约束 agent 的每一步操作。
 - 洞察
 
   让 agent 先看、先听，再开始剪辑：识别镜头与停顿、转写语音、描述画面。可选择本地引擎，或配置云端服务。
+- 工具
 
-*直接告诉 agent 说句话，剪辑就落到时间线*
+  剪辑所需的工具一应俱全：修剪、切分、转场、关键帧、特效、字幕、标记与撤销。
+
+*告诉 agent 用自然语言描述剪辑需求*
 
 - 「用批注指出停顿，让我先审阅，再决定怎么剪。」
 - 「在每个镜头切换处把这条素材切开，标上场次。」
 - 「把所有字幕的样式重做一遍——字再大一点，加柔和阴影。」
-
-![WeftCut 的 Agent 设置页：可直接粘贴的 MCP 配置，以及 WeftCut 随附、供 agent 安装的 Skill](https://weftcut.com/assets/shots/connect-agent.webp)
-
-*快速接入 —— 完整工具链，附带 AGENT SKILL*
 
 ![智能体视图：变更面板列出片段的新增、删除和修改，时间条显示变更与批注范围](https://weftcut.com/assets/shots/timeline-review.png)
 

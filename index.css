@@ -707,7 +707,7 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: clamp(28px, 4vw, 56px);
-  align-items: start;
+  align-items: center;
 }
 .cue-list { list-style: none; }
 .cue-list li {
@@ -792,7 +792,6 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
 }
 
 .agent-review-shot { margin-top: clamp(32px, 4vw, 48px); }
-.agent-side > .film { margin-top: 24px; }
 
 /* ============ REEL 02 — MOTIFS ============ */
 .motif-reel {
@@ -1411,7 +1410,6 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
 
 @media (max-width: 860px) {
   .agent-grid, .motif-showcase { grid-template-columns: minmax(0, 1fr); }
-  .agent-side { min-width: 0; }
   .frame-pair { grid-template-columns: minmax(0, 1fr); }
   .foot-in { grid-template-columns: 1fr; gap: 22px; }
   .foot-copy { white-space: normal; }
