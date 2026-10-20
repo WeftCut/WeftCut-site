@@ -791,6 +791,9 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
   margin-top: clamp(40px, 5vw, 64px);
 }
 
+.agent-review-shot { margin-top: clamp(32px, 4vw, 48px); }
+.agent-side > .film { margin-top: 24px; }
+
 /* ============ REEL 02 — MOTIFS ============ */
 .motif-reel {
   position: relative;
@@ -965,6 +968,9 @@ h3 { font-size: 16.5px; font-weight: 650; letter-spacing: 0.01em; }
   font-size: 13.5px;
   line-height: 1.72;
 }
+
+.agent-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.agent-benefits .motif-benefit-no { color: var(--accent); }
 
 /* ---------- film frame (sprocket mount) ---------- */
 .film {

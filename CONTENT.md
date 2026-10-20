@@ -26,6 +26,20 @@ come from the WeftCut product repository. Do not invent features.
   motifs, checkpoints, undo/redo, `dry_run` validation, multi-agent change feed,
   `begin_agent_session` (UI flips into a simplified agent mode).
 - Edits land in the UI in real time — the human keeps editing alongside.
+- Timeline diff compares the current project with its review baseline (project
+  opening or last Approve all). Added, removed and modified entities have
+  before/after details and timeline highlights. Agent changes are the default;
+  the user can include their own. Approve all advances the whole baseline;
+  Revert all restores it as one undoable edit. Both include the user's changes.
+- Tacks are temporary review items over time ranges: notes, issues or questions
+  an agent creates for the user. They appear in the panel and review lane,
+  follow their covered content, and become outdated when playback in the range
+  changes across any track. Users can resolve, dismiss or convert to a marker;
+  agents can read statuses and receive feedback about affected open Tacks.
+- Activity, review baseline and Tacks last only for the current project opening.
+  Tacks are not saved or exported and their management does not enter undo.
+- Review example: ask for Tacks on candidate pauses, review the passages, tell
+  the agent which to cut, then inspect Timeline diff and approve or revert.
 - Optional analysis: local shot/pause detection and frame comparison;
   transcription and scene description use downloaded local engines or configured
   cloud providers. The installer includes no model weights. Cloud analysis sends

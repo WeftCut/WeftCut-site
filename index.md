@@ -47,14 +47,14 @@ WeftCut brings your agent onto the timeline over standard MCP — real edits, vi
   The full editing vocabulary is on the table: trim, split, transitions, keyframes, effects, captions, markers, undo.
 - CONTROL
 
-  Edits land live under a checkpoint — review the change feed, or undo and take back the wheel anytime.
+  Audit the result with Timeline diff, review the passages flagged by Tacks, and approve or revert the changes.
 - INSIGHT
 
   Let the agent look and listen before it cuts: shots, pauses, transcription, scene description. Choose local engines or configure a cloud provider.
 
 *things you can say plain words → real edits*
 
-- “Cut the silences out of this interview and tighten the pauses.”
+- “Flag pauses with Tacks so I can review them before you cut.”
 - “Split this take at every shot change and label the scenes.”
 - “Restyle every caption — larger, with a soft shadow.”
 
@@ -62,9 +62,21 @@ WeftCut brings your agent onto the timeline over standard MCP — real edits, vi
 
 *QUICK TO CONNECT — THE FULL TOOLCHAIN, PLUS AN AGENT SKILL*
 
-![WeftCut in agent mode: a focused UI, with every agent move listed in the change feed beside the preview](https://weftcut.com/assets/shots/agent-mode.webp)
+![Agent view showing added, removed and modified clips in Changes, with change and Tack ranges on the timeline](https://weftcut.com/assets/shots/timeline-review.png)
 
-*AGENT MODE — A FOCUSED UI, EVERY MOVE ON THE RECORD*
+*AGENT VIEW — WATCH THE EDIT, REVIEW THE CHANGES*
+
+01
+
+### Timeline diff
+
+See what your agent added, removed or changed, right on the timeline. Review the result, then approve or revert the whole edit.
+
+02
+
+### Tacks
+
+Your agent leaves notes and questions on specific moments. Jump to the footage to review them; the notes follow clips and flag later changes.
 
 Scene 02 Code as motion
 

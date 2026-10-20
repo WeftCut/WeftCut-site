@@ -51,16 +51,12 @@
     "CONNECT": "接入",
     "THE CRAFT": "工具",
     "The full editing vocabulary is on the table: trim, split, transitions, keyframes, effects, captions, markers, undo.": "剪辑所需的工具一应俱全：修剪、切分、转场、关键帧、特效、字幕、标记与撤销。",
-    "CONTROL": "掌控",
-    "Edits land live under a checkpoint — review the change feed, or undo and take back the wheel anytime.": "改动实时落在时间线上。通过检查点与变更记录审阅，或随时撤销并重新接手。",
     "INSIGHT": "洞察",
     "things you can say": "直接告诉 agent",
     "plain words → real edits": "说句话，剪辑就落到时间线",
-    "&ldquo;Cut the silences out of this interview and tighten the pauses.&rdquo;": "「删掉这段采访里的无声部分，再把停顿收紧一点。」",
     "&ldquo;Split this take at every shot change and label the scenes.&rdquo;": "「在每个镜头切换处把这条素材切开，标上场次。」",
     "&ldquo;Restyle every caption — larger, with a soft shadow.&rdquo;": "「把所有字幕的样式重做一遍——字再大一点，加柔和阴影。」",
     "QUICK TO CONNECT — THE FULL TOOLCHAIN, PLUS AN AGENT SKILL": "快速接入 —— 完整工具链，附带 AGENT SKILL",
-    "AGENT MODE — A FOCUSED UI, EVERY MOVE ON THE RECORD": "AGENT 模式 —— 界面简洁专注，每一步都有迹可循",
     "Scene 02": "第 02 场",
     "Code as motion": "代码即动效",
     "Your agent knows code. <em>With Motifs, it knows motion.</em>": "你的智能体会写代码。<em>有了 Motif，它也会写动效。</em>",
@@ -148,7 +144,15 @@
     "Choose the outline or the full drawing.": "选择只画轮廓，或绘制完整细节。",
     "Timing": "时长",
     "Set how long the drawing takes to appear.": "设定绘制过程的时长。",
-    "WeftCut brings your agent onto the timeline over standard MCP — real edits, visible as they happen.": "通过标准 MCP，让你的 agent 直接参与时间线上的剪辑，每一项真实改动都即时可见。"
+    "WeftCut brings your agent onto the timeline over standard MCP — real edits, visible as they happen.": "通过标准 MCP，让你的 agent 直接参与时间线上的剪辑，每一项真实改动都即时可见。",
+    "&ldquo;Flag pauses with Tacks so I can review them before you cut.&rdquo;": "「用批注指出停顿，让我先审阅，再决定怎么剪。」",
+    "Timeline diff": "时间线差异",
+    "See what your agent added, removed or changed, right on the timeline. Review the result, then approve or revert the whole edit.": "Agent 新增、删除、修改了什么，在时间线上一眼看清。看完结果，由你决定全部批准或撤回。",
+    "Tacks": "批注",
+    "Your agent leaves notes and questions on specific moments. Jump to the footage to review them; the notes follow clips and flag later changes.": "Agent 把建议和疑问留在具体片段上。点击就能查看，一起决定怎么改；批注跟着内容移动，变化后提醒你重新审阅。",
+    "AGENT VIEW — WATCH THE EDIT, REVIEW THE CHANGES": "智能体视图 — 看着它剪，审阅每次改动",
+    "CONTROL": "掌控",
+    "Audit the result with Timeline diff, review the passages flagged by Tacks, and approve or revert the changes.": "用时间线差异核对结果，通过批注审阅智能体指出的片段，再批准或撤回改动。"
   },
   "attrs": {
     "WeftCut — Open Source AI Video Editor for MCP Agents": "WeftCut — 免费开源的 AI 视频剪辑软件，支持 Claude 等 AI Agent",
@@ -164,7 +168,6 @@
     "The agent's terminal, revealed in sync with the video. Activate a call to jump the video to that moment.": "agent 终端与视频同步显示。点击任意调用，即可跳转到视频中的对应时刻。",
     "Example prompts you can hand your agent": "可以直接交给 agent 的指令示例",
     "WeftCut's Agent settings: a paste-ready MCP config, and the Skill WeftCut ships for your agent to install": "WeftCut 的 Agent 设置页：可直接粘贴的 MCP 配置，以及 WeftCut 随附、供 agent 安装的 Skill",
-    "WeftCut in agent mode: a focused UI, with every agent move listed in the change feed beside the preview": "WeftCut 的 agent 模式：界面简洁专注，预览旁的变更记录逐条列出 agent 的每一步",
     "Replay Motif export": "重播 Motif 导出示例",
     "A tour of editing by hand in WeftCut: playback, scrubbing, grouping clips into a composition, splitting, trimming, keyframes, effects and export": "WeftCut 手动剪辑功能演示：播放、逐帧浏览、将片段编组为合成、切分、修剪、关键帧、特效与导出",
     "Close-up of the WeftCut timeline: a caption row, clip filmstrips, an audio waveform and a keyframe curve lane": "WeftCut 时间线特写：字幕轨、片段的胶片缩略图、音频波形和关键帧曲线轨",
@@ -191,7 +194,8 @@
     "SCENE 03 · THE HUMAN CUT": "第 03 场 · 属于人类",
     "EPILOGUE · AT THE SPEED OF IDEAS": "尾声 · 所想即所得",
     "POST-CREDITS · A FEW DETAILS": "彩蛋 · 一些细节",
-    "A real WeftCut export of a 2D portrait drawn stroke by stroke, from its outline to hair and accessories": "WeftCut 真实导出的 2D 肖像动画：从轮廓到头发与饰品，一笔一笔完成绘制"
+    "A real WeftCut export of a 2D portrait drawn stroke by stroke, from its outline to hair and accessories": "WeftCut 真实导出的 2D 肖像动画：从轮廓到头发与饰品，一笔一笔完成绘制",
+    "Agent view showing added, removed and modified clips in Changes, with change and Tack ranges on the timeline": "智能体视图：变更面板列出片段的新增、删除和修改，时间条显示变更与批注范围"
   },
   "jsonld": {
     "A cross-platform desktop video editor where AI agents are first-class citizens. Connect Claude, Cursor, or any MCP client — and audit its edits to your timeline live.": "一款原生支持 AI agent 的跨平台桌面视频剪辑软件。接入 Claude、Cursor 或任意 MCP 客户端，即可实时查看 agent 在时间线上的每一项改动。",

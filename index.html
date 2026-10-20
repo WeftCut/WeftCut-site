@@ -92,7 +92,7 @@
   "softwareHelp": { "@type": "CreativeWork", "url": "https://github.com/WeftCut/WeftCut/tree/main/docs" },
   "screenshot": [
     "https://weftcut.com/assets/shots/editor-hero.webp",
-    "https://weftcut.com/assets/shots/agent-mode.webp",
+    "https://weftcut.com/assets/shots/timeline-review.png",
     "https://weftcut.com/assets/shots/curve-editor.webp",
     "https://weftcut.com/assets/shots/effects.webp",
     "https://weftcut.com/assets/shots/captions.webp",
@@ -357,8 +357,7 @@
           </li>
           <li>
             <span class="cue-tag">CONTROL</span>
-            <p>Edits land live under a checkpoint — review the change feed, or undo and take back
-            the wheel anytime.</p>
+            <p>Audit the result with Timeline diff, review the passages flagged by Tacks, and approve or revert the changes.</p>
           </li>
           <li>
             <span class="cue-tag">INSIGHT</span>
@@ -371,25 +370,36 @@
           <figure class="code-frame rv" aria-label="Example prompts you can hand your agent">
             <figcaption><span class="mono-dim">things you can say</span><span class="mono-dim">plain words → real edits</span></figcaption>
             <ul class="prompt-list">
-              <li>&ldquo;Cut the silences out of this interview and tighten the pauses.&rdquo;</li>
+              <li>&ldquo;Flag pauses with Tacks so I can review them before you cut.&rdquo;</li>
               <li>&ldquo;Split this take at every shot change and label the scenes.&rdquo;</li>
               <li>&ldquo;Restyle every caption — larger, with a soft shadow.&rdquo;</li>
             </ul>
           </figure>
+          <figure class="film rv">
+            <img src="/assets/shots/connect-agent.webp" width="1600" height="852" loading="lazy"
+                 alt="WeftCut's Agent settings: a paste-ready MCP config, and the Skill WeftCut ships for your agent to install" />
+            <figcaption>QUICK TO CONNECT — THE FULL TOOLCHAIN, PLUS AN AGENT SKILL</figcaption>
+          </figure>
         </div>
       </div>
 
-      <div class="frame-pair">
-        <figure class="film rv">
-          <img src="/assets/shots/connect-agent.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut's Agent settings: a paste-ready MCP config, and the Skill WeftCut ships for your agent to install" />
-          <figcaption>QUICK TO CONNECT — THE FULL TOOLCHAIN, PLUS AN AGENT SKILL</figcaption>
-        </figure>
-        <figure class="film rv">
-          <img src="/assets/shots/agent-mode.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut in agent mode: a focused UI, with every agent move listed in the change feed beside the preview" />
-          <figcaption>AGENT MODE — A FOCUSED UI, EVERY MOVE ON THE RECORD</figcaption>
-        </figure>
+      <figure class="film agent-review-shot rv">
+        <img src="/assets/shots/timeline-review.png" width="1760" height="1077" loading="lazy"
+             alt="Agent view showing added, removed and modified clips in Changes, with change and Tack ranges on the timeline" />
+        <figcaption>AGENT VIEW — WATCH THE EDIT, REVIEW THE CHANGES</figcaption>
+      </figure>
+
+      <div class="motif-benefits agent-benefits rv">
+        <article>
+          <span class="motif-benefit-no">01</span>
+          <h3>Timeline diff</h3>
+          <p>See what your agent added, removed or changed, right on the timeline. Review the result, then approve or revert the whole edit.</p>
+        </article>
+        <article>
+          <span class="motif-benefit-no">02</span>
+          <h3>Tacks</h3>
+          <p>Your agent leaves notes and questions on specific moments. Jump to the footage to review them; the notes follow clips and flag later changes.</p>
+        </article>
       </div>
     </div>
   </section>

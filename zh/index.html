@@ -93,7 +93,7 @@
   "softwareHelp": { "@type": "CreativeWork", "url": "https://github.com/WeftCut/WeftCut/tree/main/docs" },
   "screenshot": [
     "https://weftcut.com/assets/shots/editor-hero.webp",
-    "https://weftcut.com/assets/shots/agent-mode.webp",
+    "https://weftcut.com/assets/shots/timeline-review.png",
     "https://weftcut.com/assets/shots/curve-editor.webp",
     "https://weftcut.com/assets/shots/effects.webp",
     "https://weftcut.com/assets/shots/captions.webp",
@@ -355,7 +355,7 @@
           </li>
           <li>
             <span class="cue-tag">掌控</span>
-            <p>改动实时落在时间线上。通过检查点与变更记录审阅，或随时撤销并重新接手。</p>
+            <p>用时间线差异核对结果，通过批注审阅智能体指出的片段，再批准或撤回改动。</p>
           </li>
           <li>
             <span class="cue-tag">洞察</span>
@@ -367,25 +367,36 @@
           <figure class="code-frame rv" aria-label="可以直接交给 agent 的指令示例">
             <figcaption><span class="mono-dim">直接告诉 agent</span><span class="mono-dim">说句话，剪辑就落到时间线</span></figcaption>
             <ul class="prompt-list">
-              <li>「删掉这段采访里的无声部分，再把停顿收紧一点。」</li>
+              <li>「用批注指出停顿，让我先审阅，再决定怎么剪。」</li>
               <li>「在每个镜头切换处把这条素材切开，标上场次。」</li>
               <li>「把所有字幕的样式重做一遍——字再大一点，加柔和阴影。」</li>
             </ul>
           </figure>
+          <figure class="film rv">
+            <img src="/assets/shots/connect-agent.webp" width="1600" height="852" loading="lazy"
+                 alt="WeftCut 的 Agent 设置页：可直接粘贴的 MCP 配置，以及 WeftCut 随附、供 agent 安装的 Skill" />
+            <figcaption>快速接入 —— 完整工具链，附带 AGENT SKILL</figcaption>
+          </figure>
         </div>
       </div>
 
-      <div class="frame-pair">
-        <figure class="film rv">
-          <img src="/assets/shots/connect-agent.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut 的 Agent 设置页：可直接粘贴的 MCP 配置，以及 WeftCut 随附、供 agent 安装的 Skill" />
-          <figcaption>快速接入 —— 完整工具链，附带 AGENT SKILL</figcaption>
-        </figure>
-        <figure class="film rv">
-          <img src="/assets/shots/agent-mode.webp" width="1600" height="852" loading="lazy"
-               alt="WeftCut 的 agent 模式：界面简洁专注，预览旁的变更记录逐条列出 agent 的每一步" />
-          <figcaption>AGENT 模式 —— 界面简洁专注，每一步都有迹可循</figcaption>
-        </figure>
+      <figure class="film agent-review-shot rv">
+        <img src="/assets/shots/timeline-review.png" width="1760" height="1077" loading="lazy"
+             alt="智能体视图：变更面板列出片段的新增、删除和修改，时间条显示变更与批注范围" />
+        <figcaption>智能体视图 — 看着它剪，审阅每次改动</figcaption>
+      </figure>
+
+      <div class="motif-benefits agent-benefits rv">
+        <article>
+          <span class="motif-benefit-no">01</span>
+          <h3>时间线差异</h3>
+          <p>Agent 新增、删除、修改了什么，在时间线上一眼看清。看完结果，由你决定全部批准或撤回。</p>
+        </article>
+        <article>
+          <span class="motif-benefit-no">02</span>
+          <h3>批注</h3>
+          <p>Agent 把建议和疑问留在具体片段上。点击就能查看，一起决定怎么改；批注跟着内容移动，变化后提醒你重新审阅。</p>
+        </article>
       </div>
     </div>
   </section>
