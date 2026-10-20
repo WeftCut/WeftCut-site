@@ -407,6 +407,12 @@
           <div class="motif-output-head">
             <span class="mono-dim">&ldquo;Draw this portrait, one line at a time.&rdquo;</span>
             <span class="motif-output-badge">ACTUAL EXPORT</span>
+            <button id="motifReplayButton" class="motif-replay-button" type="button" aria-label="Replay Motif export" title="Replay">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path d="M13.25 5.25A6 6 0 1 0 14 8" />
+                <path d="M13.25 1.75v3.5h-3.5" />
+              </svg>
+            </button>
           </div>
           <figure class="motif-export-frame">
             <video id="motifExportVideo" width="1280" height="720" muted playsinline controls preload="metadata"
@@ -415,28 +421,14 @@
               <source src="/assets/video/motif-portrait.mp4" type="video/mp4" />
             </video>
           </figure>
-          <div class="motif-export-legend" aria-hidden="true">
-            <span><i></i>2D drawing</span>
-            <span><i></i>Code as motion</span>
-            <span><i></i>Reusable</span>
-          </div>
-          <button id="motifReplayButton" class="motif-replay-button" type="button" aria-label="Replay Motif export">
-            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false">
-              <path d="M13.25 5.25A6 6 0 1 0 14 8" />
-              <path d="M13.25 1.75v3.5h-3.5" />
-            </svg>
-            <span>Replay</span>
-          </button>
         </div>
         <aside class="motif-process rv">
-          <h3>A drawing with its own controls.</h3>
-          <p>This portrait comes from our WeftCut showcase project. The lines draw in sequence,
-          then the hair and accessories complete the expression.</p>
-          <dl class="motif-controls">
-            <div><dt>Stroke</dt><dd>Change the line color and weight.</dd></div>
-            <div><dt>Detail</dt><dd>Choose the outline or the full drawing.</dd></div>
-            <div><dt>Timing</dt><dd>Set how long the drawing takes to appear.</dd></div>
-          </dl>
+          <h3>Adjust parameters anytime</h3>
+          <p>Fine-tune the visual details anytime using the parameters your agent exposes in the code.</p>
+          <figure class="motif-controls-shot">
+            <img src="/assets/shots/motif-portrait-controls.png" width="303" height="266" loading="lazy"
+                 alt="WeftCut's actual Motif parameter panel with color pickers, a detail mode dropdown, drawing duration set to 4.2 seconds and stroke width set to 8" />
+          </figure>
         </aside>
       </div>
 

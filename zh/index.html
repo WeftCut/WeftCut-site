@@ -402,8 +402,14 @@
       <div class="motif-showcase">
         <div class="motif-export rv">
           <div class="motif-output-head">
-            <span class="mono-dim">「让这幅肖像一笔一笔地画出来。」</span>
+            <span class="mono-dim">「让这幅画一笔一笔地画出来。」</span>
             <span class="motif-output-badge">真实导出</span>
+            <button id="motifReplayButton" class="motif-replay-button" type="button" aria-label="重播 Motif 导出示例" title="重播">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path d="M13.25 5.25A6 6 0 1 0 14 8" />
+                <path d="M13.25 1.75v3.5h-3.5" />
+              </svg>
+            </button>
           </div>
           <figure class="motif-export-frame">
             <video id="motifExportVideo" width="1280" height="720" muted playsinline controls preload="metadata"
@@ -412,27 +418,14 @@
               <source src="/assets/video/motif-portrait.mp4" type="video/mp4" />
             </video>
           </figure>
-          <div class="motif-export-legend" aria-hidden="true">
-            <span><i></i>2D 绘制</span>
-            <span><i></i>代码即动效</span>
-            <span><i></i>可复用</span>
-          </div>
-          <button id="motifReplayButton" class="motif-replay-button" type="button" aria-label="重播 Motif 导出示例">
-            <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false">
-              <path d="M13.25 5.25A6 6 0 1 0 14 8" />
-              <path d="M13.25 1.75v3.5h-3.5" />
-            </svg>
-            <span>重播</span>
-          </button>
         </div>
         <aside class="motif-process rv">
-          <h3>一幅画，也有自己的控件。</h3>
-          <p>这幅肖像来自我们的 WeftCut 能力展示项目。线条依次绘出，再由头发与饰品补全神态。</p>
-          <dl class="motif-controls">
-            <div><dt>描边</dt><dd>调整线条的颜色与粗细。</dd></div>
-            <div><dt>细节</dt><dd>选择只画轮廓，或绘制完整细节。</dd></div>
-            <div><dt>时长</dt><dd>设定绘制过程的时长。</dd></div>
-          </dl>
+          <h3>随时调整参数</h3>
+          <p>使用agent编写时预留的参数，随时调整画面细节。</p>
+          <figure class="motif-controls-shot">
+            <img src="/assets/shots/motif-portrait-controls.png" width="303" height="266" loading="lazy"
+                 alt="WeftCut 的真实 Motif 参数面板，包含颜色选择器、细节模式下拉框、4.2 秒绘制时长和数值为 8 的描边粗细" />
+          </figure>
         </aside>
       </div>
 

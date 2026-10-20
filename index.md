@@ -79,25 +79,11 @@ From animated titles to 2D drawings and 3D scenes, describe your idea. Your agen
 
 “Draw this portrait, one line at a time.” ACTUAL EXPORT
 
-2D drawing Code as motion Reusable
+### Adjust parameters anytime
 
-`[Replay]`
+Fine-tune the visual details anytime using the parameters your agent exposes in the code.
 
-### A drawing with its own controls.
-
-This portrait comes from our WeftCut showcase project. The lines draw in sequence, then the hair and accessories complete the expression.
-
-Stroke
-
-Change the line color and weight.
-
-Detail
-
-Choose the outline or the full drawing.
-
-Timing
-
-Set how long the drawing takes to appear.
+![WeftCut's actual Motif parameter panel with color pickers, a detail mode dropdown, drawing duration set to 4.2 seconds and stroke width set to 8](https://weftcut.com/assets/shots/motif-portrait-controls.png)
 
 01
 

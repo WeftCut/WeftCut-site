@@ -168,6 +168,11 @@ mediabunny containers · MCP over streamable HTTP.
   A 2D portrait draws stroke by stroke, including hair and accessories.
   Silent H.264, 1280×720 at 60 fps. Plays once in Scene 02, with controls and replay.
   The original Motif exposes stroke color/weight, outline/details and draw_seconds.
+- assets/shots/motif-portrait-controls.png: user-supplied 303×266 screenshot
+  of the WeftCut Attribute panel's Props section for the showcase portrait.
+  Shows Accent, Caption, Detail Mode, Draw Seconds (4.2), Stroke Color
+  (#8c9eff), and Stroke Width (8). Scene 02 displays this actual editable
+  parameter panel with click-to-enlarge, rather than rendered variants.
 - assets/video/motif-showcase.mp4 (+ poster): archived Text FX / lower-third /
   countdown example; no longer the homepage showcase.
 - assets/shots/motif-text-fx.png: transparent frame retained from the real Motif

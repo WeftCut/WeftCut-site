@@ -610,7 +610,7 @@
      labels in it are unreadable. Clicking one opens it full-size over a dimmed
      page. The affordance is added here rather than in the markup so a page
      without JS never advertises an interaction it cannot perform. */
-  const zoomable = document.querySelectorAll(".film img");
+  const zoomable = document.querySelectorAll(".film img, .motif-controls-shot img");
   if (zoomable.length) {
     let overlay = null;
     let opener = null;
