@@ -32,6 +32,7 @@
   if (reduced || !("IntersectionObserver" in window)) {
     rvEls.forEach((el) => el.classList.add("in"));
   } else {
+    document.documentElement.classList.add("reveal-ready");
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
@@ -614,18 +615,29 @@
   if (zoomable.length) {
     let overlay = null;
     let opener = null;
+    let background = [];
 
     const close = () => {
       if (!overlay) return;
       overlay.remove();
       overlay = null;
+      background.forEach((el) => { el.inert = false; });
+      background = [];
+      document.body.classList.remove("has-lightbox");
       document.removeEventListener("keydown", onKeydown);
       if (opener) opener.focus();
       opener = null;
     };
 
     function onKeydown(e) {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape") {
+        e.preventDefault();
+        close();
+      } else if (e.key === "Tab") {
+        // The close button is the image viewer's only focusable control.
+        e.preventDefault();
+        overlay.querySelector(".lightbox-close").focus();
+      }
     }
 
     const open = (img) => {
@@ -633,6 +645,9 @@
       opener = img;
       overlay = document.createElement("div");
       overlay.className = "lightbox";
+      // Small panels should keep their intrinsic size on phones, unlike
+      // full editor screenshots that need horizontal panning to read.
+      overlay.classList.toggle("lightbox-compact", img.naturalWidth <= 700);
       overlay.setAttribute("role", "dialog");
       overlay.setAttribute("aria-modal", "true");
       // The still's own alt text is the best name this dialog can have; it is
@@ -659,6 +674,9 @@
         if (e.target === overlay) close();
       });
 
+      background = [...document.body.children].filter((el) => !el.inert);
+      background.forEach((el) => { el.inert = true; });
+      document.body.classList.add("has-lightbox");
       document.body.appendChild(overlay);
       document.addEventListener("keydown", onKeydown);
       closeButton.focus();
@@ -686,7 +704,9 @@
 
   // The demo sits below the fold, where autoplay doesn't always engage —
   // start/stop it on visibility instead. Also saves a decoder offscreen.
-  if ("IntersectionObserver" in window) {
+  if (reduced) {
+    demoVideo.pause();
+  } else if ("IntersectionObserver" in window) {
     const vio = new IntersectionObserver(
       (es) => {
         for (const e of es) {
