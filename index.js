@@ -129,10 +129,10 @@
   };
 
   // One entry per desktop OS: the build it ships and what that build needs.
-  // A machine that meets `req` is handed the installer with `req` restated
-  // under the button, since its row in the list — where the requirement is
-  // written — is dropped as a repeat. One that doesn't is handed the
-  // repository with the same requirement as the reason.
+  // A machine that meets `req` is handed the installer, one that doesn't the
+  // repository; either way `req` sits under the button, since the button
+  // already says which case this is, and the list row that would otherwise
+  // carry the requirement is dropped as a repeat.
   const PLATFORMS = {
     windows: { platform: "Windows", href: WIN.href, req: "reqWindows" },
     macos: {
@@ -185,10 +185,9 @@
       if (!note) return;
       const parts = [];
       if (!p) parts.push(line(t("noteMobile")));
-      else if (!offer) parts.push(line(t("noBuild", { req: t(p.req) })));
       else {
         parts.push(line(t("needs", { req: t(p.req) })));
-        if (p.caveat) {
+        if (offer && p.caveat) {
           // Every caveat is somewhere to go, not just something to know: the
           // release's own install steps, or the package this platform
           // probably wanted instead.

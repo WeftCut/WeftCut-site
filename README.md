@@ -196,9 +196,9 @@ navigator level — user agent, `platform`, `maxTouchPoints` and Chromium's
 high-entropy `architecture` and `platformVersion` hints — then prints the
 resulting label, href and note and shoots the hero. Each desktop OS lands in
 one of two states — the machine meets its build's requirement and gets the
-installer with that requirement under the button, or it doesn't (32-bit, the
-wrong CPU, too old an OS) and gets the repository with the same requirement as
-the reason — and phones and tablets get the repository too. Run it after touching either the detection
+installer, or it doesn't (32-bit, the wrong CPU, too old an OS) and gets the
+repository; either way the requirement sits under the button — and phones and
+tablets get the repository too. Run it after touching either the detection
 in `index.js` or the installer names, which are set by the product repo's
 `electron-builder.yml` and pinned by its `scripts/release.mjs`.
 
