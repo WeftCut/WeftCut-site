@@ -125,63 +125,23 @@
     windows: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M3 5.1 10.3 4v7H3V5.1Zm8.3-1.25L21 2.4V11h-9.7V3.85ZM3 12h7.3v7L3 17.9V12Zm8.3 0H21v8.6l-9.7-1.45V12Z"/></svg>',
     macos: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M16.6 12.5c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.7-1.7-3.3-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 7 1.1 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.9.7 3.1.7 1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.8-1.1-2.8-4.1ZM14.3 5.9c.6-.8 1.1-2 1-3.1-1 .1-2.2.7-2.9 1.5-.6.7-1.1 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></svg>',
     linux: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M3 4h18v16H3V4Zm2 2v12h14V6H5Zm1.5 2.2L9.3 11l-2.8 2.8 1.4 1.4 4.2-4.2-4.2-4.2-1.4 1.4ZM12 14h5v2h-5v-2Z"/></svg>',
-    source: '<svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4Zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4Z"/></svg>',
     github: '<svg viewBox="0 0 16 16" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.6-.18-3.29-.82-3.29-3.56 0-.79.28-1.43.74-1.93-.07-.18-.32-.91.07-1.9 0 0 .6-.19 1.97.74A6.8 6.8 0 0 1 8 3.8a6.8 6.8 0 0 1 1.79.24c1.37-.93 1.97-.74 1.97-.74.39.99.14 1.72.07 1.9.46.5.74 1.14.74 1.93 0 2.75-1.69 3.38-3.3 3.56.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>',
   };
 
-  // A `platform` means there is a binary to hand over and the CTA names it; its
-  // absence means the target ships no build, and `label`/`aria` carry the
-  // honest verb instead. `note` and `caveat` are only for what the button and
-  // the list don't already say: why there is no build, or the catch on the one
-  // there is. `row` names the entry in the hero's installer list that would
-  // only repeat the button — and since that row is where the minimum OS is
-  // written, `needs` restates it under the button. Only the OS version is
-  // ever detected (below); a Linux box's glibc can't be read from a browser,
-  // so there the line is all there is.
-  const TARGETS = {
-    windows: {
-      icon: "windows", platform: "Windows", href: WIN.href, row: "windows",
-      needs: "needsWindows",
-    },
-    windowsArm: {
-      icon: "windows", platform: "Windows", href: WIN.href,
-      note: ["noteWindowsArm"], row: "windows",
-    },
+  // One entry per desktop OS: the build it ships and what that build needs.
+  // A machine that meets `req` is handed the installer with `req` restated
+  // under the button, since its row in the list — where the requirement is
+  // written — is dropped as a repeat. One that doesn't is handed the
+  // repository with the same requirement as the reason.
+  const PLATFORMS = {
+    windows: { platform: "Windows", href: WIN.href, req: "reqWindows" },
     macos: {
-      icon: "macos", platform: "macOS", href: MAC.href, row: "macos",
-      needs: "needsMacos", caveat: ["caveatMacos", RELEASE],
+      platform: "macOS", href: MAC.href, req: "reqMacos",
+      caveat: ["caveatMacos", RELEASE],
     },
     linux: {
-      icon: "linux", platform: "Linux", href: APPIMAGE.href, row: "linux",
-      needs: "needsLinux", caveat: ["caveatLinux", DEB.href],
-    },
-    windowsOld: {
-      icon: "github", href: REPO,
-      label: "viewOnGitHub", aria: "repoAria", note: ["noteWindowsOld"],
-    },
-    macOld: {
-      icon: "github", href: REPO,
-      label: "viewOnGitHub", aria: "repoAria", note: ["noteMacOld"],
-    },
-    macIntel: {
-      icon: "source", href: REPO,
-      label: "buildFromSource", aria: "buildAria", note: ["noteMacIntel"], row: "source",
-    },
-    linuxArm: {
-      icon: "source", href: REPO,
-      label: "buildFromSource", aria: "buildAria", note: ["noteLinuxArm"], row: "source",
-    },
-    win32: {
-      icon: "github", href: REPO,
-      label: "viewOnGitHub", aria: "repoAria", note: ["noteWin32"],
-    },
-    linux32: {
-      icon: "github", href: REPO,
-      label: "viewOnGitHub", aria: "repoAria", note: ["noteLinux32"],
-    },
-    mobile: {
-      icon: "github", href: REPO,
-      label: "viewOnGitHub", aria: "repoAria", note: ["noteMobile"],
+      platform: "Linux", href: APPIMAGE.href, req: "reqLinux",
+      caveat: ["caveatLinux", DEB.href],
     },
   };
 
@@ -190,52 +150,57 @@
     const note = document.getElementById("downloadNote");
     const rows = document.querySelectorAll(".dl-list li[data-target]");
 
-    const apply = (target) => {
+    const line = (text) => {
+      const span = document.createElement("span");
+      span.textContent = text;
+      return span;
+    };
+
+    // `os` is a PLATFORMS key or "mobile"; `fits` says whether the machine
+    // meets that platform's requirement.
+    const apply = ({ os, fits }) => {
+      const p = PLATFORMS[os];
+      const offer = p && fits;
       for (const cta of downloadCtas) {
-        cta.href = target.href;
+        cta.href = offer ? p.href : REPO;
         const icon = cta.querySelector(".platform-icon");
         const label = cta.querySelector(".btn-label");
-        if (icon) icon.innerHTML = ICONS[target.icon];
+        if (icon) icon.innerHTML = ICONS[offer ? os : "github"];
         if (!label) continue;
-        if (target.platform) {
+        if (offer) {
           const get = cta.dataset.downloadCta === "get";
-          label.textContent = t(get ? "getFor" : "downloadFor", { platform: target.platform });
+          label.textContent = t(get ? "getFor" : "downloadFor", { platform: p.platform });
           cta.setAttribute(
             "aria-label",
-            t(get ? "getAria" : "downloadAria", { platform: target.platform })
+            t(get ? "getAria" : "downloadAria", { platform: p.platform })
           );
         } else {
-          label.textContent = t(target.label);
-          cta.setAttribute("aria-label", t(target.aria));
+          label.textContent = t("viewOnGitHub");
+          cta.setAttribute("aria-label", t("repoAria"));
         }
       }
       // The list is for every other machine: the build the button already
       // offers is dropped from it.
-      for (const li of rows) li.hidden = li.dataset.target === target.row;
+      for (const li of rows) li.hidden = offer && li.dataset.target === os;
       if (!note) return;
       const parts = [];
-      if (target.needs) {
-        const line = document.createElement("span");
-        line.textContent = t(target.needs);
-        parts.push(line);
-      }
-      if (target.note) {
-        const line = document.createElement("span");
-        line.textContent = t(target.note[0], target.note[1]);
-        parts.push(line);
-      }
-      if (target.caveat) {
-        // Every caveat is somewhere to go, not just something to know: the
-        // release's own install steps, or the package this platform probably
-        // wanted instead.
-        const link = document.createElement("a");
-        link.href = target.caveat[1];
-        link.rel = "noopener";
-        link.textContent = t(target.caveat[0]);
-        const line = document.createElement("span");
-        line.className = "dl-caveat";
-        line.appendChild(link);
-        parts.push(line);
+      if (!p) parts.push(line(t("noteMobile")));
+      else if (!offer) parts.push(line(t("noBuild", { req: t(p.req) })));
+      else {
+        parts.push(line(t("needs", { req: t(p.req) })));
+        if (p.caveat) {
+          // Every caveat is somewhere to go, not just something to know: the
+          // release's own install steps, or the package this platform
+          // probably wanted instead.
+          const link = document.createElement("a");
+          link.href = p.caveat[1];
+          link.rel = "noopener";
+          link.textContent = t(p.caveat[0]);
+          const caveat = line("");
+          caveat.className = "dl-caveat";
+          caveat.appendChild(link);
+          parts.push(caveat);
+        }
       }
       note.replaceChildren(...parts);
       note.classList.toggle("in", parts.length > 0);
@@ -251,17 +216,20 @@
     // An iPad reports itself as a Mac and would otherwise be offered a .dmg;
     // touch points are all that still separates the two.
     const isTablet = navigator.maxTouchPoints > 1 && /MacIntel|Macintosh/i.test(source);
+    const os =
+      isTablet || /Android|iPhone|iPad|iPod|CrOS/i.test(source) ? "mobile"
+      : /Windows|Win32|Win64/i.test(source) ? "windows"
+      : /macOS|Macintosh|MacIntel|MacPPC|Mac68K/i.test(source) ? "macos"
+      : /Linux|X11/i.test(source) ? "linux"
+      : null;
 
-    // What the UA string still admits about the CPU. Firefox reports it
-    // faithfully: "Linux aarch64", "Linux i686", and a Windows UA with neither
-    // Win64 nor WOW64 is a 32-bit OS. Chromium froze these tokens to x86_64 and
-    // Win64 years ago, so there they only ever confirm the default and the
-    // truth comes from the high-entropy hints below. Nothing here reads an
-    // architecture off a Mac — every Mac says "MacIntel".
-    // The same goes for the OS version: Firefox still writes "Windows NT 6.1"
-    // for Windows 7, while Chromium pins every Windows to "NT 10.0" and every
-    // Mac to "10_15_7". Safari answers for no Mac below 13, so an old Mac on
-    // Safari is offered the build and the `needs` line has to say it.
+    // What the UA string still admits. Firefox reports it faithfully: "Linux
+    // aarch64", "Linux i686", a Windows UA with neither Win64 nor WOW64 is a
+    // 32-bit OS, and "Windows NT 6.x" is 7, 8 or 8.1. Chromium froze all of
+    // it — x86_64, Win64, "NT 10.0", every Mac at "10_15_7" — so there the
+    // truth comes from the high-entropy hints below. Safari answers for
+    // neither a Mac's CPU nor its version, and glibc can't be read from any
+    // browser; for those the requirement line under the button has to do.
     const fromString = {
       arch: /aarch64|arm64|armv\d/i.test(source) ? "arm" : null,
       bits: /Win64|WOW64|x86_64|amd64|aarch64|arm64/i.test(source)
@@ -269,65 +237,52 @@
         : /Windows|i[3-6]86|armv[5-7]/i.test(source) ? "32" : null,
       old: /Windows NT [56]\./.test(source),
     };
-    const isWindows = /Windows|Win32|Win64/i.test(source);
-    const isMac = /macOS|Macintosh|MacIntel|MacPPC|Mac68K/i.test(source);
 
     // Chromium's platformVersion hint: on Windows, 0 is 7, 8 or 8.1 and 1 and
     // up are 10 and 11; on macOS it is the real release.
     const tooOld = (platformVersion) => {
       const major = parseInt(platformVersion, 10);
       if (Number.isNaN(major)) return fromString.old;
-      if (isWindows) return major < 1;
-      if (isMac) return major < 13;
+      if (os === "windows") return major < 1;
+      if (os === "macos") return major < 13;
       return false;
     };
 
-    const detect = ({ arch, bits, old }) => {
-      if (isTablet || /Android|iPhone|iPad|iPod|CrOS/i.test(source)) return TARGETS.mobile;
-      if (isWindows) {
-        // The x64 installer runs on Windows on ARM through emulation, so ARM
-        // gets the same file with a note; 32-bit Windows gets no file at all,
-        // and neither does a Windows older than 10, which Electron left behind.
-        if (old) return TARGETS.windowsOld;
-        if (bits === "32") return TARGETS.win32;
-        return arch === "arm" ? TARGETS.windowsArm : TARGETS.windows;
-      }
-      if (isMac) {
-        if (old) return TARGETS.macOld;
-        return arch === "x86" ? TARGETS.macIntel : TARGETS.macos;
-      }
-      if (/Linux|X11/i.test(source)) {
-        if (arch === "arm") return TARGETS.linuxArm;
-        return bits === "32" ? TARGETS.linux32 : TARGETS.linux;
-      }
-      return null;
-    };
+    // Each build's requirement, as far as the browser will tell. The x64
+    // Windows installer also runs on Windows on ARM through emulation.
+    const fitsBuild = ({ arch, bits, old }) =>
+      os === "windows" ? !old && bits !== "32"
+      : os === "macos" ? !old && arch !== "x86"
+      : os === "linux" ? arch !== "arm" && bits !== "32"
+      : false;
 
     // Two passes. The OS and whatever the UA string admits are readable
-    // synchronously; Chromium's architecture and bitness only come through
-    // its high-entropy hints, and only through a promise. So the first pass
-    // assumes the CPU we ship for wherever the string is silent — right for
-    // every Mac still sold and every Linux desktop there's a build for — and
-    // the second corrects the minority rather than answering for everyone.
-    // When neither pass recognises the platform the markup is left alone: its
-    // own "Download" pointing at the release page is the honest fallback.
-    const detected = detect(fromString);
-    if (detected) apply(detected);
-    const hints = navigator.userAgentData;
-    if (hints && typeof hints.getHighEntropyValues === "function") {
-      hints.getHighEntropyValues(["architecture", "bitness", "platformVersion"]).then(
-        (values) => {
-          const refined = detect({
-            arch: values.architecture || fromString.arch,
-            bits: values.bitness || fromString.bits,
-            old: tooOld(values.platformVersion),
-          });
-          if (refined && refined !== detected) apply(refined);
-        },
-        () => {
-          /* the hints can be denied; the synchronous pass already stands */
-        }
-      );
+    // synchronously; Chromium's architecture, bitness and OS version only
+    // come through its high-entropy hints, and only through a promise. So the
+    // first pass assumes the machine fits wherever the string is silent —
+    // right for every Mac still sold and every Linux desktop there's a build
+    // for — and the second corrects the minority. When the OS isn't
+    // recognised the markup is left alone: its own "Download" pointing at the
+    // release page is the honest fallback.
+    if (os) {
+      const fits = fitsBuild(fromString);
+      apply({ os, fits });
+      const hints = navigator.userAgentData;
+      if (os !== "mobile" && hints && typeof hints.getHighEntropyValues === "function") {
+        hints.getHighEntropyValues(["architecture", "bitness", "platformVersion"]).then(
+          (values) => {
+            const refined = fitsBuild({
+              arch: values.architecture || fromString.arch,
+              bits: values.bitness || fromString.bits,
+              old: tooOld(values.platformVersion),
+            });
+            if (refined !== fits) apply({ os, fits: refined });
+          },
+          () => {
+            /* the hints can be denied; the synchronous pass already stands */
+          }
+        );
+      }
     }
   }
 

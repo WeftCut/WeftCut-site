@@ -194,10 +194,11 @@ depends on what the browser reports, so the served HTML only ever shows the
 fallback. `.work/harness/download-shots.mjs` fakes each platform at the
 navigator level — user agent, `platform`, `maxTouchPoints` and Chromium's
 high-entropy `architecture` and `platformVersion` hints — then prints the
-resulting label, href and note and shoots the hero. Nine states: the three with
-a build, whose note restates the minimum OS; the two without one (Intel Mac,
-arm64 Linux) that get the build instructions instead; Windows below 10 and
-macOS below 13, and phone and tablet, which all get the repository. Run it after touching either the detection
+resulting label, href and note and shoots the hero. Each desktop OS lands in
+one of two states — the machine meets its build's requirement and gets the
+installer with that requirement under the button, or it doesn't (32-bit, the
+wrong CPU, too old an OS) and gets the repository with the same requirement as
+the reason — and phones and tablets get the repository too. Run it after touching either the detection
 in `index.js` or the installer names, which are set by the product repo's
 `electron-builder.yml` and pinned by its `scripts/release.mjs`.
 
