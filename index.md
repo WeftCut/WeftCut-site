@@ -10,7 +10,7 @@ Let the agent be the weft in your timeline—threading every cut, caption, and t
 
 **All downloads**
 
-- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) Windows 10 or 11, 64-bit · updates itself
+- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) 64-bit, Windows 10 or 11
 - [macOS](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg) Apple Silicon, macOS 13 or newer
 - [Linux](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) AppImage · x86\_64 · glibc 2.28 or newer
 - [Debian / Ubuntu](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) .deb · amd64 · Ubuntu 22.04 or newer

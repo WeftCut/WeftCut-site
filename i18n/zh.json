@@ -32,7 +32,7 @@
     "Read the docs": "查看文档",
     "All downloads": "全部下载",
     "Other platforms": "其他平台",
-    "Windows 10 or 11, 64-bit · updates itself": "Windows 10 / 11，64 位 · 自动更新",
+    "64-bit, Windows 10 or 11": "64 位，Windows 10 或 11",
     "Apple Silicon, macOS 13 or newer": "Apple Silicon，macOS 13 及以上",
     "AppImage · x86_64 · glibc 2.28 or newer": "AppImage · x86_64 · glibc 2.28 及以上",
     ".deb · amd64 · Ubuntu 22.04 or newer": ".deb · amd64 · Ubuntu 22.04 及以上",

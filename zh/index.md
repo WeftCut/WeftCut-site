@@ -10,7 +10,7 @@ Agent原生的视频编辑器
 
 **全部下载**
 
-- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) Windows 10 / 11，64 位 · 自动更新
+- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) 64 位，Windows 10 或 11
 - [macOS](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg) Apple Silicon，macOS 13 及以上
 - [Linux](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) AppImage · x86\_64 · glibc 2.28 及以上
 - [Debian / Ubuntu](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) .deb · amd64 · Ubuntu 22.04 及以上
