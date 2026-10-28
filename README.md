@@ -193,10 +193,11 @@ The hero's download CTA has the same problem for the same reason: what it says
 depends on what the browser reports, so the served HTML only ever shows the
 fallback. `.work/harness/download-shots.mjs` fakes each platform at the
 navigator level — user agent, `platform`, `maxTouchPoints` and Chromium's
-high-entropy `architecture` hint — then prints the resulting label, href and
-note and shoots the hero. Seven states: the three with a build, the two without
-one (Intel Mac, arm64 Linux) that get the build instructions instead, and phone
-and tablet, which get the repository. Run it after touching either the detection
+high-entropy `architecture` and `platformVersion` hints — then prints the
+resulting label, href and note and shoots the hero. Nine states: the three with
+a build, whose note restates the minimum OS; the two without one (Intel Mac,
+arm64 Linux) that get the build instructions instead; Windows below 10 and
+macOS below 13, and phone and tablet, which all get the repository. Run it after touching either the detection
 in `index.js` or the installer names, which are set by the product repo's
 `electron-builder.yml` and pinned by its `scripts/release.mjs`.
 

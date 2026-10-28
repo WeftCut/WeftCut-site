@@ -134,10 +134,14 @@
   // honest verb instead. `note` and `caveat` are only for what the button and
   // the list don't already say: why there is no build, or the catch on the one
   // there is. `row` names the entry in the hero's installer list that would
-  // only repeat the button.
+  // only repeat the button — and since that row is where the minimum OS is
+  // written, `needs` restates it under the button. Only the OS version is
+  // ever detected (below); a Linux box's glibc can't be read from a browser,
+  // so there the line is all there is.
   const TARGETS = {
     windows: {
       icon: "windows", platform: "Windows", href: WIN.href, row: "windows",
+      needs: "needsWindows",
     },
     windowsArm: {
       icon: "windows", platform: "Windows", href: WIN.href,
@@ -145,11 +149,19 @@
     },
     macos: {
       icon: "macos", platform: "macOS", href: MAC.href, row: "macos",
-      caveat: ["caveatMacos", RELEASE],
+      needs: "needsMacos", caveat: ["caveatMacos", RELEASE],
     },
     linux: {
       icon: "linux", platform: "Linux", href: APPIMAGE.href, row: "linux",
-      caveat: ["caveatLinux", DEB.href],
+      needs: "needsLinux", caveat: ["caveatLinux", DEB.href],
+    },
+    windowsOld: {
+      icon: "github", href: REPO,
+      label: "viewOnGitHub", aria: "repoAria", note: ["noteWindowsOld"],
+    },
+    macOld: {
+      icon: "github", href: REPO,
+      label: "viewOnGitHub", aria: "repoAria", note: ["noteMacOld"],
     },
     macIntel: {
       icon: "source", href: REPO,
@@ -202,6 +214,11 @@
       for (const li of rows) li.hidden = li.dataset.target === target.row;
       if (!note) return;
       const parts = [];
+      if (target.needs) {
+        const line = document.createElement("span");
+        line.textContent = t(target.needs);
+        parts.push(line);
+      }
       if (target.note) {
         const line = document.createElement("span");
         line.textContent = t(target.note[0], target.note[1]);
@@ -241,22 +258,42 @@
     // Win64 years ago, so there they only ever confirm the default and the
     // truth comes from the high-entropy hints below. Nothing here reads an
     // architecture off a Mac — every Mac says "MacIntel".
+    // The same goes for the OS version: Firefox still writes "Windows NT 6.1"
+    // for Windows 7, while Chromium pins every Windows to "NT 10.0" and every
+    // Mac to "10_15_7". Safari answers for no Mac below 13, so an old Mac on
+    // Safari is offered the build and the `needs` line has to say it.
     const fromString = {
       arch: /aarch64|arm64|armv\d/i.test(source) ? "arm" : null,
       bits: /Win64|WOW64|x86_64|amd64|aarch64|arm64/i.test(source)
         ? "64"
         : /Windows|i[3-6]86|armv[5-7]/i.test(source) ? "32" : null,
+      old: /Windows NT [56]\./.test(source),
+    };
+    const isWindows = /Windows|Win32|Win64/i.test(source);
+    const isMac = /macOS|Macintosh|MacIntel|MacPPC|Mac68K/i.test(source);
+
+    // Chromium's platformVersion hint: on Windows, 0 is 7, 8 or 8.1 and 1 and
+    // up are 10 and 11; on macOS it is the real release.
+    const tooOld = (platformVersion) => {
+      const major = parseInt(platformVersion, 10);
+      if (Number.isNaN(major)) return fromString.old;
+      if (isWindows) return major < 1;
+      if (isMac) return major < 13;
+      return false;
     };
 
-    const detect = ({ arch, bits }) => {
+    const detect = ({ arch, bits, old }) => {
       if (isTablet || /Android|iPhone|iPad|iPod|CrOS/i.test(source)) return TARGETS.mobile;
-      if (/Windows|Win32|Win64/i.test(source)) {
+      if (isWindows) {
         // The x64 installer runs on Windows on ARM through emulation, so ARM
-        // gets the same file with a note; 32-bit Windows gets no file at all.
+        // gets the same file with a note; 32-bit Windows gets no file at all,
+        // and neither does a Windows older than 10, which Electron left behind.
+        if (old) return TARGETS.windowsOld;
         if (bits === "32") return TARGETS.win32;
         return arch === "arm" ? TARGETS.windowsArm : TARGETS.windows;
       }
-      if (/macOS|Macintosh|MacIntel|MacPPC|Mac68K/i.test(source)) {
+      if (isMac) {
+        if (old) return TARGETS.macOld;
         return arch === "x86" ? TARGETS.macIntel : TARGETS.macos;
       }
       if (/Linux|X11/i.test(source)) {
@@ -278,11 +315,12 @@
     if (detected) apply(detected);
     const hints = navigator.userAgentData;
     if (hints && typeof hints.getHighEntropyValues === "function") {
-      hints.getHighEntropyValues(["architecture", "bitness"]).then(
+      hints.getHighEntropyValues(["architecture", "bitness", "platformVersion"]).then(
         (values) => {
           const refined = detect({
             arch: values.architecture || fromString.arch,
             bits: values.bitness || fromString.bits,
+            old: tooOld(values.platformVersion),
           });
           if (refined && refined !== detected) apply(refined);
         },

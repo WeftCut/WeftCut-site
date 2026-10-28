@@ -3,7 +3,8 @@
 // Platform detection is the one thing on this page a single screenshot can't
 // review: the served HTML shows the fallback, and every other state depends on
 // what the browser reports. So each state is faked at the navigator level —
-// userAgent, platform, maxTouchPoints and the high-entropy architecture hint —
+// userAgent, platform, maxTouchPoints and the high-entropy architecture and
+// platformVersion hints —
 // and shot separately.
 //
 //   npm start &                                   # serve.mjs on :8080
@@ -30,6 +31,9 @@ const STATES = [
   { name: 'windows-32-ff', platform: 'Win32', ua: 'Mozilla/5.0 (Windows NT 10.0; rv:141.0) Gecko/20100101 Firefox/141.0', architecture: null },
   { name: 'windows-wow64-ff', platform: 'Win32', ua: 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:141.0) Gecko/20100101 Firefox/141.0', architecture: null },
   { name: 'macos-arm', platform: 'MacIntel', ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15', architecture: null },
+  { name: 'windows-7-ff', platform: 'Win32', ua: 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:115.0) Gecko/20100101 Firefox/115.0', architecture: null },
+  { name: 'windows-81', platform: 'Win32', ua: CHROME_WIN, hint: 'Windows', architecture: 'x86', bitness: '64', platformVersion: '0.3.0' },
+  { name: 'macos-12', platform: 'MacIntel', ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', hint: 'macOS', architecture: 'arm', bitness: '64', platformVersion: '12.7.6' },
   { name: 'macos-intel', platform: 'MacIntel', ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', hint: 'macOS', architecture: 'x86', bitness: '64' },
   { name: 'linux-x64', platform: 'Linux x86_64', ua: CHROME_LINUX, hint: 'Linux', architecture: 'x86', bitness: '64' },
   { name: 'linux-arm', platform: 'Linux x86_64', ua: CHROME_LINUX, hint: 'Linux', architecture: 'arm', bitness: '64' },
@@ -48,7 +52,7 @@ for (const state of STATES) {
     viewport: state.viewport ?? { width: 1440, height: 900 },
   })
   await ctx.addInitScript(
-    ([platform, hint, architecture, bitness, touch]) => {
+    ([platform, hint, architecture, bitness, platformVersion, touch]) => {
       Object.defineProperty(navigator, 'platform', { get: () => platform })
       Object.defineProperty(navigator, 'maxTouchPoints', { get: () => touch })
       if (hint) {
@@ -56,7 +60,7 @@ for (const state of STATES) {
           get: () => ({
             platform: hint,
             getHighEntropyValues: architecture
-              ? async () => ({ architecture, bitness })
+              ? async () => ({ architecture, bitness, ...(platformVersion && { platformVersion }) })
               : undefined,
           }),
         })
@@ -65,7 +69,7 @@ for (const state of STATES) {
         Object.defineProperty(navigator, 'userAgentData', { get: () => undefined })
       }
     },
-    [state.platform, state.hint, state.architecture, state.bitness ?? null, state.touch ?? 0]
+    [state.platform, state.hint, state.architecture, state.bitness ?? null, state.platformVersion ?? null, state.touch ?? 0]
   )
   const page = await ctx.newPage()
   await page.goto(base, { waitUntil: 'domcontentloaded', timeout: 30_000 })
