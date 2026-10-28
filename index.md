@@ -10,10 +10,10 @@ Let the agent be the weft in your timeline—threading every cut, caption, and t
 
 **All downloads**
 
-- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) 64-bit · installs and updates itself
+- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) Windows 10 or 11, 64-bit · updates itself
 - [macOS](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg) Apple Silicon, macOS 13 or newer
-- [Linux](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) AppImage · x86\_64 · chmod +x, then run
-- [Debian / Ubuntu](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) .deb · amd64 · installs with dpkg or apt
+- [Linux](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) AppImage · x86\_64 · glibc 2.28 or newer
+- [Debian / Ubuntu](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) .deb · amd64 · Ubuntu 22.04 or newer
 - [Other platforms](https://github.com/WeftCut/WeftCut) Build from source · Intel Macs, ARM Linux
 
 Every link resolves to the newest release · [older builds, notes and checksums](https://github.com/WeftCut/WeftCut/releases)
@@ -208,7 +208,7 @@ Post-credits A few details
   Your connected agent provides the editing intelligence. WeftCut bundles no model weights. Optional speech and vision tools use local engines you download or cloud providers you configure.
 - ### What platforms does it run on?
 
-  macOS, Windows and Linux — one desktop app, same feature set everywhere. The ready-made builds cover Windows x64, Apple Silicon Macs and x86\_64 Linux; every other target builds from source.
+  macOS, Windows and Linux — one desktop app, same feature set everywhere. The ready-made builds need Windows 10 or 11 (x64), macOS 13 or newer on Apple Silicon, or x86\_64 Linux with glibc 2.28 or newer, such as Ubuntu 22.04 and later. Every other target builds from source.
 
 1. [00 Intro](#top)
 2. [01 The Cut](#demo)

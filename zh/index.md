@@ -10,10 +10,10 @@ Agent原生的视频编辑器
 
 **全部下载**
 
-- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) 64 位 · 自动安装，自动更新
+- [Windows](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-win-x64.exe) Windows 10 / 11，64 位 · 自动更新
 - [macOS](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-mac-arm64.dmg) Apple Silicon，macOS 13 及以上
-- [Linux](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) AppImage · x86\_64 · chmod +x 后直接运行
-- [Debian / Ubuntu](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) .deb · amd64 · 用 dpkg 或 apt 安装
+- [Linux](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-x86_64.AppImage) AppImage · x86\_64 · glibc 2.28 及以上
+- [Debian / Ubuntu](https://github.com/WeftCut/WeftCut/releases/latest/download/WeftCut-linux-amd64.deb) .deb · amd64 · Ubuntu 22.04 及以上
 - [其他平台](https://github.com/WeftCut/WeftCut) 从源码构建 · Intel Mac、ARM Linux
 
 所有链接均指向最新版本 · [历史版本、发布说明与校验值](https://github.com/WeftCut/WeftCut/releases)
@@ -208,7 +208,7 @@ WeftCut 的开发全程公开，任何人都可免费使用、查看和扩展。
   剪辑智能来自你接入的 agent。WeftCut 不附带模型权重。可选的语音与视觉工具使用你下载的本地引擎，或你配置的云端服务。
 - ### 支持哪些平台？
 
-  支持 macOS、Windows 和 Linux，所有平台均提供一致的功能。现成的安装包覆盖 Windows x64、Apple Silicon Mac 与 x86\_64 Linux；其他平台可自行从源码构建。
+  支持 macOS、Windows 和 Linux，所有平台均提供一致的功能。现成的安装包要求 Windows 10 或 11（x64）、Apple Silicon 上的 macOS 13 及以上，或 glibc 2.28 及以上的 x86\_64 Linux，例如 Ubuntu 22.04 及更新版本。其他平台可自行从源码构建。
 
 1. [00 开场](#top)
 2. [01 实录](#demo)

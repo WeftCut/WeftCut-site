@@ -15,6 +15,10 @@ come from the WeftCut product repository. Do not invent features.
 - Repo: https://github.com/WeftCut/WeftCut (link in nav + footer + OSS section)
 - License: MIT (app); bundles FFmpeg (LGPL decode libs / GPL CLI sidecar).
 - Platform: desktop, cross-platform (macOS / Windows / Linux), Electron shell.
+- Minimum OS for the release builds: Windows 10 (x64); macOS 13 on Apple Silicon
+  (Electron 44's floor); x86_64 Linux with glibc 2.28 (the app's
+  `GLIBC_FLOOR`, enforced at pack time). Name only Ubuntu 22.04 as the example
+  distro: it is the one the Linux build has actually been tested on.
 
 ## Agent capability (section 1 — hero story)
 

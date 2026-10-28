@@ -15,8 +15,8 @@
 - 工具面：约 66 个 tools/resources/prompts，覆盖完整剪辑词汇
 - 渲染：PixiJS v8 + WebCodecs 预览，流式封装导出
 - 许可：MIT（随附 FFmpeg，遵循 LGPL/GPL 双轨）
-- 平台：Windows x64、Apple Silicon macOS（13 及以上）、x86_64 Linux；其他平台可自行
-  从源码构建
+- 平台：Windows 10 / 11（x64）、Apple Silicon macOS（13 及以上）、glibc 2.28 及以上的
+  x86_64 Linux（例如 Ubuntu 22.04 及更新版本）；其他平台可自行从源码构建
 - 其他常见叫法：AI 剪辑软件、AI 视频剪辑软件、开源剪辑软件、MCP 视频剪辑、
   智能体剪辑——指的都是同一款产品
 

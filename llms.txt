@@ -18,8 +18,9 @@
 - Tool surface: timeline editing, captions, motion paths, audio, analysis, Motifs and history; export uses the app UI
 - Rendering: PixiJS v8 + WebCodecs preview, streamed muxing export
 - License: MIT (bundles FFmpeg under LGPL/GPL lanes)
-- Platforms: Windows x64, Apple Silicon macOS (13+), x86_64 Linux; any other
-  target builds from source
+- Platforms: Windows 10 or 11 (x64), Apple Silicon macOS (13+), x86_64 Linux
+  with glibc 2.28+ (e.g. Ubuntu 22.04 and later); any other target builds from
+  source
 - Also described as: an agent-native video editor, an MCP video editor, an AI
   agent video editor, or an open-source AI video editor — all the same product
 
