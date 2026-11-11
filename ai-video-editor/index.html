@@ -110,6 +110,14 @@
     },
     {
       "@type": "Question",
+      "name": "How do I know what the AI changed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Timeline diff compares the project with the state you last approved and lists every addition, removal and modification, highlighted on the timeline. Approve the result, or revert it in one undoable step. The agent can also leave Tacks — notes and questions pinned to specific passages — for you to review."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Which AI models does it use?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -141,7 +149,7 @@
 <p>WeftCut is a free, open source AI video editor for macOS, Windows and Linux. It is worth being precise about that phrase, because it usually means something quite different from what happens here.</p>
 <h2 id="the-short-answer-it-ships-no-ai-models">The short answer: it ships no AI models</h2>
 <p>Most tools called AI video editors run models the vendor chose, on the vendor's servers, on footage you uploaded. WeftCut does none of that. The installer bundles no model weights, and editing and export run on your machine. Optional speech and vision tools can use downloaded local engines or cloud providers you configure.</p>
-<p>What it has instead is an open door. The whole editor is exposed to whatever AI agent you already use — Claude, Cursor, Codex, or your own — over the standard Model Context Protocol, on your own machine. The agent brings the intelligence; WeftCut brings the timeline, and the agent's edits land on it live where you can see and undo them. That is covered in detail on <a href="/mcp/">the MCP page</a>.</p>
+<p>What it has instead is an open door. The whole editor is exposed to whatever AI agent you already use — Claude, Cursor, Codex, or your own — over the standard Model Context Protocol, on your own machine. The agent brings the intelligence; WeftCut brings the timeline, and the means to check the work: edits land on it live, and a diff on the timeline shows what changed before you approve it. That is covered in detail on <a href="/mcp/">the MCP page</a>.</p>
 <p>So: the AI is real, and it does real editing. It just isn't ours, and it isn't running somewhere you can't see.</p>
 <h2 id="how-that-differs-from-a-typical-cloud-ai-editor">How that differs from a typical cloud AI editor</h2>
 <table><thead><tr><th></th><th>Typical cloud AI editor</th><th>WeftCut</th></tr></thead><tbody><tr><td>Where your footage goes</td><td>uploaded to the vendor</td><td>local editing; optional cloud analysis</td></tr><tr><td>Where the AI runs</td><td>the vendor's models, their choice</td><td>the agent you already chose</td></tr><tr><td>Price</td><td>subscription, often per seat</td><td>free</td></tr><tr><td>Watermark</td><td>common on free tiers</td><td>none</td></tr><tr><td>Export ceiling</td><td>depends on your tier</td><td>10-bit AV1, ProRes, DNxHR</td></tr><tr><td>Source code</td><td>closed</td><td>open, MIT, auditable</td></tr><tr><td>Works offline</td><td>no</td><td>editing and export; downloaded local engines</td></tr></tbody></table>
@@ -149,7 +157,9 @@
 <h2 id="what-an-agent-actually-does-here">What an agent actually does here</h2>
 <p>Plain requests, real edits:</p>
 <ul><li>&quot;Cut the silences out of this interview and tighten the pauses.&quot;</li><li>&quot;Split this take at every shot change and label the scenes.&quot;</li><li>&quot;Restyle every caption — larger, with a soft shadow.&quot;</li></ul>
-<p>Each of those becomes ordinary timeline operations you can inspect, adjust or undo. Shot detection, pause detection and frame comparison run locally. Transcription and scene description can use local engines or your configured cloud provider, so the agent can look and listen before it cuts.</p>
+<p>Each of those becomes ordinary timeline operations you can inspect, adjust or undo.</p>
+<p>The split is deliberate: the agent does the edit, you audit it. Timeline diff lists what the agent added, removed or changed since you last approved, right on the timeline, and you approve or revert the result as a whole. Tacks let the agent pin a note or a question to the exact passage — &quot;here are the pauses I would cut&quot; — so you review the footage before anything is removed.</p>
+<p>Shot detection, pause detection and frame comparison run locally. Transcription and scene description can use local engines or your configured cloud provider, so the agent can look and listen before it cuts.</p>
 <h2 id="it-is-a-serious-editor-with-the-ai-switched-off">It is a serious editor with the AI switched off</h2>
 <p>Connect nothing and you still have a complete non-linear editor:</p>
 <ul><li>A/B-roll timeline with filmstrip thumbnails and audio waveforms, frame-aligned to SMPTE timecode</li><li>Keyframe animation with a bézier curve editor, edited in the timeline</li><li>Per-layer effect chains, including chroma key with a live eyedropper</li><li>Titles and captions, importing SRT, VTT and ASS as editable layers</li><li><a href="/motifs/">Motifs</a>: reusable motion graphics, from titles to 2D drawings and 3D scenes</li><li>Role-based audio mixing for dialogue, music, effects and voiceover, with live meters and denoise</li><li>A Ctrl-K palette over commands, media, clips, captions and markers</li></ul>
@@ -167,6 +177,8 @@
 <p>Editing and export work offline. Local speech and vision analysis work after the engine and model downloads are complete. Cloud analysis, cloud voiceover and a cloud-backed agent need a network connection.</p>
 <h3 id="does-it-run-on-linux">Does it run on Linux?</h3>
 <p>Yes — macOS, Windows and Linux get one desktop app with the same feature set, including 10-bit AV1 and ProRes export.</p>
+<h3 id="how-do-i-know-what-the-ai-changed">How do I know what the AI changed?</h3>
+<p>Timeline diff compares the project with the state you last approved and lists every addition, removal and modification, highlighted on the timeline. Approve the result, or revert it in one undoable step. The agent can also leave Tacks — notes and questions pinned to specific passages — for you to review.</p>
 <h3 id="which-ai-models-does-it-use">Which AI models does it use?</h3>
 <p>The connected agent supplies the editing intelligence. WeftCut bundles no model weights. For optional analysis, choose local engines such as whisper.cpp or FunASR, or configure a cloud speech or vision provider.</p>
 </main>

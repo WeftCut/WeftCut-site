@@ -12,6 +12,11 @@ come from the WeftCut product repository. Do not invent features.
   HTTP) with the full catalog of editing tools. The intelligence lives outside;
   the app bundles no models. **Everything an agent can do, you can do** — it is
   also a complete editor for humans.
+- Working principle: **the agent does the work, the human audits it.** Handing
+  the timeline to an agent only pays off if checking its work is cheaper than
+  doing it by hand, so review is part of the editor. Timeline diff and Tacks
+  exist for this reason; any page that describes agent editing should say how
+  the user reviews the result, not only that edits are visible or undoable.
 - Repo: https://github.com/WeftCut/WeftCut (link in nav + footer + OSS section)
 - License: MIT (app); bundles FFmpeg (LGPL decode libs / GPL CLI sidecar).
 - Platform: desktop, cross-platform (macOS / Windows / Linux), Electron shell.
@@ -27,9 +32,26 @@ come from the WeftCut product repository. Do not invent features.
 - A growing MCP catalog: place/trim/split clips,
   `auto_split_by_shot`, `detect_pauses` / `remove_pauses`, restyle titles, keyframes with easing,
   effect chains, groups, markers, captions (`apply_subtitles` SRT/VTT/ASS),
-  motifs, checkpoints, undo/redo, `dry_run` validation, multi-agent change feed,
-  `begin_agent_session` (UI flips into a simplified agent mode).
+  motifs, checkpoints, undo/redo, Tacks (`create_tacks`), `render_frames`,
+  `check_composition`, export (`start_export`). There is no `dry_run`: a call
+  commits whole or is refused whole, and a refusal names its cause.
+- `begin_agent_session` starts a work session for a batch: a Pre-agent
+  checkpoint, the review baseline pinned to it, the switch to Agent view
+  (preview, compact timeline, Agent panel with Activity / Tacks / Changes) and,
+  by default, a lock on the user's undo with the reason shown; Unlock is the
+  user's. Every agent call is recorded in Activity and tagged in history.
 - Edits land in the UI in real time — the human keeps editing alongside.
+- When a session ends the app checks the cut against craft rules with a right
+  answer (title hold, caption line length, text off-screen…) and hands
+  `hard`/`warning` findings back to the agent once. Nothing blocks the user.
+- Styles: a project's `TASTE.md` (in the project folder; the app only reads it)
+  selects a style package — built-in `weftcut-default` or `clipping`, or the
+  user's own — and overrides its tokens (palette, fonts, text roles, captions,
+  Motif props). New text, captions and Motifs take the tokens at creation;
+  `restyle_to_taste` resets placed layers. Built-in Motifs: Lower Third,
+  Countdown, Text FX, and the clipping set (Headline, Stamp, Paper, Sticker).
+- A Motif an agent writes is a draft; `install_motif` only proposes, and the
+  user approves or rejects it in the Motifs panel.
 - Timeline diff compares the current project with its review baseline (project
   opening or last Approve all). Added, removed and modified entities have
   before/after details and timeline highlights. Agent changes are the default;
@@ -47,7 +69,11 @@ come from the WeftCut product repository. Do not invent features.
 - Optional analysis: local shot/pause detection and frame comparison;
   transcription and scene description use downloaded local engines or configured
   cloud providers. The installer includes no model weights. Cloud analysis sends
-  requested audio or frames to the chosen provider. Export uses the app UI.
+  requested audio or frames to the chosen provider. That is the user's own
+  configuration, not something WeftCut does: copy may say plainly that WeftCut
+  uploads nothing, and need not restate the cloud option each time.
+- Export: from the app's export dialog, or by an agent (`start_export`, presets,
+  status with the finished output path). Both share one job queue.
 - Recommended connection: the bundled `weftcut-mcp` stdio bridge, which follows
   app restarts, port changes and token rotation. Settings → Agent supplies the
   client configuration or connection prompt. HTTP-direct is the fallback:
@@ -116,9 +142,9 @@ mediabunny containers · MCP over streamable HTTP.
 3. "Agent-native" section: the differentiator as product promises — capability
    first (example prompts, the editing vocabulary, live edits on the real
    timeline), the connect-in-a-minute promise kept to one line (Settings →
-   Agent, copy, paste — never a step-by-step walkthrough), you're always in
-   control (checkpoint + undo), it can look and listen (optional
-   shot/silence/transcription). No JSON snippet, no tool counts.
+   Agent, copy, paste — never a step-by-step walkthrough), you audit the work
+   (Timeline diff, Tacks; checkpoint + undo underneath), it can look and listen
+   (optional shot/pause/transcription). No JSON snippet, no tool counts.
 4. "A complete NLE" section: feature grid with real screenshots/clips.
 5. "At the speed of ideas" epilogue: an outcome-led product close built around
    momentum, focus, and control. Close with a two-column product CTA and a

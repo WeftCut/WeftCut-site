@@ -25,6 +25,7 @@ WeftCut ships a catalog of starting points, with live previews in the picker:
 - **Lower thirds** — name-and-title cards that animate in and out
 - **Countdowns** — timers that run to a beat you set
 - **Text effects** — animated titles and callouts
+- **Clipping set** — a headline, a lower-third stamp, a paper plate and a sticker in one editorial cut-and-paste style
 
 Pick one, adjust its controls, and it is on the timeline. Nothing here requires an agent.
 
@@ -36,6 +37,8 @@ This is where it gets interesting, because the thing an LLM is genuinely good at
 2. **Preview.** The agent turns the idea into a Motif you can play on the timeline immediately.
 3. **Polish.** Refine it in context — adjust the parameters, or ask for a change — until it is right.
 
+A Motif your agent writes starts as a draft. It can be previewed and placed on the timeline right away, but it joins your library only after you approve it in the Motifs panel. The agent proposes; you decide.
+
 Our showcase project includes a portrait drawn stroke by stroke: the outline appears first, followed by hair and accessories. Its controls change the stroke color, line weight, detail level and drawing duration. [Watch the real export on the homepage](/#motifs).
 
 Motifs can also build 3D scenes using WebGL and packaged local assets. These custom examples extend the built-in catalog; they are authored designs, not bundled presets.
@@ -45,6 +48,8 @@ Motifs can also build 3D scenes using WebGL and packaged local assets. These cus
 Because a Motif is parameterised, the finished look is reusable. Change the text and it is a different card, not a different asset. Use it again in the next edit and it stays one thing to maintain, not a folder of near-identical exports.
 
 That also makes them good to hand to an agent in bulk: restyling or repopulating a set of overlays is a parameter change, not a redraw.
+
+A project's style reaches Motifs the same way. The colours and fonts the style declares fill the matching parameters of each Motif placed in that project, so a new Motif your agent writes lands in the same look as the rest.
 
 ## How this fits the rest of the editor
 
@@ -65,6 +70,10 @@ No. Motifs render identically in preview and export — the same overlay you scr
 ### Can I make a Motif that isn't in the catalog?
 
 Yes. That is what the describe-preview-polish loop is for: your agent writes a new one from your description rather than picking the closest existing option.
+
+### Can an agent add a Motif to my library on its own?
+
+No. An agent can draft a Motif and place the draft on the timeline, but publishing it to your library is a proposal you approve or reject in the Motifs panel.
 
 ### Can I reuse a Motif across projects?
 

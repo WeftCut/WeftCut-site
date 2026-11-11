@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>WeftCut MCP Server — Edit Video From Claude or Cursor</title>
-<meta name="description" content="WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and mix audio — every change visible and reversible on your timeline." />
+<meta name="description" content="WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and mix audio — then review what it changed on your timeline, and approve or revert it." />
 <link rel="canonical" href="https://weftcut.com/mcp/" />
 <link rel="alternate" hreflang="en" href="https://weftcut.com/mcp/" />
 <link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/mcp/" />
@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="WeftCut" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:title" content="WeftCut MCP Server — Edit Video From Claude or Cursor" />
-<meta property="og:description" content="WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and mix audio — every change visible and reversible on your timeline." />
+<meta property="og:description" content="WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and mix audio — then review what it changed on your timeline, and approve or revert it." />
 <meta property="og:url" content="https://weftcut.com/mcp/" />
 <meta property="og:image" content="https://weftcut.com/assets/og/card-en.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="WeftCut MCP Server — Edit Video From Claude or Cursor" />
-<meta name="twitter:description" content="WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and mix audio — every change visible and reversible on your timeline." />
+<meta name="twitter:description" content="WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and mix audio — then review what it changed on your timeline, and approve or revert it." />
 <meta name="twitter:image" content="https://weftcut.com/assets/og/card-en.png" />
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="/pages.css" />
@@ -31,7 +31,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "WeftCut MCP Server — Edit Video From Claude or Cursor",
-  "description": "WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and mix audio — every change visible and reversible on your timeline.",
+  "description": "WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or your own client and let an agent trim, split, keyframe, caption and mix audio — then review what it changed on your timeline, and approve or revert it.",
   "url": "https://weftcut.com/mcp/",
   "inLanguage": "en",
   "keywords": "MCP video editor, video editor MCP server, MCP server for video editing, Claude video editing, edit video with Claude, Cursor video editing, AI agent video editor, agent-native video editor, control video editor with AI",
@@ -89,7 +89,15 @@
       "name": "Can the agent break my project?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It can change it, which is the point — but not irreversibly. Operations can be validated with dry_run first, every change is listed in the change feed as it lands, edits group under a checkpoint, and undo covers agent actions exactly as it covers yours."
+        "text": "It can change it, which is the point — but not irreversibly. A work session starts from a checkpoint, every edit the agent commits is a step in your undo history, and Timeline diff lists everything that differs from the state you last approved, with Revert all one click away."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check what the agent did?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open Changes in Agent view. Timeline diff lists what was added, removed and modified since you last approved, with before and after details and highlights on the timeline. Activity shows each call the agent made, and Tacks mark the passages it wants you to look at. Approve all accepts the result; Revert all restores the baseline."
       }
     },
     {
@@ -130,11 +138,11 @@
 </header>
 <main class="doc-wrap doc-body">
 <h1 id="drive-a-real-video-editor-over-mcp">Drive a real video editor over MCP</h1>
-<p>WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or a client you wrote yourself, and the agent gets the same editing vocabulary you have — trim, split, keyframes, effects, captions, markers, audio — landing live on your timeline while you watch.</p>
+<p>WeftCut is a free, open source video editor with a built-in MCP server. Connect Claude, Cursor, Codex or a client you wrote yourself, and the agent gets the same editing vocabulary you have — trim, split, keyframes, effects, captions, markers, audio — landing live on your timeline while you watch. When it is done, you review what changed and approve or revert it.</p>
 <p>Most editors bolt AI on as a feature: one button that does the one thing a vendor picked for you. WeftCut instead exposes the editor itself as a tool surface, and ships no models at all. The intelligence lives in whatever agent you connect.</p>
 <h2 id="what-the-agent-can-actually-do">What the agent can actually do</h2>
-<p>The MCP catalog covers the editing workflow: timeline changes, motion, captions, audio, analysis, Motif authoring and project history. These tools edit the project you see in the app. Export is started from the app’s Export UI.</p>
-<ul><li><strong>Timeline.</strong> Place, move, trim and split clips on an A/B-roll timeline, frame-aligned to SMPTE timecode. <code>auto_split_by_shot</code> cuts at every detected shot change; <code>detect_pauses</code> finds pauses; <code>remove_pauses</code> cuts them and closes the gaps in one undoable edit.</li><li><strong>Motion.</strong> Keyframes with bézier easing, tangent controls, motion paths and extrapolation.</li><li><strong>Look.</strong> Per-layer effect chains, including chroma key.</li><li><strong>Text.</strong> Styled title layers, and <code>apply_subtitles</code> to bring in SRT, VTT or ASS as editable caption layers — including restyling every caption in the project in one undoable step.</li><li><strong>Motifs.</strong> Parameterised motion graphics — titles, 2D drawings and 3D scenes — that render identically in preview and export. See <a href="/motifs/">Motifs</a>.</li><li><strong>Audio.</strong> Role-based gain and mute/solo controls, raw audio extraction, transcription and cloud voiceover.</li><li><strong>Structure.</strong> Nested compositions, linked A/V, markers and checkpoints.</li><li><strong>Safety.</strong> <code>dry_run</code> validates an operation before it touches anything, and undo/redo works on agent edits exactly as it does on yours.</li></ul>
+<p>The MCP catalog covers the editing workflow: timeline changes, motion, captions, audio, analysis, Motif authoring, project history, review and export. These tools edit the project you see in the app.</p>
+<ul><li><strong>Timeline.</strong> Place, move, trim and split clips on an A/B-roll timeline, frame-aligned to SMPTE timecode. <code>auto_split_by_shot</code> cuts at every detected shot change; <code>detect_pauses</code> finds pauses; <code>remove_pauses</code> cuts them and closes the gaps in one undoable edit.</li><li><strong>Motion.</strong> Keyframes with bézier easing, tangent controls, motion paths and extrapolation.</li><li><strong>Look.</strong> Per-layer effect chains, including chroma key, and transitions between clips.</li><li><strong>Text.</strong> Styled title layers; <code>apply_subtitles</code> lays an SRT, VTT or ASS file out as editable caption layers, and <code>apply_transcripts</code> does the same for transcribed speech. Every caption in the project can be restyled in one undoable step.</li><li><strong>Motifs.</strong> Parameterised motion graphics — titles, 2D drawings and 3D scenes — that render identically in preview and export. See <a href="/motifs/">Motifs</a>.</li><li><strong>Style.</strong> A project's look is data, not the model's habit. <code>TASTE.md</code> in the project folder picks a style and overrides its colours, fonts and caption look. New titles, lower thirds and captions take it whichever agent is driving, and <code>restyle_to_taste</code> brings placed ones back to it.</li><li><strong>Audio.</strong> Role-based gain and mute/solo controls, raw audio extraction, transcription and cloud voiceover.</li><li><strong>Structure.</strong> Nested compositions, linked A/V, markers and checkpoints.</li><li><strong>Review.</strong> <code>create_tacks</code> pins notes and questions to the passages they concern, <code>render_frames</code> lets the agent look at the composed picture, and <code>check_composition</code> checks the result against craft rules before handoff.</li><li><strong>Export.</strong> <code>start_export</code> renders the file with your presets and reports the finished output's path. The job runs in the app like one you started yourself.</li><li><strong>Safety.</strong> A call commits whole or is refused whole, and a refusal names its cause. Undo and redo work on agent edits exactly as they do on yours.</li></ul>
 <h2 id="connect-in-a-minute">Connect in a minute</h2>
 <p>Open Settings → Agent and copy the connection prompt or client configuration. The recommended connection uses the bundled <code>weftcut-mcp</code> bridge: its configuration survives app restarts, port changes and token rotations. No separate Node installation is needed.</p>
 <p>For clients that cannot launch a stdio server, HTTP-direct remains available. Copy the current endpoint and token from the app; do not hard-code a port. The app also ships an agent Skill covering editing and Motif authoring.</p>
@@ -142,9 +150,11 @@
 <h2 id="what-stays-on-your-machine">What stays on your machine</h2>
 <p>Editing and export run locally. The in-app MCP server binds to loopback (<code>127.0.0.1</code>) only, with bearer-token authentication and DNS-rebinding protection.</p>
 <p>Your connected agent follows its own provider’s data policy. Optional cloud transcription or vision sends the requested audio or frames to the provider you configure; use local engines to keep that analysis on your machine.</p>
-<h2 id="you-stay-in-control">You stay in control</h2>
-<p>Agent edits are not a black box that hands you a finished file.</p>
-<ul><li><code>begin_agent_session</code> flips the UI into a simplified agent mode, so it is obvious when something other than you is editing.</li><li>Every action lands in a live change feed, in order, as it happens.</li><li>Changes group under a checkpoint, so a whole run can be undone as one unit — or you can take the mouse back mid-run and keep editing alongside.</li></ul>
+<h2 id="the-agent-does-the-work-you-audit-it">The agent does the work. You audit it.</h2>
+<p>Handing an editor to an agent only pays off if checking the work is cheaper than doing it yourself. So review is built into the editor, not left to a chat log. This is why WeftCut has Timeline diff and Tacks.</p>
+<ul><li><strong>Watch it happen.</strong> For a longer run, <code>begin_agent_session</code> takes a checkpoint and opens Agent view: the preview, a compact timeline, and an Activity list of every call the agent makes, as it makes it. Your undo is locked for the run so a stray Ctrl-Z cannot land in the middle of it; the reason is shown, and Unlock is yours.</li><li><strong>Tacks put the conversation on the footage.</strong> The agent pins a note, an issue or a question to the time range it concerns. You jump there, play it, then resolve or dismiss it, and the agent reads your answer. A Tack follows the content it covers and is marked outdated when what plays there changes.</li><li><strong>Timeline diff shows the result, not the log.</strong> The Changes tab compares the project with your review baseline — the state when you opened it, or when you last chose Approve all: every addition, removal and modification, with before and after details, highlighted on the timeline. Approve all makes the result your new baseline. Revert all restores the baseline in one undoable step. Both include your own edits since the baseline.</li><li><strong>The app checks before you do.</strong> When a session ends, WeftCut checks the cut against craft rules that have a right answer — a title held too briefly, a caption line too long, text off the frame — and hands the findings back to the agent first. Whether the cut is good stays your call.</li></ul>
+<p>Try: &quot;Find the pauses in this interview and leave Tacks on the ones worth cutting. Let me review them before you edit.&quot; Review the passages, tell the agent which to cut, then approve or revert the result in Timeline diff.</p>
+<p>Tacks and the review baseline last for the current project opening. They are not saved or exported; convert a Tack into a marker to keep it.</p>
 <h2 id="let-it-look-before-it-cuts">Let it look before it cuts</h2>
 <p>Shot detection, pause detection and frame comparison run locally. Transcription can use a cloud provider or a downloaded local engine such as whisper.cpp or FunASR. Scene description supports local vision models or a configured cloud provider. Agents can also extract raw clip audio for their own speech workflow.</p>
 <p>These tools are optional. The installer bundles no model weights; local engines and models are downloaded when you choose them.</p>
@@ -156,7 +166,9 @@
 <h3 id="does-weftcut-include-an-ai-model">Does WeftCut include an AI model?</h3>
 <p>The installer includes no model weights. Your connected agent provides the editing intelligence. Optional speech and vision tools can use downloaded local engines or cloud providers you configure.</p>
 <h3 id="can-the-agent-break-my-project">Can the agent break my project?</h3>
-<p>It can change it, which is the point — but not irreversibly. Operations can be validated with <code>dry_run</code> first, every change is listed in the change feed as it lands, edits group under a checkpoint, and undo covers agent actions exactly as it covers yours.</p>
+<p>It can change it, which is the point — but not irreversibly. A work session starts from a checkpoint, every edit the agent commits is a step in your undo history, and Timeline diff lists everything that differs from the state you last approved, with Revert all one click away.</p>
+<h3 id="how-do-i-check-what-the-agent-did">How do I check what the agent did?</h3>
+<p>Open Changes in Agent view. Timeline diff lists what was added, removed and modified since you last approved, with before and after details and highlights on the timeline. Activity shows each call the agent made, and Tacks mark the passages it wants you to look at. Approve all accepts the result; Revert all restores the baseline.</p>
 <h3 id="is-the-mcp-server-reachable-from-the-network">Is the MCP server reachable from the network?</h3>
 <p>No. It binds to loopback only, requires a bearer token, and has DNS-rebinding protection. It is reachable from programs on your own machine and nowhere else.</p>
 <h3 id="is-it-really-free">Is it really free?</h3>

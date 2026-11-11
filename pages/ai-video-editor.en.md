@@ -16,7 +16,7 @@ WeftCut is a free, open source AI video editor for macOS, Windows and Linux. It 
 
 Most tools called AI video editors run models the vendor chose, on the vendor's servers, on footage you uploaded. WeftCut does none of that. The installer bundles no model weights, and editing and export run on your machine. Optional speech and vision tools can use downloaded local engines or cloud providers you configure.
 
-What it has instead is an open door. The whole editor is exposed to whatever AI agent you already use — Claude, Cursor, Codex, or your own — over the standard Model Context Protocol, on your own machine. The agent brings the intelligence; WeftCut brings the timeline, and the agent's edits land on it live where you can see and undo them. That is covered in detail on [the MCP page](/mcp/).
+What it has instead is an open door. The whole editor is exposed to whatever AI agent you already use — Claude, Cursor, Codex, or your own — over the standard Model Context Protocol, on your own machine. The agent brings the intelligence; WeftCut brings the timeline, and the means to check the work: edits land on it live, and a diff on the timeline shows what changed before you approve it. That is covered in detail on [the MCP page](/mcp/).
 
 So: the AI is real, and it does real editing. It just isn't ours, and it isn't running somewhere you can't see.
 
@@ -42,7 +42,11 @@ Plain requests, real edits:
 - "Split this take at every shot change and label the scenes."
 - "Restyle every caption — larger, with a soft shadow."
 
-Each of those becomes ordinary timeline operations you can inspect, adjust or undo. Shot detection, pause detection and frame comparison run locally. Transcription and scene description can use local engines or your configured cloud provider, so the agent can look and listen before it cuts.
+Each of those becomes ordinary timeline operations you can inspect, adjust or undo.
+
+The split is deliberate: the agent does the edit, you audit it. Timeline diff lists what the agent added, removed or changed since you last approved, right on the timeline, and you approve or revert the result as a whole. Tacks let the agent pin a note or a question to the exact passage — "here are the pauses I would cut" — so you review the footage before anything is removed.
+
+Shot detection, pause detection and frame comparison run locally. Transcription and scene description can use local engines or your configured cloud provider, so the agent can look and listen before it cuts.
 
 ## It is a serious editor with the AI switched off
 
@@ -83,6 +87,10 @@ Editing and export work offline. Local speech and vision analysis work after the
 ### Does it run on Linux?
 
 Yes — macOS, Windows and Linux get one desktop app with the same feature set, including 10-bit AV1 and ProRes export.
+
+### How do I know what the AI changed?
+
+Timeline diff compares the project with the state you last approved and lists every addition, removal and modification, highlighted on the timeline. Approve the result, or revert it in one undoable step. The agent can also leave Tacks — notes and questions pinned to specific passages — for you to review.
 
 ### Which AI models does it use?
 

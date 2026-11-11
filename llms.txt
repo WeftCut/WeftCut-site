@@ -6,16 +6,28 @@
 > (Model Context Protocol) tool surface on
 > localhost, so external agents — Claude, Cursor, or any MCP client — can perform
 > real editing operations (place/trim/split clips, keyframes, effects, captions,
-> markers, checkpoints, undo) that land in the UI in real time. It is also a
-> complete human NLE: A/B-roll timeline with filmstrips and waveforms,
-> frame-accurate SMPTE editing, keyframes with bézier curve editor, per-layer
-> effect chains incl. chroma key, captions (SRT/VTT/ASS), 2D/3D Motif
-> motion graphics, role-based audio mixing, and H.264/HEVC/AV1/ProRes export up to
-> 10-bit. No bundled models; the intelligence lives in the agent you connect.
+> markers, checkpoints, undo) that land in the UI in real time. The agent does
+> the editing and the human audits it: Timeline diff lists what was added,
+> removed or modified since the user last approved (approve all or revert all),
+> and Tacks let the agent pin notes and questions to time ranges for the user
+> to review. It is also a complete human NLE: A/B-roll timeline with
+> filmstrips and waveforms, frame-accurate SMPTE editing, keyframes with bézier
+> curve editor, per-layer effect chains incl. chroma key, captions
+> (SRT/VTT/ASS), 2D/3D Motif motion graphics, role-based audio mixing, and
+> H.264/HEVC/AV1/ProRes export up to 10-bit. No bundled models; the
+> intelligence lives in the agent you connect.
 
 - Type: desktop NLE (non-linear editor), Electron + React + Rust (napi-rs) core
 - Agent protocol: bundled stdio bridge, or streamable HTTP on localhost with bearer-token auth
-- Tool surface: timeline editing, captions, motion paths, audio, analysis, Motifs and history; export uses the app UI
+- Tool surface: timeline editing, captions, motion paths, audio, analysis,
+  Motifs, history, review (Tacks, rendered frames, a craft-rule check) and export
+- Review: Agent view shows the agent's activity live; Timeline diff compares the
+  project with the user's review baseline; Tacks, the baseline and activity last
+  for the current project opening only and are never saved or exported; a Motif
+  an agent writes is published only after the user approves it in the app
+- Style: a project's `TASTE.md` selects a style package (the built-in
+  `weftcut-default` or `clipping`, or the user's own) and overrides its colours,
+  fonts and caption look; new text, captions and Motifs take them at creation
 - Rendering: PixiJS v8 + WebCodecs preview, streamed muxing export
 - License: MIT (bundles FFmpeg under LGPL/GPL lanes)
 - Platforms: Windows 10 or 11 (x64), Apple Silicon macOS (13+), x86_64 Linux
@@ -42,7 +54,8 @@ be allowed under System Settings → Privacy and Security.
 ## Pages
 
 - [Drive a real video editor over MCP](https://weftcut.com/mcp/): how an agent
-  connects, what it can do, and how local and optional cloud analysis work
+  connects, what it can do, how you review its work, and how local and optional
+  cloud analysis work
 - [What "AI video editor" means here](https://weftcut.com/ai-video-editor/): no
   bundled model weights, local editing, no watermark — and how that compares to a cloud tool
 - [Motifs — code as motion](https://weftcut.com/motifs/): parameterised animated

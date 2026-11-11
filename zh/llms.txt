@@ -5,14 +5,22 @@
 > 它不是把 AI 作为附加功能挂上去，而是通过 MCP（Model Context Protocol）在 localhost
 > 上把整个编辑器暴露为工具面，让外部 agent —— Claude、Cursor 或任意 MCP 客户端 ——
 > 执行真实的剪辑操作（放置/修剪/切分片段、关键帧、特效、字幕、标记、检查点、撤销），
-> 并实时落到界面上。它同时也是一台完整的人用 NLE：带缩略帧与波形的 A/B 卷时间线、
+> 并实时落到界面上。Agent 动手剪，人来审：时间线差异列出自用户上次批准以来新增、删除
+> 和修改的内容（可全部批准或全部撤回），批注让 agent 把说明和疑问钉在时间范围上，
+> 供用户审阅。它同时也是一台完整的人用 NLE：带缩略帧与波形的 A/B 卷时间线、
 > 逐帧精确的 SMPTE 编辑、带贝塞尔曲线编辑器的关键帧、含色度键的分层特效链、
-> 字幕（SRT/VTT/ASS）、动态 Motif 叠加层、基于角色的音频混音，以及最高 10-bit 的
+> 字幕（SRT/VTT/ASS）、2D/3D Motif 动态图形、基于角色的音频混音，以及最高 10-bit 的
 > H.264/HEVC/AV1/ProRes 导出。不内置任何模型；智能来自你接入的 agent。
 
 - 类型：桌面 NLE（非线性剪辑器），Electron + React + Rust（napi-rs）内核
-- Agent 协议：MCP over streamable HTTP（127.0.0.1），bearer token 鉴权
-- 工具面：约 66 个 tools/resources/prompts，覆盖完整剪辑词汇
+- Agent 协议：随应用提供的 stdio 桥接程序，或 localhost 上的 streamable HTTP（bearer token 鉴权）
+- 工具面：时间线剪辑、字幕、运动路径、音频、分析、Motif、历史、审阅（批注、渲染画面、
+  剪辑规范检查）与导出
+- 审阅：智能体视图实时显示 agent 的活动；时间线差异把工程与用户的审阅基线对比；批注、
+  基线与活动只保留在本次打开的工程中，不会保存或导出；agent 写的 Motif 须经用户在应用内
+  批准后才会发布
+- 风格：工程的 `TASTE.md` 选定一个风格包（内置的 `weftcut-default`、`clipping`，或用户自己的），
+  并可覆盖其中的配色、字体与字幕样式；新建的文字、字幕与 Motif 在创建时套用
 - 渲染：PixiJS v8 + WebCodecs 预览，流式封装导出
 - 许可：MIT（随附 FFmpeg，遵循 LGPL/GPL 双轨）
 - 平台：Windows 10 / 11（x64）、Apple Silicon macOS（13 及以上）、glibc 2.28 及以上的
@@ -36,7 +44,7 @@ macOS 版本只做了 ad-hoc 签名、未经过公证，首次启动需在「系
 ## 页面
 
 - [让 AI Agent 直接操作真实的剪辑时间线](https://weftcut.com/zh/mcp/)：agent 如何接入、
-  能做什么，以及哪些东西始终留在本机
+  能做什么、你如何审阅它的成果，以及哪些东西始终留在本机
 - [WeftCut 说的「AI 剪辑」到底指什么](https://weftcut.com/zh/ai-video-editor/)：不内置模型、
   不上传素材、不加水印，以及与云端工具的对比
 - [Motif：代码即动效](https://weftcut.com/zh/motifs/)：可由 agent 按描述写出的参数化动态叠加层

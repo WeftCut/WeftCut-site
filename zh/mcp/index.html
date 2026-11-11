@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>MCP 视频剪辑 —— 让 Claude、Cursor 直接操作时间线 | WeftCut</title>
-<meta name="description" content="WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与音频混音，每一步都在时间线上可见、可撤销。" />
+<meta name="description" content="WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与音频混音，再由你在时间线上审阅它改了什么，决定批准还是撤回。" />
 <link rel="canonical" href="https://weftcut.com/zh/mcp/" />
 <link rel="alternate" hreflang="en" href="https://weftcut.com/mcp/" />
 <link rel="alternate" hreflang="zh-Hans" href="https://weftcut.com/zh/mcp/" />
@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="WeftCut" />
 <meta property="og:locale" content="zh_CN" />
 <meta property="og:title" content="MCP 视频剪辑 —— 让 Claude、Cursor 直接操作时间线 | WeftCut" />
-<meta property="og:description" content="WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与音频混音，每一步都在时间线上可见、可撤销。" />
+<meta property="og:description" content="WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与音频混音，再由你在时间线上审阅它改了什么，决定批准还是撤回。" />
 <meta property="og:url" content="https://weftcut.com/zh/mcp/" />
 <meta property="og:image" content="https://weftcut.com/assets/og/card-zh.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="MCP 视频剪辑 —— 让 Claude、Cursor 直接操作时间线 | WeftCut" />
-<meta name="twitter:description" content="WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与音频混音，每一步都在时间线上可见、可撤销。" />
+<meta name="twitter:description" content="WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与音频混音，再由你在时间线上审阅它改了什么，决定批准还是撤回。" />
 <meta name="twitter:image" content="https://weftcut.com/assets/og/card-zh.png" />
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="/pages.css" />
@@ -31,7 +31,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "MCP 视频剪辑 —— 让 Claude、Cursor 直接操作时间线 | WeftCut",
-  "description": "WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与音频混音，每一步都在时间线上可见、可撤销。",
+  "description": "WeftCut 是一款内置 MCP 服务的免费开源剪辑软件。接入 Claude、Cursor、Codex 或你自己写的客户端，让 AI agent 完成切分、修剪、关键帧、字幕与音频混音，再由你在时间线上审阅它改了什么，决定批准还是撤回。",
   "url": "https://weftcut.com/zh/mcp/",
   "inLanguage": "zh-Hans",
   "keywords": "MCP 视频剪辑, MCP 剪辑, Claude 剪视频, Cursor 剪视频, AI Agent 剪辑, 智能体剪辑, AI 剪辑软件, 开源剪辑软件, 用 AI 剪视频",
@@ -89,7 +89,15 @@
       "name": "Agent 会不会把我的工程搞坏？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "它会改动工程——这本来就是目的——但不会不可挽回。操作可以先用 dry_run 校验，每一步都实时进入变更记录，改动归入检查点，撤销对 agent 的操作和对你自己的操作完全一致。"
+        "text": "它会改动工程——这本来就是目的——但不会不可挽回。任务从一个检查点开始，agent 提交的每一步都进入你的撤销历史，时间线差异会列出与你上次批准的状态相比的全部不同，「全部撤回」一键可达。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "怎么检查 agent 做了什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "在智能体视图里打开「变更」。时间线差异列出自你上次批准以来新增、删除和修改的内容，附带改动前后的细节，并在时间线上高亮。「活动」列出 agent 的每一次调用，批注标出它希望你看的片段。「全部批准」接受结果，「全部撤回」恢复到基线。"
       }
     },
     {
@@ -130,11 +138,11 @@
 </header>
 <main class="doc-wrap doc-body">
 <h1 id="ai-agent">让 AI Agent 直接操作真实的剪辑时间线</h1>
-<p>WeftCut 是一款免费开源的视频剪辑软件，内置 MCP 服务。接入 Claude、Cursor、Codex 或你自己写的客户端之后，agent 拿到的是和你完全一样的剪辑能力——切分、修剪、关键帧、特效、字幕、标记、音频——并且实时落在你眼前的时间线上。</p>
+<p>WeftCut 是一款免费开源的视频剪辑软件，内置 MCP 服务。接入 Claude、Cursor、Codex 或你自己写的客户端之后，agent 拿到的是和你完全一样的剪辑能力——切分、修剪、关键帧、特效、字幕、标记、音频——并且实时落在你眼前的时间线上。它剪完之后，由你审阅改动，决定批准还是撤回。</p>
 <p>大多数剪辑软件把 AI 当成一个附加功能：一个按钮，做厂商替你选定的那一件事。WeftCut 的做法是把编辑器本身开放成工具接口，同时一个模型都不内置。智能来自你接入的那个 agent。</p>
 <h2 id="agent">Agent 具体能做什么</h2>
-<p>MCP 工具覆盖时间线操作、动效、字幕、音频、分析、Motif 创作与工程历史。它们直接修改你在应用里看到的工程。导出由应用中的导出界面启动。</p>
-<ul><li><strong>时间线</strong>：在 A/B 卷时间线上放置、移动、修剪、切分片段，按 SMPTE 时间码对齐到帧。<code>auto_split_by_shot</code> 在每个镜头切换处下刀，<code>detect_pauses</code> 找出停顿，<code>remove_pauses</code> 将它们剪掉并闭合空隙，整次操作可一步撤销。</li><li><strong>动效</strong>：带贝塞尔缓动的关键帧、切线控制、运动路径与外推。</li><li><strong>画面</strong>：分层特效链，含色度键抠像。</li><li><strong>文字</strong>：带样式的标题层；<code>apply_subtitles</code> 可把 SRT、VTT、ASS 导入为可编辑的字幕层，并支持一步撤销地重排全片字幕样式。</li><li><strong>Motif</strong>：参数化的动态图形，包括标题、2D 绘制与 3D 场景，预览与导出像素一致。详见 <a href="/zh/motifs/">Motif 说明</a>。</li><li><strong>音频</strong>：按角色调整增益与静音／独奏、提取原始音频、转写语音与云端配音。</li><li><strong>结构</strong>：嵌套合成、关联音视频、标记与检查点。</li><li><strong>安全网</strong>：<code>dry_run</code> 可以在真正改动之前先校验一次；agent 的每一步都能像你自己的操作一样撤销与重做。</li></ul>
+<p>MCP 工具覆盖时间线操作、动效、字幕、音频、分析、Motif 创作、工程历史、审阅与导出。它们直接修改你在应用里看到的工程。</p>
+<ul><li><strong>时间线</strong>：在 A/B 卷时间线上放置、移动、修剪、切分片段，按 SMPTE 时间码对齐到帧。<code>auto_split_by_shot</code> 在每个镜头切换处下刀，<code>detect_pauses</code> 找出停顿，<code>remove_pauses</code> 将它们剪掉并闭合空隙，整次操作可一步撤销。</li><li><strong>动效</strong>：带贝塞尔缓动的关键帧、切线控制、运动路径与外推。</li><li><strong>画面</strong>：分层特效链，含色度键抠像，以及片段之间的转场。</li><li><strong>文字</strong>：带样式的标题层；<code>apply_subtitles</code> 把 SRT、VTT、ASS 文件铺成可编辑的字幕层，<code>apply_transcripts</code> 对转写出的语音做同样的事。全片字幕的样式可以一步重排、一步撤销。</li><li><strong>Motif</strong>：参数化的动态图形，包括标题、2D 绘制与 3D 场景，预览与导出像素一致。详见 <a href="/zh/motifs/">Motif 说明</a>。</li><li><strong>风格</strong>：工程的视觉风格是数据，而不是模型的习惯。工程文件夹里的 <code>TASTE.md</code> 选定一套风格，并可覆盖它的配色、字体与字幕样式。无论接入哪个 agent，新建的标题、字幕条和字幕都会套用它；<code>restyle_to_taste</code> 能把已放置的图层拉回这套风格。</li><li><strong>音频</strong>：按角色调整增益与静音／独奏、提取原始音频、转写语音与云端配音。</li><li><strong>结构</strong>：嵌套合成、关联音视频、标记与检查点。</li><li><strong>审阅</strong>：<code>create_tacks</code> 把说明和疑问钉在对应的片段上，<code>render_frames</code> 让 agent 看到合成后的画面，<code>check_composition</code> 在交付前按剪辑规范检查成果。</li><li><strong>导出</strong>：<code>start_export</code> 按你的预设渲染成片，并报告输出文件的路径。任务在应用里运行，和你自己发起的导出一样。</li><li><strong>安全网</strong>：一次调用要么整体生效，要么整体被拒绝，被拒绝时会说明原因；agent 的每一步都能像你自己的操作一样撤销与重做。</li></ul>
 <h2 id="s3">一分钟接入</h2>
 <p>打开「设置 → Agent」，复制连接提示或客户端配置。推荐使用随应用提供的 <code>weftcut-mcp</code> 桥接程序，应用重启、端口变化或 token 轮换后配置仍然有效，也无需另装 Node。</p>
 <p>无法启动 stdio 服务的客户端仍可使用 HTTP 直连。从应用复制当前的地址与 token，不要写死端口。应用还随附指导剪辑和 Motif 创作的 agent Skill。</p>
@@ -142,9 +150,11 @@
 <h2 id="s4">什么会留在本机</h2>
 <p>剪辑与导出在本地运行。应用内的 MCP 服务只绑定回环地址（<code>127.0.0.1</code>），并通过 bearer token 鉴权和 DNS 重绑定防护保护。</p>
 <p>你接入的 agent 遵循它自己的服务商数据政策。可选的云端转写或视觉分析会将所需音频或画面发往你配置的服务商；选择本地引擎可让这些分析也留在本机。</p>
-<h2 id="s5">主动权始终在你手里</h2>
-<p>Agent 的改动不是一个黑箱，也不是甩给你一个成片。</p>
-<ul><li><code>begin_agent_session</code> 会把界面切换到简洁的 agent 模式，让&quot;现在不是你在剪&quot;这件事一目了然。</li><li>每一次操作都按顺序落进实时变更记录里。</li><li>改动会归到一个检查点下，整轮操作可以作为一个整体撤销；你也可以中途接手，和 agent 并行地继续剪。</li></ul>
+<h2 id="agent">Agent 动手，你来审</h2>
+<p>把剪辑交给 agent，前提是检查它的成果比自己动手更省事。所以审阅是编辑器的一部分，而不是让你去翻聊天记录。时间线差异和批注就是为此而做的。</p>
+<ul><li><strong>看着它剪</strong>：较长的任务开始时，<code>begin_agent_session</code> 会先建一个检查点，再打开智能体视图：预览、精简的时间线，以及「活动」列表，agent 的每一次调用都实时列在里面。任务期间你的撤销会被锁定，免得误按一次 Ctrl-Z 落在它的操作中间；界面会显示锁定原因，解锁权在你手里。</li><li><strong>批注把讨论钉在画面上</strong>：agent 把说明、问题或待确认的事项钉在对应的时间范围上。你跳过去播放，然后标为已解决或忽略，agent 能读到你的处理结果。批注跟着它覆盖的内容移动，那一段播放的内容变了，就会标记为「内容已修改」。</li><li><strong>时间线差异给你看结果，而不是日志</strong>：「变更」标签页把当前工程与审阅基线对比，也就是你打开工程时、或上次点「全部批准」时的状态：每一项新增、删除和修改都列出改动前后的细节，并在时间线上高亮。「全部批准」把当前结果作为新的基线；「全部撤回」一步恢复到基线，这一步本身也可以撤销。两者都包含你自己在基线之后做的改动。</li><li><strong>应用先替你查一遍</strong>：任务结束时，WeftCut 会按一组有标准答案的剪辑规范检查成片——标题停留太短、字幕一行太长、文字出画——并先把问题交还给 agent。剪得好不好，仍然由你判断。</li></ul>
+<p>可以这样试：「找出这段采访里的停顿，在值得剪掉的地方留下批注，先让我审阅，再动手。」审阅这些片段，告诉 agent 剪哪些，最后在时间线差异里批准或撤回结果。</p>
+<p>批注与审阅基线只保留在本次打开的工程中，不会保存或导出；想留下某条批注，可以把它转换为标记。</p>
 <h2 id="s6">让它先看清楚再下刀</h2>
 <p>镜头检测、停顿检测与画面比对在本地运行。转写可以使用云端服务，或下载的 whisper.cpp、FunASR 等本地引擎。画面描述支持本地视觉模型或你配置的云端服务。Agent 也可提取片段原始音频，使用自己的语音处理流程。</p>
 <p>这些工具都是可选项。安装包不附带模型权重，本地引擎与模型在你选择使用时下载。</p>
@@ -156,10 +166,12 @@
 <h3 id="weftcut-ai">WeftCut 自带 AI 模型吗？</h3>
 <p>安装包不附带模型权重。剪辑智能来自你接入的 agent；可选的语音与视觉工具可使用下载的本地引擎，或你配置的云端服务。</p>
 <h3 id="agent">Agent 会不会把我的工程搞坏？</h3>
-<p>它会改动工程——这本来就是目的——但不会不可挽回。操作可以先用 <code>dry_run</code> 校验，每一步都实时进入变更记录，改动归入检查点，撤销对 agent 的操作和对你自己的操作完全一致。</p>
+<p>它会改动工程——这本来就是目的——但不会不可挽回。任务从一个检查点开始，agent 提交的每一步都进入你的撤销历史，时间线差异会列出与你上次批准的状态相比的全部不同，「全部撤回」一键可达。</p>
+<h3 id="agent">怎么检查 agent 做了什么？</h3>
+<p>在智能体视图里打开「变更」。时间线差异列出自你上次批准以来新增、删除和修改的内容，附带改动前后的细节，并在时间线上高亮。「活动」列出 agent 的每一次调用，批注标出它希望你看的片段。「全部批准」接受结果，「全部撤回」恢复到基线。</p>
 <h3 id="mcp">这个 MCP 服务会暴露在局域网里吗？</h3>
 <p>不会。它只绑定回环地址，需要 bearer token，并带有 DNS 重绑定防护。只有你本机上的程序能访问它。</p>
-<h3 id="s13">真的免费吗？</h3>
+<h3 id="s14">真的免费吗？</h3>
 <p>是。MIT 许可开源，支持 macOS、Windows 与 Linux；随附的 FFmpeg 遵循其自身的 LGPL/GPL 条款。也可以看看<a href="/zh/ai-video-editor/">这里说的&quot;AI 剪辑&quot;到底指什么</a>。</p>
 </main>
 <footer class="doc-foot">
