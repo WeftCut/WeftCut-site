@@ -219,7 +219,6 @@
     "getAria": "从 GitHub Releases 获取 WeftCut {platform} 版",
     "viewOnGitHub": "在 GitHub 上查看",
     "repoAria": "GitHub 上的 WeftCut 仓库",
-    "caveatMacos": "未经过公证 — 首次启动如何放行",
     "caveatLinux": "用 Debian 或 Ubuntu？改用 .deb 安装包。",
     "noteMobile": "暂无移动端 App 支持",
     "needs": "需要 {req}",

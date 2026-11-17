@@ -135,10 +135,7 @@
   // carry the requirement is dropped as a repeat.
   const PLATFORMS = {
     windows: { platform: "Windows", href: WIN.href, req: "reqWindows" },
-    macos: {
-      platform: "macOS", href: MAC.href, req: "reqMacos",
-      caveat: ["caveatMacos", RELEASE],
-    },
+    macos: { platform: "macOS", href: MAC.href, req: "reqMacos" },
     linux: {
       platform: "Linux", href: APPIMAGE.href, req: "reqLinux",
       caveat: ["caveatLinux", DEB.href],
@@ -189,8 +186,7 @@
         parts.push(line(t("needs", { req: t(p.req) })));
         if (offer && p.caveat) {
           // Every caveat is somewhere to go, not just something to know: the
-          // release's own install steps, or the package this platform
-          // probably wanted instead.
+          // package this platform probably wanted instead.
           const link = document.createElement("a");
           link.href = p.caveat[1];
           link.rel = "noopener";

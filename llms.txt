@@ -48,9 +48,6 @@ resolves to the current release.
 - Anything else — an Intel Mac, an arm64 Linux box — builds from source:
   [setup instructions](https://github.com/WeftCut/WeftCut/blob/main/docs/setup.md)
 
-The macOS build is ad-hoc signed and not notarized, so its first launch has to
-be allowed under System Settings → Privacy and Security.
-
 ## Pages
 
 - [Drive a real video editor over MCP](https://weftcut.com/mcp/): how an agent
